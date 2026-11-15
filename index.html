@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#081325">
+<title>تصميم المعدات — ليلة الامتحان</title>
+<meta name="description" content="موقع دراسة تفاعلي لمادة تصميم المعدات: القوانين والأمثلة المحلولة خطوة بخطوة مع حاسبات تفاعلية.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23081325'/%3E%3Crect x='20' y='14' width='24' height='36' rx='12' fill='none' stroke='%2366d6ec' stroke-width='4'/%3E%3Cpath d='M32 6v8M32 50v8' stroke='%23ffb84d' stroke-width='4'/%3E%3C/svg%3E">
+<script>try{var t=localStorage.getItem('ed-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],packages:{'[+]':['ams']}},
+ svg:{fontCache:'global'},options:{ignoreHtmlClass:'no-math'},startup:{typeset:false}};</script>
+</head>
+<body>
+<header class="topbar">
+  <button class="iconbtn menu-btn" id="menuBtn" aria-label="القائمة">☰</button>
+  <a class="brand" href="#home">
+    <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="var(--card2)" stroke="var(--line2)"/><rect x="20" y="13" width="24" height="38" rx="12" fill="none" stroke="var(--cyan)" stroke-width="3.5"/><path d="M20 30h24" stroke="var(--cyan)" stroke-width="2" stroke-dasharray="3 3"/><path d="M32 5v8M32 51v8" stroke="var(--amber)" stroke-width="3.5" stroke-linecap="round"/></svg>
+    <span>تصميم المعدات · ليلة الامتحان</span>
+  </a>
+  <div class="spacer"></div>
+  <button class="iconbtn" id="themeBtn" aria-label="تبديل الوضع">🌗</button>
+  <div class="progress"><i id="progBar"></i></div>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<nav class="side" id="side" aria-label="الفهرس">
+  <h4>ابدأ من هنا</h4>
+  <a href="#home" data-nav="home"><span class="n">🏠</span>الرئيسية وخطة الامتحان</a>
+  <h4>الفصل الأول · القوانين 🔴 حفظ</h4>
+  <a href="#ch1" data-nav="ch1"><span class="n">1</span>التصميم الميكانيكي للأوعية<span class="ok" data-ok="ch1"></span></a>
+  <a href="#ex131" data-nav="ex131"><span class="n">1★</span>مثال 13.1 + حاسبة رقمك<span class="ok" data-ok="ex131"></span></a>
+  <h4>الفصل الثاني · القوانين 🟢 تنطى</h4>
+  <a href="#ch2" data-nav="ch2" class="nav-ch2"><span class="n">2</span>العوازل ثنائية الطور<span class="ok" data-ok="ch2"></span></a>
+  <a href="#ex41" data-nav="ex41" class="nav-ch2"><span class="n">2★</span>مثال 4-1 العمودي<span class="ok" data-ok="ex41"></span></a>
+  <a href="#ex42" data-nav="ex42" class="nav-ch2"><span class="n">2★</span>مثال 4-2 الأفقي<span class="ok" data-ok="ex42"></span></a>
+  <h4>تدريب ومراجعة</h4>
+  <a href="#lab" data-nav="lab" class="nav-lab"><span class="n">3D</span>المختبر ثلاثي الأبعاد</a>
+  <a href="#practice" data-nav="practice" class="nav-lab"><span class="n">✍️</span>بطاقات واختبار وتمارين</a>
+  <a href="#cheat" data-nav="cheat"><span class="n">📄</span>ورقة المراجعة الأخيرة</a>
+</nav>
+<main id="main">
+
+<!-- ===================== HOME ===================== -->
+<section class="view" id="v-home" data-view="home">
+  <div class="hero">
+    <span class="kicker">⚡ نسخة ليلة الامتحان · د. هيفاء سوادي</span>
+    <h1>تصميم المعدات<br>بطريقة تفهمها حتى لو كنت طفل</h1>
+    <p>كل اللي يدخل بالامتحان وبس: القوانين، والأمثلة المحلولة خطوة بخطوة مع «ليش؟» لكل خطوة، وحاسبة تحط بيها أرقامك وتطلعلك الحل.</p>
+    <svg class="deco" viewBox="0 0 200 200" aria-hidden="true"><rect x="60" y="20" width="80" height="160" rx="40" fill="none" stroke="var(--cyan)" stroke-width="4"/><path d="M60 100h80" stroke="var(--cyan)" stroke-dasharray="6 6"/><circle cx="100" cy="60" r="6" fill="var(--amber)"/></svg>
+  </div>
+
+  <div class="sec">
+    <h2>🎯 شنو يدخل بالامتحان؟</h2>
+    <div class="grid3">
+      <div class="fact"><b>⏱ 1</b><small>ساعة وحدة، وكل الطلاب بنفس الوقت</small></div>
+      <div class="fact"><b>📕✖</b><small>مو open book</small></div>
+      <div class="fact"><b>🔢 #</b><small>الضغط أو معطى ثاني يتغيّر حسب رقمك</small></div>
+      <div class="fact"><b>🧮</b><small>مسائل بس، والشرح النظري مو داخل</small></div>
+    </div>
+    <div class="grid2" style="margin-top:14px">
+      <div class="card" style="margin:0">
+        <h3 style="margin-top:0">الفصل الأول · التصميم الميكانيكي <span class="tag t-mem">🔴 احفظ</span></h3>
+        <p style="margin:0">كل قوانين سُمك الأوعية لازم تنحفظ: الأسطوانة والكرة والرؤوس الأربعة والخزان والفوهة، ووياهن الأرقام المهمة (J، c، الحد الأدنى للسُمك).</p>
+      </div>
+      <div class="card" style="margin:0">
+        <h3 style="margin-top:0">الفصل الثاني · العوازل <span class="tag t-giv">🟢 تنطى</span></h3>
+        <p style="margin:0">القوانين تنطى ويا الأسئلة، بس الأرقام المفتاحية لازم تحفظها <span class="tag t-key">🟡</span>: 50% full، و100 micron، و3 min، ونسبة النحافة 3–4، والوحدات.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>🗺️ الطريق (بالترتيب)</h2>
+    <div class="road">
+      <a href="#ch1"><span class="ic">1</span><span><b>الفصل الأول: سُمك الأوعية</b><small>المدخلات ← الجسم ← الرؤوس ← الخزان ← الفوهة</small></span><span class="st" data-road="ch1">ابدأ</span></a>
+      <a href="#ex131"><span class="ic">★</span><span><b>مثال 13.1 + حاسبة رقمك</b><small>9 خطوات، كل خطوة بيها «ليش؟»</small></span><span class="st" data-road="ex131">ابدأ</span></a>
+      <a href="#ch2" class="nav-ch2"><span class="ic">2</span><span><b>الفصل الثاني: العوازل</b><small>الأجزاء والرسم والوحدات وتكرار C<sub>D</sub></small></span><span class="st" data-road="ch2">ابدأ</span></a>
+      <a href="#ex41" class="nav-ch2"><span class="ic">★</span><span><b>مثال 4-1: العازلة العمودية</b><small>جدول 4-1 وحاسبة رقمك</small></span><span class="st" data-road="ex41">ابدأ</span></a>
+      <a href="#ex42" class="nav-ch2"><span class="ic">★</span><span><b>مثال 4-2: العازلة الأفقية</b><small>جدول 4-2 ورسم منطقة التصميم</small></span><span class="st" data-road="ex42">ابدأ</span></a>
+      <a href="#practice" class="nav-lab"><span class="ic">✍️</span><span><b>بطاقات واختبار وتمارين</b><small>مسائل بأرقام عشوائية والحل يطلع خطوة خطوة</small></span><span class="st">تدرّب</span></a>
+      <a href="#cheat"><span class="ic">📄</span><span><b>ورقة المراجعة الأخيرة</b><small>كل القوانين والأرقام بصفحة وحدة لآخر ساعة</small></span><span class="st">راجع</span></a>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>⏱️ خطة الساعة داخل القاعة</h2>
+    <div class="card">
+      <div class="steps">
+        <div class="step"><h4>أول 3 دقايق: طلّع أرقامك</h4><p>دوّر على رقمك بالجدول اللي بالسؤال واكتب المعطيات مالتك بمربع على جنب الورقة، قبل لا تحسب أي شي.</p></div>
+        <div class="step"><h4>حوالي 20 دقيقة لكل مسألة</h4><p>اكتب: المعطى ← المطلوب ← القانون ← التعويض ← الناتج مع الوحدة ← القيمة المختارة بمربع.</p></div>
+        <div class="step"><h4>آخر 5 دقايق: افحص الوحدات</h4><p>مطلق أو مقياسي؟ حوّلت bar لـ N/mm²؟ والمتر لـ mm؟ و°F لـ °R؟ ضفت c؟ أخذت الجذر؟</p></div>
+      </div>
+      <div class="note trap"><span class="t">⚠️ أكثر 5 أخطاء تضيّع الدرجة</span>
+        <ul>
+          <li>تنسى تطرح 1 bar لما يكون الضغط <span class="en">absolute</span>.</li>
+          <li>تخلي القطر بالمتر بقانون السُمك (لازم mm).</li>
+          <li>تنسى سماحية التآكل <span class="en">c</span>.</li>
+          <li>تقرّب السُمك للأقل (دائماً لوح أسمك).</li>
+          <li>بالعوازل: تنسى <span class="en">°R = °F + 460</span>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>🏷️ شلون تقرا العلامات</h2>
+    <div class="card">
+      <div class="row" style="gap:10px 14px">
+        <span class="tag t-mem">🔴 احفظ</span><span>قانون لازم تحفظه</span>
+        <span class="tag t-giv">🟢 مُعطى</span><span>ينطى بالسؤال، افهمه بس</span>
+        <span class="tag t-key">🟡 رقم مفتاح</span><span>رقم أو وحدة لازم تتذكرها</span>
+        <span class="tag t-ro">⚪ للاطلاع</span><span>نظرة سريعة، ما داخل</span>
+      </div>
+      <p class="muted" style="margin:12px 0 0">كل بطاقة قانون بيها ثلاث طبقات: 👶 <b>للطفل</b> (تشبيه)، 🛠️ <b>للمهندس</b> (شنو يصير فيزيائياً)، 🎯 <b>للامتحان</b> (شلون يجيك وشلون تحلّه). وتحتهن 🧠 حيلة حفظ و⚠️ فخ.</p>
+    </div>
+  </div>
+  <footer>مبني من ملازم د. هيفاء سوادي وملاحظاتك. الأرقام كلها متحقق منها بالحساب.</footer>
+</section>
+
+<!-- ===================== CHAPTER 1 ===================== -->
+<section class="view" id="v-ch1" data-view="ch1">
+  <div class="hero">
+    <span class="kicker">الفصل الأول · Tanks, Vessels & Drums — Mechanical Design</span>
+    <h1>شلون نحسب سُمك جدار الوعاء؟</h1>
+    <p>كل الفصل يدور على سؤال واحد: <b>شكد لازم يكون سُمك الحديد (e)</b> حتى الوعاء يتحمّل الضغط بأمان؟ <span class="tag t-mem">🔴 كل القوانين حفظ</span></p>
+  </div>
+  <div class="chips" data-chips>
+    <button class="chip" data-go="c1-intro">الفكرة</button>
+    <button class="chip" data-go="c1-inputs">المدخلات</button>
+    <button class="chip" data-go="c1-shell">الجسم</button>
+    <button class="chip" data-go="c1-heads">الرؤوس</button>
+    <button class="chip" data-go="c1-flat">المسطح</button>
+    <button class="chip" data-go="c1-tank">الخزان</button>
+    <button class="chip" data-go="c1-nozzle">الفوهة</button>
+    <button class="chip" data-go="c1-traps">الفخاخ</button>
+    <button class="chip" data-go="c1-check">اختبر نفسك</button>
+  </div>
+
+  <!-- 1.0 intro -->
+  <div class="sec" id="c1-intro">
+    <h2><span class="num">1.0</span>الفكرة الكبيرة بدقيقة</h2>
+    <div class="card">
+      <div class="grid2">
+        <figure>
+          <svg viewBox="0 0 360 290" role="img" aria-label="رسم وعاء ضغط يوضح الجسم والرأس والسمك">
+            <defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--amber)"/></marker>
+            <marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z" fill="var(--muted)"/></marker></defs>
+            <path d="M130,80 V220 A50,22 0 0,0 230,220 V80 A50,22 0 0,0 130,80 Z" fill="var(--cyan)" opacity=".35"/>
+            <path d="M138,80 V220 A42,15 0 0,0 222,220 V80 A42,15 0 0,0 138,80 Z" fill="var(--card)" stroke="var(--cyan)" stroke-width="1.5"/>
+            <path d="M130,80 V220 A50,22 0 0,0 230,220 V80 A50,22 0 0,0 130,80 Z" fill="none" stroke="var(--cyan)" stroke-width="2.5"/>
+            <g stroke="var(--amber)" stroke-width="2.5" marker-end="url(#ar1)"><line x1="180" y1="150" x2="146" y2="150"/><line x1="180" y1="150" x2="214" y2="150"/><line x1="180" y1="150" x2="180" y2="72"/><line x1="180" y1="150" x2="180" y2="228"/><line x1="180" y1="150" x2="154" y2="112"/><line x1="180" y1="150" x2="206" y2="188"/></g>
+            <circle cx="180" cy="150" r="13" fill="var(--amber)"/><text x="180" y="155" text-anchor="middle" font-size="14" font-weight="700" fill="#1c1200">P</text>
+            <line x1="252" y1="55" x2="214" y2="70" stroke="var(--muted)"/><text class="lab" x="256" y="52">الرأس</text><text class="lab-en" x="256" y="67">Head</text>
+            <line x1="252" y1="150" x2="230" y2="150" stroke="var(--muted)"/><text class="lab" x="256" y="147">الجسم</text><text class="lab-en" x="256" y="162">Shell</text>
+            <line x1="100" y1="118" x2="133" y2="118" stroke="var(--muted)"/><text class="lab" x="18" y="114">السُمك e</text><text class="lab-en" x="18" y="129">wall thickness</text>
+            <line x1="130" y1="268" x2="230" y2="268" stroke="var(--muted)" marker-start="url(#ar2)" marker-end="url(#ar2)"/><text class="lab" x="180" y="285" text-anchor="middle">القطر D</text>
+          </svg>
+          <figcaption>الضغط P يدفع الجدار من الداخل لكل الاتجاهات</figcaption>
+        </figure>
+        <div>
+          <p><b>👶 بالبساطة:</b> الوعاء مثل <b>بالون حديد</b>. الغاز أو السائل اللي داخله يدفع الجدار من كل جهة. إذا الجدار رقيق ينفجر، وإذا سميك هواية يصير غالي وثقيل. شغلتنا نلقى <b>أقل سُمك آمن</b>.</p>
+          <p><b>الوعاء = جسم + رأسين:</b></p>
+          <ul>
+            <li><b>الجسم (Shell):</b> أسطوانة أو كرة.</li>
+            <li><b>الرؤوس (Heads):</b> مسطح، نصف كروي، بيضوي، أو تورِي (صحن).</li>
+          </ul>
+          <p>لكل جزء قانون سُمك، وكل القوانين تتكون من نفس المكونات:</p>
+          <div class="kn"><span>ضغط <b>P</b> ↑ = سُمك ↑</span><span>قطر <b>D</b> ↑ = سُمك ↑</span><span>إجهاد <b>f</b> ↑ = سُمك ↓</span><span>لحام <b>J</b> ↑ = سُمك ↓</span><span>تآكل <b>c</b> يضاف بالآخر</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">🎈 مختبر البالون: حرّك وشوف السُمك يتغيّر</h3>
+      <p class="muted" style="margin-top:0">نفس قانون الأسطوانة. الحلقة السماوية هي الجدار، وسُمكها مكبّر بالرسم حتى يبين.</p>
+      <div class="grid2">
+        <div>
+          <div class="slider"><span>P</span><input type="range" id="bl-P" min="0.2" max="5" step="0.01" value="1.43"><span class="v" id="bl-Pv"></span></div>
+          <div class="slider"><span>D</span><input type="range" id="bl-D" min="0.5" max="4" step="0.05" value="1.5"><span class="v" id="bl-Dv"></span></div>
+          <div class="slider"><span>f</span><input type="range" id="bl-f" min="70" max="240" step="1" value="85"><span class="v" id="bl-fv"></span></div>
+          <div class="slider"><span>J</span><input type="range" id="bl-J" min="0.65" max="1" step="0.05" value="1"><span class="v" id="bl-Jv"></span></div>
+          <div class="eq" id="bl-eq"></div>
+        </div>
+        <figure style="margin:0"><svg viewBox="0 0 240 240" id="bl-svg" aria-label="مقطع عرضي للجدار"></svg></figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1.1 inputs -->
+  <div class="sec" id="c1-inputs">
+    <h2><span class="num">1.1</span>مدخلات التصميم: منين نجيب الأرقام؟</h2>
+    <p class="lead">قبل أي قانون تحتاج أربع أرقام: ضغط التصميم P، وإجهاد التصميم f، وكفاءة اللحام J، وسماحية التآكل c.</p>
+
+    <div class="card fcard mem">
+      <div class="fhead"><h3>① ضغط التصميم</h3><span class="en">Design pressure</span><span class="tag t-mem">🔴 احفظ</span></div>
+      <div class="eq">$$P_{design}=1.2\,P_{operating}$$</div>
+      <div class="meaning"><b>المعنى:</b> نصمم على ضغط أعلى من ضغط التشغيل بـ 20%، وهذي «وسادة أمان» حسب محاضرة الدكتورة.</div>
+      <div class="layers">
+        <div class="ltabs"><button class="on">👶 للطفل</button><button>🛠️ للمهندس</button><button>🎯 للامتحان</button></div>
+        <div class="lpanel on"><p>إذا جسر يعبر عليه 10 أطنان كل يوم، نبنيه يتحمّل أكثر حتى لو صارت زيادة مفاجئة ما يوكع.</p></div>
+        <div class="lpanel"><p>الضغط الفعلي يتذبذب (تشغيل، إطفاء، صمام أمان). الزيادة تغطي هذا التذبذب. والضغط اللي يحسّه الجدار هو <b>الضغط المقياسي (gauge)</b>، يعني الفرق بين داخل الوعاء وخارجه.</p></div>
+        <div class="lpanel"><p>إذا السؤال كال <span class="en">absolute (abs)</span>: <b>اطرح 1 bar</b> أولاً. بعدها اضرب بالنسبة اللي يذكرها السؤال. وحوّل للوحدة: <span class="en">1 bar = 0.1 N/mm²</span>.</p></div>
+      </div>
+      <div class="note aha"><span class="t">💡 ليش نطرح 1؟</span>ساعة ضغط التاير تقرا صفر وهي بالهوا، رغم إن الهوا يدفع بـ 1 bar. الجدار ما يحس إلا بالفرق، فـ <span class="en">14 bar abs = 13 bar gauge</span>.</div>
+      <div class="note warn"><span class="t">⚠️ انتبه: المثال المحلول يستخدم 10% مو 20%</span>بمثال 13.1 اعتمدوا <span class="en">(14 − 1) × 1.1</span>، يعني 10% فوق الضغط المقياسي، بينما سلايد المحاضرة يكول 1.2. <b>القاعدة: اتبع اللي مكتوب بالسؤال.</b> إذا ذكر نسبة استخدمها، وإذا ما ذكر شي تأكد من الدكتورة أو زملائك أي قاعدة تعتمد. الحاسبة بصفحة المثال تحسب الطريقتين.</div>
+      <div class="kn"><span class="en">1 bar = <b>0.1 N/mm²</b></span><span class="en">1 N/mm² = <b>1 MPa = 10 bar</b></span><span>مطلق ← مقياسي: <b>− 1 bar</b></span></div>
+    </div>
+
+    <div class="card fcard mem">
+      <div class="fhead"><h3>② إجهاد التصميم f</h3><span class="en">Design stress · Table 13.2</span><span class="tag t-key">🟡 من الجدول</span></div>
+      <p style="margin-top:0">الحديد يضعف كل ما تزيد حرارته، فنستخدم الإجهاد عند <b>أعلى درجة حرارة تشغيل</b> (درجة حرارة التصميم). اختار المادة والحرارة:</p>
+      <div class="form" style="grid-template-columns:1fr">
+        <label>المادة<select id="st-mat"></select></label>
+      </div>
+      <div class="chips" id="st-temps" style="margin-top:8px"></div>
+      <div class="row" style="justify-content:center;margin:6px 0 10px"><span class="res big" id="st-out"></span></div>
+      <div class="tbl-wrap"><table class="num" id="st-table"></table></div>
+      <div class="note hook"><span class="t">🧠 حيلة حفظ صف الكاربون ستيل (اللي بالمثال)</span>من <b class="en">135</b> انقص <b>10</b> كل 50 درجة لحد 300: <span class="en">135 → 125 → 115 → 105 → 95 → 85</span>. بعدها 80 ثم 70. يعني <b>«300 درجة = 85»</b>، وهذا رقم المثال.</div>
+    </div>
+
+    <div class="card fcard mem">
+      <div class="fhead"><h3>③ كفاءة اللحام J</h3><span class="en">Joint efficiency · Table 13.3</span><span class="tag t-mem">🔴 احفظ</span></div>
+      <p style="margin-top:0">اضغط على الخانة اللي تناسب سؤالك:</p>
+      <div class="tbl-wrap"><table class="num" id="j-table">
+        <tr><th>نوع اللحام · Type of joint</th><th>100% radiography</th><th>Spot</th><th>None</th></tr>
+        <tr><td>لحام تناكبي مزدوج<br><span class="muted en" style="font-size:13px">Double-welded butt or equivalent</span></td><td data-j="1.0" data-why="لحام مزدوج ومفحوص بالأشعة بالكامل، فنثق بيه 100%.">1.0</td><td data-j="0.85" data-why="فحص نقاط عشوائية بس، فثقتنا أقل.">0.85</td><td data-j="0.7" data-why="بدون فحص، فنفترض الأسوأ.">0.7</td></tr>
+        <tr><td>لحام مفرد مع شريط<br><span class="muted en" style="font-size:13px">Single-weld butt joint with bonding strips</span></td><td data-j="0.9" data-why="حتى مع الفحص الكامل، اللحام المفرد أضعف.">0.9</td><td data-j="0.80" data-why="مفرد مع فحص نقاط.">0.80</td><td data-j="0.65" data-why="أضعف حالة: لحام مفرد وبدون فحص.">0.65</td></tr>
+      </table></div>
+      <div class="meaning" id="j-out"><b>J = 1.0</b>، وهذي حالة «fully radiographed» بالمثال.</div>
+      <div class="layers">
+        <div class="ltabs"><button class="on">👶 للطفل</button><button>🛠️ للمهندس</button><button>🎯 للامتحان</button></div>
+        <div class="lpanel on"><p>السلسلة قوتها بقوة أضعف حلقة، واللحام هو الحلقة. إذا فحصناه بالأشعة كله نثق بيه بالكامل (J = 1). وإذا ما فحصناه نعتبره أضعف (0.7).</p></div>
+        <div class="lpanel"><p>J يقلل الإجهاد المسموح الفعلي (Jf)، فيصير السُمك أكبر. والراديوغرافي (فحص بالأشعة) يكشف العيوب الداخلية للحام.</p></div>
+        <div class="lpanel"><p>عبارة <span class="en">"fully radiographed"</span> تعني 100% radiography، يعني J = 1.0 للحام المزدوج. وللرؤوس المكبوسة بدون لحام (formed heads): J = 1.</p></div>
+      </div>
+      <div class="note hook"><span class="t">🧠 حيلة حفظ</span>المزدوج: <b class="en">1.0 → 0.85 → 0.7</b> (كل خطوة تنزل 0.15). المفرد: <b class="en">0.9 → 0.80 → 0.65</b>.</div>
+    </div>
+
+    <div class="grid2">
+      <div class="card fcard mem" style="margin:0">
+        <div class="fhead"><h3>④ سماحية التآكل c</h3><span class="en">Corrosion allowance</span><span class="tag t-mem">🔴</span></div>
+        <div class="tbl-wrap"><table>
+          <tr><th>الوسط</th><th>c</th></tr>
+          <tr><td>هيدروكاربونات جافة · dry hydrocarbons</td><td class="unit">1 mm</td></tr>
+          <tr><td>هيدروكاربونات رطبة · wet hydrocarbons</td><td class="unit">2 mm</td></tr>
+          <tr><td>محاليل مائية · aqueous solutions</td><td class="unit">≥ 3 mm</td></tr>
+        </table></div>
+        <p><b>👶</b> مثل ما تشتري قلم أطول من حاجتك لأن البري راح ياكل منه. هذا الحديد الزائد نعرف إن التآكل راح ياكله.</p>
+        <div class="note hook"><span class="t">🧠 «جاف 1 · رطب 2 · ماء 3»</span>وتضيفه <b>بآخر شي</b> على السُمك المحسوب.</div>
+      </div>
+      <div class="card fcard mem" style="margin:0">
+        <div class="fhead"><h3>⑤ أقل سُمك عملي</h3><span class="en">Minimum practical wall thickness</span><span class="tag t-key">🟡</span></div>
+        <div class="tbl-wrap"><table class="num">
+          <tr><th>قطر الوعاء (m)</th><th>أقل سُمك (mm)</th></tr>
+          <tr><td>1</td><td>5</td></tr><tr><td>1 – 2</td><td>7</td></tr><tr><td>2 – 2.5</td><td>9</td></tr><tr><td>2.5 – 3.0</td><td>10</td></tr><tr><td>3.0 – 3.5</td><td>12</td></tr>
+        </table></div>
+        <p class="muted" style="margin:6px 0">حتى لو الضغط قليل، الوعاء لازم يشيل وزنه. هذي القيم <b>تشمل c = 2 mm</b>.</p>
+        <div class="note hook"><span class="t">🧠 السُلّم</span><b class="en">5 – 7 – 9 – 10 – 12</b></div>
+      </div>
+    </div>
+
+    <details class="ro"><summary><span class="tag t-ro">⚪ للاطلاع</span> الأحمال على الوعاء <span class="en">(Design loads)</span></summary>
+      <p><b>رئيسية:</b> ضغط التصميم (مع الضغط الهيدروستاتيكي)، ووزن الوعاء ومحتوياته بالتشغيل وبفحص الماء، والرياح، والزلازل، والأحمال المسنودة على الوعاء.<br><b>ثانوية:</b> الإجهادات الموضعية من المساند والأنابيب، والصدمات (water hammer)، وعزوم الانحناء، والإجهادات الحرارية، وتذبذب الحرارة والضغط.</p>
+    </details>
+  </div>
+
+  <!-- 1.2 shell -->
+  <div class="sec" id="c1-shell">
+    <h2><span class="num">1.2</span>الجسم: أسطوانة وكرة</h2>
+    <p class="lead">Thin-walled vessels under internal pressure.</p>
+
+    <div class="card fcard mem">
+      <div class="fhead"><h3>سُمك الجسم الأسطواني</h3><span class="en">Cylindrical shell · (13.39a)</span><span class="tag t-mem">🔴 احفظ</span></div>
+      <div class="eq">$$e=\frac{P_i\,D_i}{2\,J\,f-P_i}+c$$</div>
+      <div class="meaning"><b>المعنى:</b> السُمك = (ضغط التصميم × القطر الداخلي) ÷ (2 × كفاءة اللحام × إجهاد التصميم − الضغط)، وبعدها نضيف سماحية التآكل.</div>
+      <div class="tbl-wrap"><table>
+        <tr><th>الرمز</th><th>English</th><th>المعنى</th><th>الوحدة</th></tr>
+        <tr><td class="sym">\(e\)</td><td class="en">minimum wall thickness</td><td>أقل سُمك مطلوب</td><td class="unit">mm</td></tr>
+        <tr><td class="sym">\(P_i\)</td><td class="en">internal design pressure</td><td>ضغط التصميم الداخلي</td><td class="unit">N/mm²</td></tr>
+        <tr><td class="sym">\(D_i\)</td><td class="en">internal diameter</td><td>القطر الداخلي</td><td class="unit">mm</td></tr>
+        <tr><td class="sym">\(J\)</td><td class="en">welded joint factor</td><td>كفاءة اللحام (جدول 13.3)</td><td class="unit">—</td></tr>
+        <tr><td class="sym">\(f\)</td><td class="en">design stress</td><td>إجهاد التصميم (جدول 13.2)</td><td class="unit">N/mm²</td></tr>
+        <tr><td class="sym">\(c\)</td><td class="en">corrosion allowance</td><td>سماحية التآكل</td><td class="unit">mm</td></tr>
+      </table></div>
+      <div class="layers">
+        <div class="ltabs"><button class="on">👶 للطفل</button><button>🛠️ للمهندس</button><button>🎯 للامتحان</button></div>
+        <div class="lpanel on"><p>بالون: كل ما تنفخ أكثر (P) أو يكبر البالون (D) يحتاج جلد أسمك. وإذا المطاط أقوى (f) يكفي جلد أرق.</p></div>
+        <div class="lpanel"><p>الضغط يحاول يشق الأسطوانة بالطول (الإجهاد المحيطي، <span class="en">hoop stress</span>)، وهو أكبر إجهاد بيها. البسط <span class="en">P·D</span> هو القوة الدافعة. والمقام <span class="en">2Jf</span> هو مقاومة جدارين (يمين ويسار)، ولهذا الرقم 2. ونطرح <span class="en">P</span> لأن الحساب على القطر الداخلي.</p></div>
+        <div class="lpanel"><p>حوّل أولاً: <span class="en">bar ÷ 10 → N/mm²</span> و <span class="en">m × 1000 → mm</span>. الناتج بالـ mm، بعدها <b>+ c</b>، وبعدها قرّب لأقرب لوح <b>للأعلى</b>. مثال 13.1 يطلع <span class="en">12.7 + 2 = 14.7 → 15 mm</span>.</p></div>
+      </div>
+      <div class="note hook"><span class="t">🧠 «2 للأنبوب، 4 للكرة»</span>الأسطوانة: <span class="en">2Jf − P</span>. ورتّلها: «بي دي على ثنين جِف ناقص بي، زائد سي».</div>
+      <div class="note trap"><span class="t">⚠️ فخ</span>إذا خليت <span class="en">D</span> بالمتر يطلعلك السُمك 0.0127، يعني الوحدات غلط. لازم <span class="en">D</span> بالـ mm.</div>
+    </div>
+
+    <div class="card fcard mem">
+      <div class="fhead"><h3>سُمك الوعاء الكروي</h3><span class="en">Spherical shell · (13.40b)</span><span class="tag t-mem">🔴 احفظ</span></div>
+      <div class="eq">$$e=\frac{P_i\,D_i}{4\,J\,f-1.2\,P_i}+c$$</div>
+      <div class="meaning"><b>المعنى:</b> نفس فكرة الأسطوانة، بس المقام <b>4Jf − 1.2P</b>.</div>
+      <div class="layers">
+        <div class="ltabs"><button class="on">👶 للطفل</button><button>🛠️ للمهندس</button><button>🎯 للامتحان</button></div>
+        <div class="lpanel on"><p>الكرة توزّع الدفع على كل الاتجاهات بالتساوي، مثل حضن جماعي. لهذا تحتاج تقريباً <b>نص</b> سُمك الأسطوانة.</p></div>
+        <div class="lpanel"><p>الإجهاد بالكرة = نص الإجهاد المحيطي بالأسطوانة بنفس P و D، فيصير المقام 4Jf بدل 2Jf. والـ 1.2P تصحيح القطر الداخلي.</p></div>
+        <div class="lpanel"><p>نفس خطوات الأسطوانة بالضبط، بس انتبه للرقمين: <b>4</b> و <b>1.2</b>.</p></div>
+      </div>
+      <div class="note aha"><span class="t">💡 جرّب بأرقام المثال</span>أسطوانة: <span class="en">12.7 mm</span>. كرة: <span class="en">1.43×1500/(4×85−1.2×1.43) = 6.3 mm</span>. تقريباً النص بالضبط!</div>
+      <div class="note hook"><span class="t">🧠 «الكرة تاخذ 4 وتدفع 1.2»</span></div>
+    </div>
+  </div>
+
+  <!-- 1.3 heads -->
+  <div class="sec" id="c1-heads">
+    <h2><span class="num">1.3</span>الرؤوس: Heads &amp; closures</h2>
+    <p class="lead">أربع أنواع. القاعدة الذهبية: <b>كل ما كان الرأس متقوّس أكثر، يحتاج سُمك أقل.</b></p>
+    <div class="card">
+      <figure>
+        <svg viewBox="0 0 340 400" class="headsfig" role="img" aria-label="مقارنة أشكال الرؤوس الأربعة">
+          <g transform="translate(0,0)">
+            <path d="M30,185 V105 M130,105 V185" stroke="var(--text)" stroke-width="3" fill="none"/>
+            <rect x="18" y="85" width="124" height="20" fill="var(--red)" opacity=".75"/>
+            <text class="lab" x="80" y="26" text-anchor="middle" font-weight="700" font-size="15">مسطح</text><text class="lab-en" x="80" y="44" text-anchor="middle">Flat</text>
+            <text class="lab" x="80" y="140" text-anchor="middle" font-weight="700">e ≈ 90 mm</text><text class="lab-en" x="80" y="158" text-anchor="middle">الأسمك جداً</text>
+          </g>
+          <g transform="translate(170,0)">
+            <path d="M30,185 V125 A50,50 0 0,1 130,125 V185" stroke="var(--green)" stroke-width="4" fill="none"/>
+            <text class="lab" x="80" y="26" text-anchor="middle" font-weight="700" font-size="15">نصف كروي</text><text class="lab-en" x="80" y="44" text-anchor="middle">Hemispherical</text>
+            <text class="lab" x="80" y="150" text-anchor="middle" font-weight="700">0.6 × e<tspan font-size="10" dy="3">shell</tspan></text><text class="lab-en" x="80" y="170" text-anchor="middle">الأنحف</text>
+          </g>
+          <g transform="translate(0,200)">
+            <path d="M30,185 V120 A50,25 0 0,1 130,120 V185" stroke="var(--cyan)" stroke-width="4" fill="none"/>
+            <text class="lab" x="80" y="26" text-anchor="middle" font-weight="700" font-size="15">بيضوي 2:1</text><text class="lab-en" x="80" y="44" text-anchor="middle">Ellipsoidal</text>
+            <text class="lab" x="80" y="148" text-anchor="middle" font-weight="700">12.7 → 15 mm</text><text class="lab-en" x="80" y="166" text-anchor="middle">الأوفر بالمثال</text>
+          </g>
+          <g transform="translate(170,200)">
+            <path d="M30,185 V120 A14,14 0 0,1 36,109 A95,95 0 0,1 124,109 A14,14 0 0,1 130,120 V185" stroke="var(--amber)" stroke-width="4" fill="none"/>
+            <text class="lab" x="80" y="26" text-anchor="middle" font-weight="700" font-size="15">تورِي (صحن)</text><text class="lab-en" x="80" y="44" text-anchor="middle">Torispherical</text>
+            <text class="lab" x="80" y="148" text-anchor="middle" font-weight="700">e = 22 mm</text><text class="lab-en" x="80" y="166" text-anchor="middle">أسمك من البيضوي</text>
+          </g>
+        </svg>
+        <figcaption>الأرقام من مثال 13.1 (نفس P و D)</figcaption>
+      </figure>
+    </div>
+
+    <div class="card fcard mem">
+      <div class="fhead"><h3>الرأس نصف الكروي</h3><span class="en">Hemispherical head</span><span class="tag t-mem">🔴 احفظ</span></div>
+      <div class="eq">$$e=0.6\,e_{shell}$$</div>
+      <div class="meaning"><b>المعنى:</b> سُمك الرأس نصف الكروي = 0.6 من سُمك الجسم الأسطواني (حسب المحاضرة).</div>
+      <div class="layers">
+        <div class="ltabs"><button class="on">👶 للطفل</button><button>🛠️ للمهندس</button><button>🎯 للامتحان</button></div>
+        <div class="lpanel on"><p>نص كرة مثل نص قشرة البيضة. شكلها قوي جداً، فيكفيها 60% من سُمك الجسم.</p></div>
+        <div class="lpanel"><p>شكلها كروي، فإجهادها تقريباً نص إجهاد الأسطوانة. والمحاضرة تعتمد 0.6 كقيمة عملية آمنة.</p></div>
+        <div class="lpanel"><p>احسب e للأسطوانة أولاً من (13.39a)، واضربه بـ 0.6، وضيف c إذا السؤال طالب السُمك النهائي.</p></div>
+      </div>
+      <div class="note hook"><span class="t">🧠 «نص كرة = 60%»</span></div>
+    </div>
+
+    <div class="card fcard mem">
+      <div class="fhead"><h3>الرأس البيضوي 2:1</h3><span class="en">Ellipsoidal head · (13.43)</span><span class="tag t-mem">🔴 احفظ</span></div>
+      <div class="eq">$$e=\frac{P_i\,D_i}{2\,J\,f-0.2\,P_i}$$</div>
+      <div class="meaning"><b>المعنى:</b> هو قانون الأسطوانة نفسه، بس الضغط بالمقام يصير <b>0.2P</b> بدل P. وهذا للرؤوس القياسية اللي نسبة محوريها <span class="en">major : minor = 2 : 1</span>.</div>
+      <div class="layers">
+        <div class="ltabs"><button class="on">👶 للطفل</button><button>🛠️ للمهندس</button><button>🎯 للامتحان</button></div>
+        <div class="lpanel on"><p>مثل غطاء قدر مقبب: عرضه ضعف عمقه. تقوّسه ناعم وموزّع، فما يحتاج يصير أسمك من الجسم.</p></div>
+        <div class="lpanel"><p>سُمكه تقريباً يساوي سُمك الأسطوانة، فنقدر نسويه بنفس لوح الجسم. هذا يخليه <b>الأكثر اقتصاداً</b> بالمثال. ولأنه يُكبس كقطعة وحدة بدون لحام (formed head)، فـ J = 1.</p></div>
+        <div class="lpanel"><p>بمثال 13.1 طلع <span class="en">12.7 mm</span>، وهو نفس الجسم، فأخذوه <b>بنفس سُمك الجدار: 15 mm</b>.</p></div>
+      </div>
+      <div class="note hook"><span class="t">🧠 «البيضوي توأم الأسطوانة بخصم 0.2»</span><span class="en">2Jf − P</span> للأسطوانة تصير <span class="en">2Jf − 0.2P</span> للبيضوي.</div>
+    </div>
+
+    <div class="card fcard mem">
+      <div class="fhead"><h3>الرأس التورِي (الصحن)</h3><span class="en">Torispherical head · (13.44)</span><span class="tag t-mem">🔴 احفظ</span></div>
+      <div class="eq">$$e=\frac{P_i\,R_c\,C_s}{2\,f\,J+P_i\,(C_s-0.2)}$$</div>
+      <div class="eq">$$C_s=\frac{1}{4}\left(3+\sqrt{\frac{R_c}{R_k}}\right)$$</div>
+      <div class="meaning"><b>المعنى:</b> السُمك = (الضغط × نصف قطر التاج × معامل تركيز الإجهاد) ÷ (<span class="en">2fJ <b>+</b> P(Cs − 0.2)</span>).<br><span class="en">Cs</span> = ربع (3 + جذر نصف قطر التاج على نصف قطر المفصل).</div>
+      <div class="grid2">
+        <figure style="margin:0">
+          <svg viewBox="0 0 360 230" role="img" aria-label="رسم يوضح نصف قطر التاج ونصف قطر المفصل">
+            <path d="M30,200 V130 A30,30 0 0,1 46.7,103.1 A300,300 0 0,1 313.3,103.1 A30,30 0 0,1 330,130 V200" stroke="var(--amber)" stroke-width="4" fill="none"/>
+            <line x1="180" y1="72" x2="180" y2="222" stroke="var(--cyan)" stroke-dasharray="5 5"/>
+            <text class="lab" x="188" y="160" fill="var(--cyan)" style="fill:var(--cyan)" font-weight="700">R<tspan font-size="10" dy="3">c</tspan></text>
+            <text class="lab-en" x="188" y="180">مركزه بعيد لتحت ↓</text>
+            <circle cx="60" cy="130" r="3.5" fill="var(--red)"/>
+            <line x1="60" y1="130" x2="46.7" y2="103.1" stroke="var(--red)" stroke-width="2"/>
+            <text class="lab" x="66" y="124" style="fill:var(--red)" font-weight="700">R<tspan font-size="10" dy="3">k</tspan></text>
+            <text class="lab" x="250" y="62">التاج (Crown)</text>
+            <text class="lab" x="72" y="152">المفصل (Knuckle)</text>
+          </svg>
+          <figcaption>التاج = القبة الواسعة · المفصل = الحافة المنحنية بقوة</figcaption>
+        </figure>
+        <div class="tbl-wrap" style="align-self:start"><table>
+          <tr><th>الرمز</th><th>المعنى</th></tr>
+          <tr><td class="sym">\(R_c\)</td><td>نصف قطر التاج <span class="en muted">crown radius</span></td></tr>
+          <tr><td class="sym">\(R_k\)</td><td>نصف قطر المفصل <span class="en muted">knuckle radius</span></td></tr>
+          <tr><td class="sym">\(C_s\)</td><td>معامل تركيز الإجهاد <span class="en muted">stress concentration factor</span></td></tr>
+          <tr><td class="sym">\(J\)</td><td>= 1 للرأس المكبوس بدون لحام</td></tr>
+        </table></div>
+      </div>
+      <div class="layers">
+        <div class="ltabs"><button class="on">👶 للطفل</button><button>🛠️ للمهندس</button><button>🎯 للامتحان</button></div>
+        <div class="lpanel on"><p>صحن مقلوب: وسطه قبة واسعة (التاج) وأطرافه ملتوية بقوة (المفصل). الالتواء الحاد يجمع الإجهاد بمكان واحد، مثل ما الورقة تنشق من الطيّة. فنضرب بـ <span class="en">Cs</span>، وهو «مكبّر الإجهاد».</p></div>
+        <div class="lpanel"><p><span class="en">Cs &gt; 1</span> دائماً. كل ما يصغر المفصل (Rk) يكبر <span class="en">√(Rc/Rk)</span>، فيكبر Cs ويكبر السُمك. والشروط: <span class="en">Rk/Rc ≥ 0.06</span> حتى ما يصير انبعاج (buckling)، و<span class="en">Rc ≤ D</span> (قطر الأسطوانة). وأي وحدات متناسقة تنفع.</p></div>
+        <div class="lpanel"><p>القياسي بالمثال: <span class="en">Rc = Di = 1.5 m</span> و <span class="en">Rk = 6% Rc = 0.09 m</span>، فيطلع <span class="en">Cs = 1.77</span> و <span class="en">e = 22 mm</span>. هذا أسمك من البيضوي (12.7)، فالبيضوي أوفر.</p></div>
+      </div>
+      <div class="note hook"><span class="t">🧠 ثلاث حيل</span><ul><li><b>Cs:</b> «ربع (ثلاثة + جذر التاج على المفصل)».</li><li><b>«التورِي الوحيد اللي مقامه زائد +»</b>، ويرجع بيه رقم 0.2.</li><li><b>«6 للمفصل»:</b> <span class="en">Rk = 0.06 Rc</span>، و <span class="en">Rc = D</span>.</li></ul></div>
+      <div class="note trap"><span class="t">⚠️ فخ</span>البسط بيه <span class="en">Rc</span> مو <span class="en">D</span> (حتى لو بالمثال متساويين). والمقام بيه <b>+</b> مو −.</div>
+    </div>
+  </div>
+
+  <!-- 1.4 flat -->
+  <div class="sec" id="c1-flat">
+    <h2><span class="num">1.4</span>الرأس المسطح: Flat ends</h2>
+    <div class="card fcard mem">
+      <div class="fhead"><h3>سُمك الغطاء المسطح</h3><span class="en">Flat plates · (13.42)</span><span class="tag t-mem">🔴 احفظ</span></div>
+      <div class="eq">$$e=C_p\,D_e\,\sqrt{\frac{P_i}{f}}$$</div>
+      <div class="meaning"><b>المعنى:</b> السُمك = ثابت التصميم × القطر الاسمي × جذر (الضغط ÷ الإجهاد).</div>
+      <div class="tbl-wrap"><table>
+        <tr><th>الرمز</th><th>English</th><th>المعنى</th></tr>
+        <tr><td class="sym">\(C_p\)</td><td class="en">design constant (edge constraint)</td><td>ثابت حسب طريقة تثبيت الحافة</td></tr>
+        <tr><td class="sym">\(D_e\)</td><td class="en">nominal plate diameter</td><td>القطر الاسمي للوح (مو دائماً Di!)</td></tr>
+        <tr><td class="sym">\(f\)</td><td class="en">design stress</td><td>إجهاد التصميم</td></tr>
+      </table></div>
+      <h3>اختار طريقة التثبيت (Figure 13.9):</h3>
+      <div class="chips" id="cp-chips"></div>
+      <div class="grid2" style="align-items:center">
+        <figure style="margin:0"><svg viewBox="0 0 220 150" id="cp-svg" aria-label="رسم طريقة التثبيت"></svg></figure>
+        <div id="cp-out"></div>
+      </div>
+      <div class="layers">
+        <div class="ltabs"><button class="on">👶 للطفل</button><button>🛠️ للمهندس</button><button>🎯 للامتحان</button></div>
+        <div class="lpanel on"><p>اضغط على وسط مسطرة: تنحني بسهولة. الغطاء المسطح نفس الشي، وحتى ما ينحني لازم يكون سميك جداً. أما القبة فتدفع الضغط بعيد عنها مثل قشرة البيضة.</p></div>
+        <div class="lpanel"><p>المسطح يقاوم بالانحناء (bending) مو بالشد مثل الأسطوانة، لهذا السُمك يتناسب مع <span class="en">√P</span> ويطلع كبير جداً: <b>90 mm</b> بالمثال مقابل 15 mm للبيضوي.</p></div>
+        <div class="lpanel"><p>من وصف السؤال تعرف الحالة، فتاخذ <span class="en">Cp</span> و <span class="en">De</span>. بالمثال: <span class="en">full-face gasket → Cp = 0.4</span>، و <span class="en">De</span> = قطر دائرة البراغي ≈ 1.7 m (أكبر من 1.5 لأن البراغي برّا الجسم).</p></div>
+      </div>
+      <div class="note hook"><span class="t">🧠 «سي دي تحت الجذر»</span><span class="en">Cp · De · √(P/f)</span><br>قيم Cp: الحشوة الكاملة <b class="en">0.4</b> («<span class="en">Full = Four</span>») · المشفّه الصغير <b class="en">0.45</b> · الباقي (ملحوم أو حشوة ضيقة) <b class="en">0.55</b>.</div>
+      <div class="note trap"><span class="t">⚠️ فخ</span>بالأغطية المربوطة ببراغي، <span class="en">De</span> هو قطر دائرة البراغي أو متوسط قطر الحشوة، مو القطر الداخلي.</div>
+    </div>
+  </div>
+
+  <!-- 1.5 tank -->
+  <div class="sec" id="c1-tank">
+    <h2><span class="num">1.5</span>خزانات خزن السوائل</h2>
+    <div class="card fcard mem">
+      <div class="fhead"><h3>سُمك جدار الخزان</h3><span class="en">Liquid storage tanks · (13.130)</span><span class="tag t-mem">🔴 احفظ</span></div>
+      <div class="eq">$$e_s=\frac{\rho_L\,H_L\,g}{2\,f_t\,J}\;\frac{D_t}{10^3}$$</div>
+      <div class="meaning"><b>المعنى:</b> سُمك الجدار عند عمق H<sub>L</sub> = (الكثافة × العمق × الجاذبية) ÷ (2 × إجهاد مادة الخزان × J) × (القطر ÷ 1000).</div>
+      <div class="grid2">
+        <div class="tbl-wrap" style="align-self:start"><table>
+          <tr><th>الرمز</th><th>المعنى</th><th>الوحدة</th></tr>
+          <tr><td class="sym">\(e_s\)</td><td>السُمك عند العمق H<sub>L</sub></td><td class="unit">mm</td></tr>
+          <tr><td class="sym">\(H_L\)</td><td>عمق السائل · liquid depth</td><td class="unit">m</td></tr>
+          <tr><td class="sym">\(\rho_L\)</td><td>كثافة السائل</td><td class="unit">kg/m³</td></tr>
+          <tr><td class="sym">\(g\)</td><td>التعجيل الأرضي</td><td class="unit">9.81 m/s²</td></tr>
+          <tr><td class="sym">\(f_t\)</td><td>إجهاد مادة الخزان</td><td class="unit">N/mm²</td></tr>
+          <tr><td class="sym">\(J\)</td><td>كفاءة اللحام (إن وجد)</td><td class="unit">—</td></tr>
+          <tr><td class="sym">\(D_t\)</td><td>قطر الخزان</td><td class="unit">m</td></tr>
+        </table></div>
+        <figure style="margin:0">
+          <svg viewBox="0 0 260 220" aria-label="خزان يوضح زيادة الضغط مع العمق">
+            <defs><linearGradient id="liq" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--cyan)" stop-opacity=".25"/><stop offset="1" stop-color="var(--cyan)" stop-opacity=".6"/></linearGradient></defs>
+            <path d="M40,60 L120,30 L200,60" stroke="var(--text)" stroke-width="2.5" fill="none"/>
+            <rect x="40" y="60" width="160" height="140" fill="none" stroke="var(--text)" stroke-width="2.5"/>
+            <rect x="42" y="85" width="156" height="113" fill="url(#liq)"/>
+            <path d="M200,85 L200,198 L250,198 Z" fill="var(--amber)" opacity=".45"/>
+            <text class="lab" x="226" y="80" text-anchor="middle">P = ρgH</text>
+            <text class="lab-en" x="232" y="214" text-anchor="middle">أكبر بالقاع</text>
+            <line x1="25" y1="85" x2="25" y2="198" stroke="var(--muted)"/><text class="lab" x="16" y="145" text-anchor="middle">H<tspan font-size="9" dy="3">L</tspan></text>
+            <text class="lab" x="120" y="150" text-anchor="middle">D<tspan font-size="9" dy="3">t</tspan></text>
+          </svg>
+          <figcaption>الضغط يزيد مع العمق، فقاع الخزان أسمك</figcaption>
+        </figure>
+      </div>
+      <div class="layers">
+        <div class="ltabs"><button class="on">👶 للطفل</button><button>🛠️ للمهندس</button><button>🎯 للامتحان</button></div>
+        <div class="lpanel on"><p>بالخزان المفتوح ماكو ضغط غاز؛ السائل نفسه يدفع الجدار. كل ما تنزل أعمق يزيد الدفع، مثل ما أذنك توجعك بقاع المسبح. لهذا الجدار بالقاع أسمك.</p></div>
+        <div class="lpanel"><p>الضغط الهيدروستاتيكي <span class="en">P = ρgH</span> بالباسكال. عوّضه بقانون الأسطوانة (بدون −P لأن الضغط صغير): <span class="en">e = PD/(2fJ)</span>. والـ 10³ تحويل وحدات: <span class="en">Pa → N/mm²</span> (÷10⁶) و <span class="en">m → mm</span> (×10³)، فالصافي ÷10³.</p></div>
+        <div class="lpanel"><p>خلي الوحدات مثل الجدول بالضبط: ρ بـ kg/m³، و H و D بالمتر، و f بـ N/mm²، فيطلع e بالـ mm مباشرة.</p></div>
+      </div>
+      <div class="note aha"><span class="t">💡 السر</span>قانون الخزان = <b>قانون الأسطوانة نفسه</b> بس <span class="en">P = ρgH</span>. إذا تذكرت هذا، ما تحتاج تحفظه كقانون منفصل.</div>
+    </div>
+  </div>
+
+  <!-- 1.6 nozzle -->
+  <div class="sec" id="c1-nozzle">
+    <h2><span class="num">1.6</span>قطر الأنبوب أو الفوهة</h2>
+    <div class="card fcard mem">
+      <div class="fhead"><h3>القطر الأمثل</h3><span class="en">Pipe/Nozzle size · Genereaux (1937)</span><span class="tag t-mem">🔴 احفظ</span></div>
+      <div class="eq">$$\text{Carbon steel:}\quad d_{opt}=282\,G^{0.52}\,\rho^{-0.37}$$</div>
+      <div class="eq">$$\text{Stainless steel:}\quad d_{opt}=226\,G^{0.50}\,\rho^{-0.35}$$</div>
+      <div class="meaning"><b>المعنى:</b> القطر الأمثل يعتمد على معدل الجريان الكتلي G والكثافة ρ. وبعدها نختار <b>أقرب قطر أنبوب قياسي</b> (Perry).</div>
+      <div class="tbl-wrap"><table>
+        <tr><th>الرمز</th><th>المعنى</th><th>الوحدة</th></tr>
+        <tr><td class="sym">\(d_{opt}\)</td><td>القطر الأمثل</td><td class="unit">mm</td></tr>
+        <tr><td class="sym">\(G\)</td><td>معدل الجريان الكتلي</td><td class="unit">kg/s</td></tr>
+        <tr><td class="sym">\(\rho\)</td><td>الكثافة</td><td class="unit">kg/m³</td></tr>
+      </table></div>
+      <div class="kn"><span>سرعة السائل: <b>1–3 m/s</b></span><span>سرعة البخار: <b>15–30 m/s</b></span></div>
+      <div class="layers">
+        <div class="ltabs"><button class="on">👶 للطفل</button><button>🛠️ للمهندس</button><button>🎯 للامتحان</button></div>
+        <div class="lpanel on"><p>الأنبوب الضيق يخلي السائل يركض بسرعة ويحتاج مضخة قوية (كلفة كهرباء). والعريض يكلف حديد أكثر (كلفة شراء). القطر الأمثل هو نقطة التوازن بين الكلفتين.</p></div>
+        <div class="lpanel"><p>قانون تجريبي (Genereaux). الأس الموجب على G (جريان أكثر يعني أنبوب أعرض)، والأس السالب على ρ (السائل الكثيف يحتاج حجم أقل لنفس الكتلة، فقطر أصغر).</p></div>
+        <div class="lpanel"><p>استخدم الآلة: <span class="en">G^0.52</span> بعدها <span class="en">ρ^−0.37</span> واضربهم بـ 282. وتأكد من نوع الحديد: كاربون أو ستانلس.</p></div>
+      </div>
+      <div class="note hook"><span class="t">🧠 حيلة حفظ</span>«<b>الكاربون 282</b> <span class="en">(0.52 , −0.37)</span>» و«<b>الستانلس 226</b> <span class="en">(0.50 , −0.35)</span>». أرقام الستانلس «أدوَر»: نص بالضبط و35.</div>
+    </div>
+  </div>
+
+  <!-- read only -->
+  <div class="sec">
+    <h2><span class="num">1.7</span>للاطلاع بس <span class="tag t-ro">⚪</span></h2>
+    <details class="ro"><summary>أنواع الفلنجات <span class="en">(Flange types)</span></summary>
+      <div class="tbl-wrap"><table>
+        <tr><th>النوع</th><th>الاستخدام</th></tr>
+        <tr><td class="en">Screwed</td><td>خدمة عامة</td></tr>
+        <tr><td class="en">Slip-on</td><td>ظروف تشغيل متوسطة</td></tr>
+        <tr><td class="en">Welding neck</td><td>ضغط وحرارة عالية</td></tr>
+        <tr><td class="en">Socket weld</td><td>أنابيب قطر صغير</td></tr>
+        <tr><td class="en">Lap (Van Stone)</td><td>لما نفك ونركّب هواية</td></tr>
+      </table></div>
+      <p class="muted">وأوجه الفلنجات: Flat face (FF)، Raised face (RF)، ring، spigot/socket.</p>
+    </details>
+    <details class="ro"><summary>المساند <span class="en">(Supports)</span> والفوهات وورقة البيانات</summary>
+      <p><b>Saddle supports:</b> للأوعية الأفقية (زاوية حضن 120°). <b>Welded legs:</b> للأوعية العمودية الصغيرة. <b>Nozzles:</b> فتحات الدخول والخروج والتصريف والأجهزة (LG, P, L, T) وفتحة الدخول (manway). <b>Vessel data sheet:</b> ورقة تجمع كل مواصفات الوعاء.</p>
+    </details>
+  </div>
+
+  <!-- traps -->
+  <div class="sec" id="c1-traps">
+    <h2><span class="num">1.8</span>فخاخ الفصل الأول</h2>
+    <div class="card">
+      <div class="tbl-wrap"><table>
+        <tr><th>#</th><th>الفخ</th><th>الصح</th></tr>
+        <tr><td>1</td><td>نسيت تطرح 1 bar</td><td><span class="en">abs → gauge: P − 1</span></td></tr>
+        <tr><td>2</td><td>الضغط بالـ bar</td><td><span class="en">÷ 10 → N/mm²</span></td></tr>
+        <tr><td>3</td><td>القطر بالمتر</td><td><span class="en">× 1000 → mm</span></td></tr>
+        <tr><td>4</td><td>نسيت c</td><td>ضيفها بآخر شي، بعدها قرّب للأعلى</td></tr>
+        <tr><td>5</td><td>تكتب مقام البيضوي <span class="en">2Jf − P</span></td><td><span class="en">2Jf − 0.2P</span></td></tr>
+        <tr><td>6</td><td>تكتب مقام التورِي بإشارة سالب، أو تحط D بالبسط</td><td>المقام <span class="en">2fJ + P(Cs − 0.2)</span>، والبسط <span class="en">Rc</span></td></tr>
+        <tr><td>7</td><td>تعتبر <span class="en">De = Di</span> دائماً للمسطح</td><td>بالبراغي: دائرة البراغي أو متوسط قطر الحشوة</td></tr>
+        <tr><td>8</td><td>تاخذ J أقل من 1 للرأس المكبوس</td><td>المكبوس بدون لحام: <span class="en">J = 1</span></td></tr>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- check -->
+  <div class="sec" id="c1-check">
+    <h2><span class="num">✔</span>اختبر نفسك (10 أسئلة سريعة)</h2>
+    <div class="card quiz" data-quiz="ch1"></div>
+    <button class="done-btn" data-done="ch1">✔ خلصت الفصل الأول وفهمته</button>
+  </div>
+</section>
+
+<!-- ===================== EXAMPLE 13.1 ===================== -->
+<section class="view" id="v-ex131" data-view="ex131">
+  <div class="hero">
+    <span class="kicker">Example 13.1 · Mechanical Design Example</span>
+    <h1>مثال 13.1: سُمك أجزاء الوعاء</h1>
+    <p>نحلّه خطوة خطوة، وكل خطوة وياها «ليش؟». وبالآخر حاسبة تحط بيها أرقامك (حسب رقمك بالامتحان) وتطلعلك نفس الحل.</p>
+  </div>
+  <div class="chips" data-chips>
+    <button class="chip" data-go="e1-q">السؤال</button>
+    <button class="chip" data-go="e1-sol">الحل</button>
+    <button class="chip" data-go="e1-sheet">ورقة الامتحان</button>
+    <button class="chip" data-go="e1-solver">🎯 حاسبة رقمك</button>
+  </div>
+
+  <div class="sec" id="e1-q">
+    <h2><span class="num">Q</span>السؤال</h2>
+    <div class="card">
+      <div class="grid2" style="align-items:center">
+        <div>
+          <div class="problem">Estimate the wall thickness of each part of the vessel sketched.<br>
+            • Operating pressure: <b>14 bar (absolute)</b><br>
+            • Operating temperature: <b>300 °C</b><br>
+            • Material: <b>plain carbon steel</b><br>
+            • Welds: <b>fully radiographed</b><br>
+            • Corrosion allowance: <b>2 mm</b><br>
+            • Nominal dimensions: <b>D = 1.5 m</b>, height 2 m</div>
+          <p class="tr">بالعربي: احسب سُمك الجسم الأسطواني، والرأس المقبب (جرّب تورِي وبيضوي)، والغطاء المسطح.</p>
+        </div>
+        <figure style="margin:0">
+          <svg viewBox="0 0 280 260" aria-label="رسم الوعاء بالمثال">
+            <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 z" fill="var(--muted)"/></marker></defs>
+            <rect x="122" y="18" width="16" height="16" fill="none" stroke="var(--text)" stroke-width="2"/>
+            <line x1="130" y1="8" x2="130" y2="18" stroke="var(--text)" stroke-width="2"/>
+            <rect x="60" y="34" width="140" height="14" fill="var(--red)" opacity=".7" stroke="var(--text)"/>
+            <path d="M75,48 V178 A55,22 0 0,0 185,178 V48" stroke="var(--cyan)" stroke-width="4" fill="none"/>
+            <path d="M75,80 L45,110 H75 M185,80 L215,110 H185" stroke="var(--text)" stroke-width="2" fill="none"/>
+            <line x1="130" y1="5" x2="130" y2="215" stroke="var(--muted)" stroke-dasharray="6 4"/>
+            <line x1="235" y1="48" x2="235" y2="178" stroke="var(--muted)" marker-start="url(#ar3)" marker-end="url(#ar3)"/><text class="lab" x="243" y="118">2 m</text>
+            <line x1="75" y1="232" x2="185" y2="232" stroke="var(--muted)" marker-start="url(#ar3)" marker-end="url(#ar3)"/><text class="lab" x="130" y="252" text-anchor="middle">1.5 m</text>
+            <text class="lab" x="18" y="30">غطاء مسطح</text>
+            <text class="lab" x="200" y="210">رأس مقبب</text>
+            <text class="lab" x="16" y="150">جسم</text>
+          </svg>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="e1-sol">
+    <h2><span class="num">S</span>الحل خطوة بخطوة</h2>
+    <div class="card">
+      <div class="steps">
+        <div class="step">
+          <h4>اقرأ السؤال مثل المحقّق وطلّع المعطيات</h4>
+          <div class="tbl-wrap"><table>
+            <tr><th>بالسؤال</th><th>نحوّله إلى</th><th>ليش؟</th></tr>
+            <tr><td class="en">14 bar (abs)</td><td class="en">13 bar gauge</td><td>الجدار يحس بالفرق بس</td></tr>
+            <tr><td class="en">300 °C + plain carbon steel</td><td class="en">f من جدول 13.2</td><td>الحديد يضعف بالحرارة</td></tr>
+            <tr><td class="en">fully radiographed</td><td class="en">J = 1</td><td>100% فحص ولحام مزدوج</td></tr>
+            <tr><td class="en">c = 2 mm</td><td class="en">+2 بالآخر</td><td>حديد يضحّي بيه للتآكل</td></tr>
+            <tr><td class="en">D = 1.5 m</td><td class="en">Di = 1500 mm</td><td>حتى يطلع e بالـ mm</td></tr>
+          </table></div>
+        </div>
+
+        <div class="step">
+          <h4>ضغط التصميم <span class="en muted">Design pressure</span></h4>
+          <div class="eq">$$\begin{aligned}P_i&=(14-1)\times1.1\\&=14.3\ \text{bar}\\&=1.43\ \text{N/mm}^2\end{aligned}$$</div>
+          <div class="why"><b class="q">ليش؟</b> ثلاث حركات:
+            <ul style="margin:.3em 0">
+              <li><b>−1:</b> نحوّل من مطلق إلى مقياسي.</li>
+              <li><b>×1.1:</b> الحل اعتمد 10% فوق ضغط التشغيل كهامش أمان.</li>
+              <li><b>÷10:</b> لأن 1 bar = 0.1 N/mm²، والقانون يريد N/mm² حتى تتناسق مع f.</li>
+            </ul></div>
+          <div class="note warn"><span class="t">⚠️ إذا السؤال كال 1.2 (مثل سلايد المحاضرة)</span><span class="en">13 × 1.2 = 15.6 bar = 1.56 N/mm² → e = 13.9 + 2 = 15.9 → 16 mm</span>. اتبع اللي مكتوب بالسؤال، والحاسبة تحت تسويها إلك.</div>
+        </div>
+
+        <div class="step">
+          <h4>إجهاد التصميم f</h4>
+          <div class="eq">$$\begin{aligned}&T=300^\circ\text{C},\ \text{carbon steel}\\&\xrightarrow{\ \text{Table 13.2}\ }\ f=85\ \text{N/mm}^2\end{aligned}$$</div>
+          <div class="why"><b class="q">ليش؟</b> درجة حرارة التصميم = أعلى درجة يشتغل بيها الوعاء. نروح لصف الكاربون ستيل وعمود 300، فنلقى 85. وتذكّر: «300 درجة = 85».</div>
+        </div>
+
+        <div class="step">
+          <h4>كفاءة اللحام J</h4>
+          <div class="eq">$$\text{fully radiographed}\ \Rightarrow\ J=1.0$$</div>
+          <div class="why"><b class="q">ليش؟</b> جدول 13.3: لحام مزدوج مع 100% radiography = 1.0. فحصنا كل اللحام فنثق بيه بالكامل.</div>
+        </div>
+
+        <div class="step">
+          <h4>الجسم الأسطواني <span class="en muted">Cylindrical section</span></h4>
+          <div class="eq">$$\begin{aligned}e&=\frac{P_iD_i}{2Jf-P_i}\\&=\frac{1.43\times1.5\times10^3}{2\times1\times85-1.43}\\&=\frac{2145}{168.57}=12.7\ \text{mm}\end{aligned}$$</div>
+          <div class="eq">$$\begin{aligned}e+c&=12.7+2=14.7\\&\Rightarrow\ \boxed{15\ \text{mm plate}}\end{aligned}$$</div>
+          <div class="why"><b class="q">ليش؟</b>
+            <ul style="margin:.3em 0">
+              <li><b>×10³:</b> حوّلنا 1.5 m إلى 1500 mm، لأن P و f بـ N/mm² فلازم D بالـ mm حتى يطلع e بالـ mm.</li>
+              <li><b>2×1×85:</b> هذا هو 2Jf، و J = 1.</li>
+              <li><b>+2:</b> سماحية التآكل تنضاف بالآخر.</li>
+              <li><b>15:</b> الألواح تجي بسُمك قياسي، ودائماً نقرّب <b>للأعلى</b> للأمان.</li>
+            </ul></div>
+          <div class="note aha"><span class="t">💡 فحص إضافي (عادة مهندس شاطر)</span>أقل سُمك عملي لقطر 1–2 m هو <span class="en">7 mm</span>. وعدنا 15، فالحل سليم ✓.</div>
+        </div>
+
+        <div class="step">
+          <h4>الرأس المقبب (i): تورِي قياسي</h4>
+          <div class="eq">$$\begin{aligned}R_c&=D_i=1.5\ \text{m}\\R_k&=6\%\,R_c=0.06\times1.5=0.09\ \text{m}\\J&=1\end{aligned}$$</div>
+          <div class="eq">$$\begin{aligned}C_s&=\frac14\left(3+\sqrt{\frac{R_c}{R_k}}\right)\\&=\frac14\left(3+\sqrt{\frac{1.5}{0.09}}\right)\\&=\frac14\,(3+4.08)=1.77\end{aligned}$$</div>
+          <div class="eq">$$\begin{aligned}e&=\frac{P_iR_cC_s}{2fJ+P_i(C_s-0.2)}\\&=\frac{1.43\times1.5\times10^3\times1.77}{2\times85\times1+1.43\,(1.77-0.2)}\\&=\frac{3796.7}{172.2}=\boxed{22.0\ \text{mm}}\end{aligned}$$</div>
+          <div class="why"><b class="q">ليش؟</b>
+            <ul style="margin:.3em 0">
+              <li><b>Rc = Di:</b> أكبر قيمة مسموحة (Rc ≤ D)، وهذا الشكل القياسي.</li>
+              <li><b>Rk = 6%:</b> أقل نسبة مسموحة حتى ما يصير انبعاج.</li>
+              <li><b>J = 1:</b> رأس بهذا الحجم يُكبس قطعة وحدة بدون لحام.</li>
+              <li><b>Cs = 1.77:</b> المفصل يكبّر الإجهاد بـ 77%، لهذا طلع أسمك.</li>
+            </ul></div>
+        </div>
+
+        <div class="step">
+          <h4>الرأس المقبب (ii): بيضوي قياسي 2:1</h4>
+          <div class="eq">$$\begin{aligned}e&=\frac{P_iD_i}{2Jf-0.2P_i}\\&=\frac{1.43\times1.5\times10^3}{2\times85-0.2\times1.43}\\&=\frac{2145}{169.7}=12.7\ \text{mm}\end{aligned}$$</div>
+          <div class="why"><b class="q">ليش نختاره؟</b> 12.7 mm أقل بهواية من التورِي (22 mm)، فـ<b>البيضوي هو الأكثر اقتصاداً</b>. ونسويه <b>بنفس سُمك الجدار: 15 mm</b>، لأن <span class="en">12.7 + 2 = 14.7 ≤ 15</span>، ونفس اللوح يسهّل اللحام بين الرأس والجسم.</div>
+          <p class="muted" style="font-size:13.5px">ملاحظة: الحساب الدقيق يطلع 12.64، والكتاب كتب 12.7. فرق تقريب بس، وما يأثر.</p>
+        </div>
+
+        <div class="step">
+          <h4>الغطاء المسطح <span class="en muted">Flat head</span></h4>
+          <div class="eq">$$\begin{aligned}&\text{full-face gasket}\Rightarrow C_p=0.4\\&D_e=\text{bolt circle}\approx1.7\ \text{m}\end{aligned}$$</div>
+          <div class="eq">$$\begin{aligned}e&=C_pD_e\sqrt{\frac{P_i}{f}}\\&=0.4\times1.7\times10^3\sqrt{\frac{1.43}{85}}\\&=680\times0.1297=88.4\ \text{mm}\end{aligned}$$</div>
+          <div class="eq">$$88.4+c\ \Rightarrow\ \boxed{\approx 90\ \text{mm}}$$</div>
+          <div class="why"><b class="q">ليش؟</b>
+            <ul style="margin:.3em 0">
+              <li><b>0.4:</b> غطاء ببراغي وحشوة كاملة الوجه، يعني الحالة (d).</li>
+              <li><b>1.7 m:</b> البراغي برّا الجسم، فدائرتها أكبر من 1.5.</li>
+              <li><b>90 mm!</b> لأن المسطح ينحني مثل المسطرة. والنتيجة: الأفضل نستخدم رأس مقبب مشفّه (flanged domed head).</li>
+            </ul></div>
+          <p class="muted" style="font-size:13.5px">الحساب الدقيق 88.2، والكتاب 88.4 (تقريب). وبعد إضافة c قرّبوه إلى 90 mm.</p>
+        </div>
+
+        <div class="step">
+          <h4>الخلاصة: قارن الرؤوس</h4>
+          <figure><svg viewBox="0 0 420 200" id="e1-bars" aria-label="مقارنة السمك"></svg></figure>
+          <div class="note aha"><span class="t">💡 الدرس الكبير</span>نفس الضغط ونفس القطر، والفرق كله بالشكل: البيضوي 15، والتورِي 22، والمسطح 90! «القبة تدفع الضغط، والمسطح ينحني».</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="e1-sheet">
+    <h2><span class="num">✍</span>شلون تكتبه بورقة الامتحان</h2>
+    <div class="card">
+      <div class="problem" style="font-family:var(--mono);font-size:14.5px;line-height:1.9">
+        Design P = (14 − 1) × 1.1 = 14.3 bar = 1.43 N/mm²<br>
+        f = 85 N/mm² (C.S. @ 300 °C, Table 13.2) ; J = 1 (fully radiographed)<br>
+        <b>Shell:</b> e = (1.43 × 1500)/(2×1×85 − 1.43) = 12.7 mm ; +2 = 14.7 → <b>15 mm</b><br>
+        <b>Torispherical:</b> Rc = 1.5 m, Rk = 0.09 m, Cs = ¼(3 + √(1.5/0.09)) = 1.77<br>
+        &nbsp;&nbsp;e = (1.43×1500×1.77)/(2×85×1 + 1.43(1.77−0.2)) = <b>22.0 mm</b><br>
+        <b>Ellipsoidal:</b> e = (1.43×1500)/(2×85 − 0.2×1.43) = 12.7 mm → use <b>15 mm</b> (same as shell) ✔ most economical<br>
+        <b>Flat (full-face gasket):</b> Cp = 0.4, De = 1.7 m<br>
+        &nbsp;&nbsp;e = 0.4 × 1700 × √(1.43/85) = 88.4 mm ; + c → <b>90 mm</b>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="e1-solver">
+    <h2><span class="num">🎯</span>حاسبة رقمك: حط معطياتك وشوف الحل</h2>
+    <p class="lead">القيم الافتراضية هي أرقام المثال. غيّر الضغط (أو أي معطى حسب رقمك)، والحل كله ينكتب من جديد.</p>
+    <div class="card solver">
+      <div class="form" id="s1-form">
+        <label>الضغط P (bar)<input type="number" id="s1-P" value="14" step="0.1" inputmode="decimal"></label>
+        <label>نوع الضغط<div class="seg" id="s1-Ptype"><button data-v="abs" class="on">مطلق abs</button><button data-v="g">مقياسي gauge</button></div></label>
+        <label>معامل ضغط التصميم<div class="seg" id="s1-fac"><button data-v="1.1" class="on">1.1 (المثال)</button><button data-v="1.2">1.2 (السلايد)</button><button data-v="1">1.0</button></div></label>
+        <label>الحرارة T (°C)<input type="number" id="s1-T" value="300" step="1" inputmode="decimal"></label>
+        <label class="wide">المادة<select id="s1-mat"></select></label>
+        <label>نوع اللحام<select id="s1-joint"><option value="0">مزدوج (Double)</option><option value="1">مفرد مع شريط (Single)</option></select></label>
+        <label>الفحص بالأشعة<select id="s1-rad"><option value="0">100% (fully)</option><option value="1">Spot</option><option value="2">None</option></select></label>
+        <label>القطر الداخلي Di (m)<input type="number" id="s1-D" value="1.5" step="0.05" inputmode="decimal"></label>
+        <label>سماحية التآكل c (mm)<input type="number" id="s1-c" value="2" step="0.5" inputmode="decimal"></label>
+        <label>Rk / Rc (%)<input type="number" id="s1-rk" value="6" step="0.5" inputmode="decimal"></label>
+        <label>Rc (m) — فارغ = Di<input type="number" id="s1-Rc" placeholder="= Di" step="0.05" inputmode="decimal"></label>
+        <label>تثبيت الغطاء المسطح<select id="s1-cp"><option value="d">(d) براغي + حشوة كاملة · Cp 0.4</option><option value="e">(e) براغي + حشوة ضيقة · Cp 0.55</option><option value="bc">(b,c) ملحوم · Cp 0.55</option><option value="a">(a) مشفّه فقط · Cp 0.45</option></select></label>
+        <label>De للمسطح (m)<input type="number" id="s1-De" value="1.7" step="0.05" inputmode="decimal"></label>
+        <label>J للرؤوس المقببة<select id="s1-jh"><option value="1">1 (مكبوس بدون لحام، مثل المثال)</option><option value="same">نفس J الجسم</option></select></label>
+      </div>
+      <div class="row" style="margin-top:12px"><button class="btn small ghost" id="s1-reset">↺ أرقام المثال</button></div>
+      <div id="s1-out" style="margin-top:8px"></div>
+    </div>
+    <button class="done-btn" data-done="ex131">✔ فهمت المثال وأكدر أحلّه بأرقامي</button>
+  </div>
+</section>
+
+<!-- ===================== CHEAT SHEET ===================== -->
+<section class="view" id="v-cheat" data-view="cheat">
+  <div class="hero">
+    <span class="kicker">📄 آخر ساعة قبل الامتحان</span>
+    <h1>ورقة المراجعة الأخيرة</h1>
+    <p>كل اللي لازم يكون براسك بصفحة وحدة. اقراها مرتين وغمّض عيونك ورددها.</p>
+  </div>
+
+  <div class="sec">
+    <h2>🔴 الفصل الأول: القوانين (حفظ)</h2>
+    <div class="cheat">
+      <div class="card"><h3>أسطوانة <span class="en muted">(13.39a)</span></h3><div class="eq">$$e=\frac{P_iD_i}{2Jf-P_i}+c$$</div><small class="muted">«2 للأنبوب»</small></div>
+      <div class="card"><h3>كرة <span class="en muted">(13.40b)</span></h3><div class="eq">$$e=\frac{P_iD_i}{4Jf-1.2P_i}+c$$</div><small class="muted">«4 للكرة، و 1.2 وياها»</small></div>
+      <div class="card"><h3>نصف كروي</h3><div class="eq">$$e=0.6\,e_{shell}$$</div><small class="muted">«نص كرة = 60%»</small></div>
+      <div class="card"><h3>بيضوي 2:1 <span class="en muted">(13.43)</span></h3><div class="eq">$$e=\frac{P_iD_i}{2Jf-0.2P_i}$$</div><small class="muted">«توأم الأسطوانة بخصم 0.2»</small></div>
+      <div class="card"><h3>تورِي <span class="en muted">(13.44)</span></h3><div class="eq">$$e=\frac{P_iR_cC_s}{2fJ+P_i(C_s-0.2)}$$</div><div class="eq">$$C_s=\tfrac14\left(3+\sqrt{R_c/R_k}\right)$$</div><small class="muted">مقامه «+» · Rk = 6% Rc · Rc = D · J = 1</small></div>
+      <div class="card"><h3>مسطح <span class="en muted">(13.42)</span></h3><div class="eq">$$e=C_pD_e\sqrt{P_i/f}$$</div><small class="muted">Cp: full face 0.4 · flanged-only 0.45 · welded / narrow 0.55</small></div>
+      <div class="card"><h3>خزان <span class="en muted">(13.130)</span></h3><div class="eq">$$e_s=\frac{\rho_LH_Lg}{2f_tJ}\,\frac{D_t}{10^3}$$</div><small class="muted">= أسطوانة بـ P = ρgH</small></div>
+      <div class="card"><h3>قطر الفوهة</h3><div class="eq">$$d_{opt}=282\,G^{0.52}\rho^{-0.37}\ (\text{CS})$$</div><div class="eq">$$d_{opt}=226\,G^{0.50}\rho^{-0.35}\ (\text{SS})$$</div><small class="muted">G kg/s · ρ kg/m³ · d mm</small></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>🟡 أرقام لازم تكون براسك</h2>
+    <div class="card">
+      <h3 style="margin-top:0">الفصل الأول</h3>
+      <div class="kn">
+        <span>ضغط التصميم: <b>1.2 P<sub>op</sub></b> (السلايد) · المثال: <b>1.1 × (P − 1)</b></span>
+        <span>مطلق ← مقياسي: <b>− 1 bar</b></span>
+        <span class="en">1 bar = <b>0.1 N/mm²</b></span>
+        <span>كاربون ستيل بـ <b>300 °C → f = 85</b></span>
+        <span>J مزدوج: <b>1.0 / 0.85 / 0.7</b></span>
+        <span>J مفرد: <b>0.9 / 0.80 / 0.65</b></span>
+        <span>التآكل c: <b>1</b> جاف · <b>2</b> رطب · <b>≥3</b> مائي</span>
+        <span>أقل سُمك: <b>5-7-9-10-12 mm</b></span>
+        <span>المفصل: <b>Rk/Rc ≥ 0.06</b> · <b>Rc ≤ D</b></span>
+        <span>سائل <b>1–3 m/s</b> · بخار <b>15–30 m/s</b></span>
+      </div>
+      <h3>الفصل الثاني (القوانين تنطى، بس هذي الأرقام احفظها)</h3>
+      <div class="kn">
+        <span>الأفقي: <b>50% full</b></span>
+        <span>القطرة: <b>100 micron</b></span>
+        <span>زمن المكوث: <b>3 min</b></span>
+        <span>النحافة <b>12L<sub>ss</sub>/d = 3–4</b> (لا تتجاوز 5)</span>
+        <span class="en"><b>°R = °F + 460</b></span>
+        <span>ρ بـ <b>lb/ft³</b> · d بـ <b>in</b> · L بـ <b>ft</b></span>
+        <span>Q<sub>g</sub> بـ <b>MMscfd</b> · Q<sub>l</sub> بـ <b>bpd</b> · P بـ <b>psia</b></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>⚠️ أهم الفخاخ</h2>
+    <div class="card">
+      <ol style="margin:0;padding-inline-start:1.3em">
+        <li>اطرح 1 bar إذا الضغط مطلق.</li>
+        <li>حوّل bar إلى N/mm² (÷10)، والمتر إلى mm (×1000).</li>
+        <li>ضيف c، وقرّب السُمك <b>للأعلى</b>.</li>
+        <li>البيضوي: 0.2P. والتورِي: مقامه «+» وبسطه Rc×Cs.</li>
+        <li>المسطح: De حسب التثبيت (دائرة البراغي مثلاً).</li>
+        <li>الرأس المكبوس: J = 1.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+<script defer src="js/data.js"></script>
+<script defer src="js/app.js"></script>
+<script defer src="js/ex131.js"></script>
+</body>
+</html>
