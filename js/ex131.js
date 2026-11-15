@@ -1,7 +1,7 @@
 /* ===== Example 13.1 — static chart + "your number" solver ===== */
 (function(){
 const ED = window.ED; ED.onView = ED.onView || {};
-const plate = x => Math.ceil(x - 0.25);   // practical plate rounding (book: 14.7→15, 90.2→90)
+const plate = ED.plate = x => Math.ceil(x - 0.25);   // practical plate rounding (book: 14.7→15, 90.2→90)
 
 ED.onView.ex131 = function(){
   const $=ED.$, $$=ED.$$, F=ED.fmt, T=ED.tex;
@@ -32,17 +32,25 @@ ED.onView.ex131 = function(){
     return `<div class="step"><h4>${title}</h4>${texs.map(t=>`<div class="eq">${T(t)}</div>`).join('')}${why?`<div class="why"><b class="q">ليش؟</b> ${why}</div>`:''}${extra}</div>`;
   }
   function solve(){
-    const out=$('#s1-out');
-    const P=+$('#s1-P').value, Tc=+$('#s1-T').value, mat=$('#s1-mat').value, jt=+$('#s1-joint').value, rad=+$('#s1-rad').value;
-    const Dm=+$('#s1-D').value, c=+$('#s1-c').value, rk=+$('#s1-rk').value/100, RcIn=$('#s1-Rc').value, cpk=$('#s1-cp').value, DeIn=+$('#s1-De').value;
-    const abs = segs['s1-Ptype']==='abs', fac=+segs['s1-fac'];
-    const deBox=$('#s1-De'); const deAuto = (cpk==='a'||cpk==='bc'); deBox.disabled = deAuto;
-    if(!(P>0&&Dm>0&&c>=0&&rk>0)){ out.innerHTML='<div class="note trap"><span class="t">⚠️</span>دخّل أرقام موجبة.</div>'; return; }
+    const out=$('#s1-out'); const cpk=$('#s1-cp').value; $('#s1-De').disabled=(cpk==='a'||cpk==='bc');
+    const r = ED.vesselSolve({P:+$('#s1-P').value, Tc:+$('#s1-T').value, mat:$('#s1-mat').value, jt:+$('#s1-joint').value, rad:+$('#s1-rad').value,
+      Dm:+$('#s1-D').value, c:+$('#s1-c').value, rkPct:+$('#s1-rk').value, RcIn:$('#s1-Rc').value, cpk, DeIn:+$('#s1-De').value,
+      abs: segs['s1-Ptype']==='abs', fac:+segs['s1-fac'], jhSame: $('#s1-jh').value==='same'});
+    out.innerHTML = r.html; if(r.bars) ED.bars(out.querySelector('[data-bars]'), r.bars);
+  }
+  solve();
+};
+ED.vesselSolve = function(inp){
+  const T=ED.tex, F=ED.fmt;
+  const step=(title, texs, why, extra='')=>`<div class="step"><h4>${title}</h4>${texs.map(t=>`<div class="eq">${T(t)}</div>`).join('')}${why?`<div class="why"><b class="q">ليش؟</b> ${why}</div>`:''}${extra}</div>`;
+    const {P,Tc,mat,jt,rad,Dm,c,RcIn,cpk,DeIn,abs,fac,jhSame}=inp; const rk=inp.rkPct/100;
+    const deAuto = (cpk==='a'||cpk==='bc');
+    if(!(P>0&&Dm>0&&c>=0&&rk>0)) return {html:'<div class="note trap"><span class="t">⚠️</span>دخّل أرقام موجبة.</div>'};
     const st = ED.stressAt(mat,Tc); const f=st.f;
-    if(f==null){ out.innerHTML=`<div class="note trap"><span class="t">⚠️</span>${st.note}.</div>`; return; }
+    if(f==null) return {html:`<div class="note trap"><span class="t">⚠️</span>${st.note}.</div>`};
     const Pg = abs? P-1 : P, Pd = Pg*fac, Pi = Pd/10, J = ED.JTAB[jt][rad], Di=Dm*1000;
-    const Jh = $('#s1-jh').value==='same' ? J : 1;
-    const denC = 2*J*f - Pi; if(denC<=0){ out.innerHTML='<div class="note trap"><span class="t">⚠️</span>الضغط عالي جداً على هذا الإجهاد.</div>'; return; }
+    const Jh = jhSame ? J : 1;
+    const denC = 2*J*f - Pi; if(denC<=0) return {html:'<div class="note trap"><span class="t">⚠️</span>الضغط عالي جداً على هذا الإجهاد.</div>'};
     const eC = Pi*Di/denC, eCc=eC+c, pC=plate(eCc);
     const minT = ED.minThk(Dm);
     const eH = 0.6*eC, eHc=eH+c, pH=plate(eHc);
@@ -90,13 +98,11 @@ ED.onView.ex131 = function(){
       <tr><td>تورِي</td><td>${F(eT,2)}</td><td>${F(eTc,2)}</td><td class="hl">${pT}</td></tr>
       <tr><td>نصف كروي</td><td>${F(eH,2)}</td><td>${F(eHc,2)}</td><td class="hl">${pH}</td></tr>
       <tr><td>مسطح</td><td>${F(eF,1)}</td><td>${F(eFc,1)}</td><td class="hl">${pF}</td></tr></table></div>
-      <figure><svg id="s1-bars"></svg></figure>
+      <figure><svg data-bars></svg></figure>
       <p class="muted" style="font-size:13px">التقريب العملي: لأقرب لوح للأعلى. والكتاب قرّب المسطح 90.2 → 90.</p>`;
-    out.innerHTML = h;
-    ED.bars($('#s1-bars'),[
+    return {html:h, res:{Pi,f,J,eC,pC,eE,pE,Cs,eT,eF,pF,eH}, bars:[
       {label:'جسم',v:pC,text:pC+' mm',color:'var(--cyan)'},{label:'نصف كروي',v:pH,text:pH+' mm',color:'var(--violet)'},
-      {label:'بيضوي',v:pE,text:pE+' mm',color:'var(--green)'},{label:'تورِي',v:pT,text:pT+' mm',color:'var(--amber)'},{label:'مسطح',v:pF,text:pF+' mm',color:'var(--red)'}]);
-  }
-  solve();
+      {label:'بيضوي',v:pE,text:pE+' mm',color:'var(--green)'},{label:'تورِي',v:pT,text:pT+' mm',color:'var(--amber)'},{label:'مسطح',v:pF,text:pF+' mm',color:'var(--red)'}]};
 };
+
 })();

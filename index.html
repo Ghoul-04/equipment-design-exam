@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="css/style.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23081325'/%3E%3Crect x='20' y='14' width='24' height='36' rx='12' fill='none' stroke='%2366d6ec' stroke-width='4'/%3E%3Cpath d='M32 6v8M32 50v8' stroke='%23ffb84d' stroke-width='4'/%3E%3C/svg%3E">
 <script>try{var t=localStorage.getItem('ed-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}
 window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],packages:{'[+]':['ams']}},
@@ -82,6 +83,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],packag
       <a href="#ch2" class="nav-ch2"><span class="ic">2</span><span><b>الفصل الثاني: العوازل</b><small>الأجزاء والرسم والوحدات وتكرار C<sub>D</sub></small></span><span class="st" data-road="ch2">ابدأ</span></a>
       <a href="#ex41" class="nav-ch2"><span class="ic">★</span><span><b>مثال 4-1: العازلة العمودية</b><small>جدول 4-1 وحاسبة رقمك</small></span><span class="st" data-road="ex41">ابدأ</span></a>
       <a href="#ex42" class="nav-ch2"><span class="ic">★</span><span><b>مثال 4-2: العازلة الأفقية</b><small>جدول 4-2 ورسم منطقة التصميم</small></span><span class="st" data-road="ex42">ابدأ</span></a>
+      <a href="#lab" class="nav-lab"><span class="ic">3D</span><span><b>المختبر ثلاثي الأبعاد</b><small>شوف سُمك الرؤوس، وهل القطرات تلحق تنزل</small></span><span class="st">جرّب</span></a>
       <a href="#practice" class="nav-lab"><span class="ic">✍️</span><span><b>بطاقات واختبار وتمارين</b><small>مسائل بأرقام عشوائية والحل يطلع خطوة خطوة</small></span><span class="st">تدرّب</span></a>
       <a href="#cheat"><span class="ic">📄</span><span><b>ورقة المراجعة الأخيرة</b><small>كل القوانين والأرقام بصفحة وحدة لآخر ساعة</small></span><span class="st">راجع</span></a>
     </div>
@@ -1167,6 +1169,83 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],packag
   </div>
 </section>
 
+<!-- ===================== 3D LAB ===================== -->
+<section class="view" id="v-lab" data-view="lab">
+  <div class="hero">
+    <span class="kicker">🧪 مختبر ثلاثي الأبعاد</span>
+    <h1>شوف القوانين بعيونك</h1>
+    <p>اسحب بإصبعك حتى تدوّر المجسم، وقرّب بإصبعين. وغيّر الأرقام وشوف شنو يصير.</p>
+  </div>
+
+  <div class="sec">
+    <h2><span class="num">3D</span>الوعاء ورؤوسه: مقطع يبيّن السُمك</h2>
+    <div class="card">
+      <div class="lab3d" id="lab-vessel"><div class="lab-msg">⏳ جاي يحمّل المجسم…</div></div>
+      <div class="chips" id="lv-heads">
+        <button class="chip on" data-h="ellip">بيضوي 2:1</button><button class="chip" data-h="tori">تورِي</button><button class="chip" data-h="hemi">نصف كروي</button><button class="chip" data-h="flat">مسطح</button>
+      </div>
+      <div class="slider"><span>P</span><input type="range" id="lv-P" min="0.3" max="4" step="0.01" value="1.43"><span class="v" id="lv-Pv"></span></div>
+      <div class="slider"><span>D</span><input type="range" id="lv-D" min="0.8" max="3" step="0.05" value="1.5"><span class="v" id="lv-Dv"></span></div>
+      <div class="slider"><span>f</span><input type="range" id="lv-f" min="70" max="240" step="1" value="85"><span class="v" id="lv-fv"></span></div>
+      <div class="kn" id="lv-out" style="margin-top:8px"></div>
+      <p class="muted" style="font-size:13.5px;margin:8px 0 0">اللون البرتقالي = مقطع الجدار (السُمك مكبّر بالرسم بنفس النسبة لكل الأجزاء). قارن الرأس بالجسم، وشوف المسطح شكد سميك!</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2><span class="num">3D</span>محاكي العازلة: هل القطرات تلحق تنزل؟</h2>
+    <div class="card">
+      <div class="lab3d" id="lab-sep"><div class="lab-msg">⏳ جاي يحمّل المحاكي…</div></div>
+      <div class="chips" id="ls-type"><button class="chip on" data-t="h">أفقية</button><button class="chip" data-t="v">عمودية</button></div>
+      <div class="slider"><span>Q<sub>g</sub></span><input type="range" id="ls-q" min="0.2" max="3" step="0.05" value="1"><span class="v" id="ls-qv"></span></div>
+      <div class="slider"><span>d</span><input type="range" id="ls-d" min="0.6" max="1.6" step="0.05" value="1"><span class="v" id="ls-dv"></span></div>
+      <div class="slider" id="ls-Lrow"><span>L</span><input type="range" id="ls-L" min="0.6" max="1.8" step="0.05" value="1"><span class="v" id="ls-Lv"></span></div>
+      <div class="row" style="justify-content:center;gap:16px;margin-top:6px"><span class="res big" id="ls-ok"></span><span class="res big" id="ls-bad" style="background:color-mix(in srgb,var(--red) 16%,transparent);color:var(--red);border-color:color-mix(in srgb,var(--red) 45%,transparent)"></span></div>
+      <div class="meaning" id="ls-msg" style="margin-top:10px"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRACTICE ===================== -->
+<section class="view" id="v-practice" data-view="practice">
+  <div class="hero">
+    <span class="kicker">✍️ تدريب</span>
+    <h1>بطاقات، واختبار شامل، ومسائل بأرقام جديدة</h1>
+    <p>أحسن طريقة للحفظ إنك <b>تسترجع</b> مو بس تقرا. جرّب تكتب القانون من راسك قبل لا تقلب البطاقة.</p>
+  </div>
+  <div class="chips" data-chips>
+    <button class="chip" data-go="pr-cards">🃏 البطاقات</button>
+    <button class="chip" data-go="pr-gen">🎲 مسائل جديدة</button>
+    <button class="chip" data-go="pr-quiz">📝 الاختبار الشامل</button>
+  </div>
+
+  <div class="sec" id="pr-cards">
+    <h2><span class="num">🃏</span>بطاقات الحفظ</h2>
+    <div class="chips" id="fc-set"><button class="chip on" data-s="ch1">🔴 قوانين الفصل الأول</button><button class="chip" data-s="key">🟡 الأرقام المفتاحية</button><button class="chip" data-s="ch2">🟢 قوانين الفصل الثاني (تعرّف)</button></div>
+    <div class="card fc" id="fc"></div>
+  </div>
+
+  <div class="sec" id="pr-gen">
+    <h2><span class="num">🎲</span>مسألة بأرقام جديدة (مثل رقمك بالامتحان)</h2>
+    <div class="chips" id="pg-type"><button class="chip on" data-p="vessel">سُمك وعاء (13.1)</button><button class="chip" data-p="v">عازلة عمودية (4-1)</button><button class="chip" data-p="h">عازلة أفقية (4-2)</button></div>
+    <div class="card" id="pg-card">
+      <div id="pg-q"></div>
+      <div class="form" style="grid-template-columns:1fr auto;margin-top:12px;align-items:end">
+        <label><span id="pg-ask"></span><input type="number" id="pg-ans" step="any" inputmode="decimal" placeholder="اكتب جوابك"></label>
+        <button class="btn small" id="pg-check">تحقق</button>
+      </div>
+      <div id="pg-fb"></div>
+      <div class="row" style="margin-top:12px"><button class="btn small ghost" id="pg-next">👁 اكشف الخطوة الجاية</button><button class="btn small ghost" id="pg-all">اكشف الحل كله</button><button class="btn small" id="pg-new">🎲 مسألة ثانية</button></div>
+      <div id="pg-sol" style="margin-top:10px"></div>
+    </div>
+  </div>
+
+  <div class="sec" id="pr-quiz">
+    <h2><span class="num">📝</span>الاختبار الشامل (20 سؤال)</h2>
+    <div class="card quiz" data-quiz="all"></div>
+  </div>
+</section>
+
 <!-- ===================== CHEAT SHEET ===================== -->
 <section class="view" id="v-cheat" data-view="cheat">
   <div class="hero">
@@ -1240,5 +1319,6 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],packag
 <script defer src="js/app.js"></script>
 <script defer src="js/ex131.js"></script>
 <script defer src="js/sep.js"></script>
+<script defer src="js/practice.js"></script>
 </body>
 </html>

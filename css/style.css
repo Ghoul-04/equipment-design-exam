@@ -300,3 +300,14 @@ table.num th{font-family:var(--font)}
 .bub{animation:rise 3s linear infinite}
 .flow{stroke-dasharray:6 6;animation:flow 1s linear infinite}
 #sep-fig svg{width:100%;height:auto;display:block}
+
+/* 3D lab */
+.lab3d{position:relative;height:clamp(300px,52vw,460px);border-radius:14px;border:1px solid var(--line2);overflow:hidden;
+  background:radial-gradient(120% 100% at 50% 0%,color-mix(in srgb,var(--cyan) 12%,transparent),transparent 60%),var(--bg2);touch-action:none;margin-bottom:10px}
+.lab3d canvas{display:block;width:100%!important;height:100%!important}
+.lab-msg{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);text-align:center;padding:20px}
+/* flashcards */
+.fc{min-height:260px;display:flex;flex-direction:column;justify-content:center}
+.fc-face{text-align:center;padding:10px 4px}
+.btn:disabled{opacity:.45;cursor:default}
+#ls-ok,#ls-bad{font-family:var(--font);direction:rtl}

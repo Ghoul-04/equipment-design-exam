@@ -165,13 +165,14 @@ ED.onView.ex42 = function(v){
 };
 
 /* ---------- solvers ---------- */
-function initSolver(box,type){
+function initSolver(box,type,preset={},opts={}){
   const $=s=>box.querySelector(s);
-  const dflt={Qg:10,S:0.6,Ql:2000,API:40,P:1000,T:60,Z:0.84,mu:0.013,dm:140,tr:3,ds: type==='v'?'24,30,36,42,48':'16,20,24,30,36,42,48'};
+  const dflt=Object.assign({Qg:10,S:0.6,Ql:2000,API:40,P:1000,T:60,Z:0.84,mu:0.013,dm:140,tr:3,ds: type==='v'?'24,30,36,42,48':'16,20,24,30,36,42,48'},preset);
   const fields=[['Qg','Q<sub>g</sub> (MMscfd)'],['S','S (gas sp. gr.)'],['Ql','Q<sub>l</sub> (bpd)'],['API','API'],['P','P (psia)'],['T','T (°F)'],['Z','Z'],['mu','μ (cp)'],['dm','d<sub>m</sub> (micron)'],['tr','t<sub>r</sub> (min)']];
   box.innerHTML = `<div class="form">${fields.map(([k,l])=>`<label><span>${l}</span><input type="number" data-k="${k}" value="${dflt[k]}" step="any" inputmode="decimal"></label>`).join('')}
     <label class="wide">الأقطار اللي نجرّبها (in)<input type="text" data-k="ds" value="${dflt.ds}" inputmode="decimal"></label></div>
     <div class="row" style="margin-top:12px"><button class="btn small ghost" data-reset>↺ أرقام المثال</button></div><div data-out style="margin-top:8px"></div>`;
+  if(opts.hideForm){ box.querySelector('.form').classList.add('hide'); box.querySelector('[data-reset]').parentElement.classList.add('hide'); }
   box.querySelector('[data-reset]').addEventListener('click',()=>{ box.querySelectorAll('[data-k]').forEach(i=>i.value=dflt[i.dataset.k]); run(); });
   box.querySelectorAll('[data-k]').forEach(i=>i.addEventListener('input',run));
   const step=(t,texs,why,extra='')=>`<div class="step"><h4>${t}</h4>${texs.map(x=>`<div class="eq">${ED.tex(x)}</div>`).join('')}${why?`<div class="why"><b class="q">ليش؟</b> ${why}</div>`:''}${extra}</div>`;
@@ -186,7 +187,7 @@ function initSolver(box,type){
     h+=step('الحرارة والكثافات',[`\\begin{aligned}T&=${F(i.T)}+460=${F(p.T)}\\ ^\\circ\\text{R}\\\\\\rho_l&=62.4\\left[\\tfrac{141.5}{131.5+${F(i.API)}}\\right]=${F(p.rl,2)}\\\\\\rho_g&=2.70\\,\\tfrac{(${F(i.S)})(${F(i.P)})}{(${F(p.T)})(${F(i.Z)})}=${F(p.rg,3)}\\end{aligned}`],'حرارة مطلقة، وكثافات بـ lb/ft³.');
     h+=step('تكرار C<sub>D</sub>',[],'' ,`<div class="tbl-wrap"><table class="num"><tr><th>#</th><th>C<sub>D</sub></th><th>V<sub>t</sub></th><th>Re</th><th>C<sub>D</sub> جديد</th></tr>${it.map((r,k)=>`<tr class="${k===it.length-1?'pick':''}"><td>${k+1}</td><td>${F(r.cd,3)}</td><td>${F(r.Vt,3)}</td><td>${F(r.Re,1)}</td><td>${F(r.cdn,3)}</td></tr>`).join('')}</table></div><p class="muted" style="font-size:13.5px">ثبت على <b class="en">C<sub>D</sub> = ${F(cd,3)}</b>. ${type&&i.dm===140&&i.P===1000?'(الكتاب وقف على 0.851، والفرق تقريب.)':''}</p>`);
     if(type==='v'){
-      const d2=5040*K, dmin=Math.sqrt(d2), liq=i.tr*i.Ql/0.12;
+      const d2=5040*K, dmin=Math.sqrt(d2), liq=i.tr*i.Ql/0.12; box.dataset.key=dmin;
       h+=step('سعة الغاز: أقل قطر',[`\\begin{aligned}d^2&=5040\\,[${F(tzq,3)}]\\,[${F(br,5)}]\\\\&=${F(d2,1)}\\\\d_{min}&=${F(dmin,2)}\\ \\text{in}\\end{aligned}`],'الغاز الصاعد لازم يكون أبطأ من نزول القطرة.');
       h+=step('سعة السائل',[`\\begin{aligned}d^2h&=\\frac{${F(i.tr)}\\times${F(i.Ql)}}{0.12}=${F(liq,0)}\\\\h&=\\frac{${F(liq,0)}}{d^2}\\end{aligned}`],'');
       const rows=ds.map(d=>{ const hh=liq/(d*d), a=(hh+76)/12, b=(hh+dmin+40)/12, L=Math.max(a,b); return {d,h:hh,L,SR:12*L/d,ok:d>=dmin}; });
@@ -198,7 +199,7 @@ function initSolver(box,type){
       ED.sepChart(out.querySelector('[data-ch]'),{xmin:Math.max(6,Math.min(ds[0],dmin)-4),xmax:ds[ds.length-1]+2,ymax:Math.max(12,Math.ceil(Math.min(30,Math.max(...rows.map(r=>r.L)))/2)*2+2),dmin,cstart:dmin,
         curve:d=>vLss(liq/(d*d),dmin), points:rows.filter(r=>r.ok).map(r=>({d:r.d,L:r.L,pick:r===pk}))});
     } else {
-      const dL=420*K, liq=i.tr*i.Ql/0.7;
+      const dL=420*K, liq=i.tr*i.Ql/0.7; box.dataset.key=dL;
       h+=step('سعة الغاز',[`\\begin{aligned}dL_{eff}&=420\\,[${F(tzq,3)}]\\,[${F(br,5)}]\\\\&=${F(dL,2)}\\end{aligned}`],'لكل قطر: L<sub>eff</sub> = هذا الرقم ÷ d.');
       h+=step('سعة السائل',[`d^2L_{eff}=\\frac{${F(i.tr)}\\times${F(i.Ql)}}{0.7}=${F(liq,0)}`],'');
       const rows=ds.map(d=>{ const r=hLss(dL,liq,d); return {d,g:r.g,l:r.l,L:r.Lss,gov:r.gov,SR:12*r.Lss/d}; });
@@ -211,8 +212,9 @@ function initSolver(box,type){
         curve:d=>hLss(dL,liq,d).Lss, points:rows.map(r=>({d:r.d,L:r.L,pick:r===pk}))});
     }
   }
-  run();
+  run(); return run;
 }
+ED.initSepSolver = initSolver;
 
 /* ---------- quiz ---------- */
 ED.QUIZ.ch2 = [
