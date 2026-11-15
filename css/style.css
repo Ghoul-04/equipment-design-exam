@@ -344,3 +344,77 @@ footer{margin-top:44px;color:var(--muted);font-size:13px;text-align:center}
   .layout{display:block}main{padding:0}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* ===== phone layout v3 ===== */
+.brand em{font-style:normal}
+.topbar{transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.chips[data-chips]{transition:top .3s cubic-bezier(.2,.8,.2,1)}
+@media(max-width:1099px){
+  body.hdr-hide .topbar{transform:translateY(-100%)}
+  body.hdr-hide .chips[data-chips]{top:0!important;padding-top:max(8px,env(safe-area-inset-top))}
+}
+@media(max-width:600px){
+  body{font-size:16px;line-height:1.8}
+  .brand .sub{display:none}
+  .brand{font-size:16.5px}
+  main{padding:10px 10px 110px}
+  .hero{padding:22px 18px 20px;border-radius:22px}
+  .hero h1{font-size:25px;margin-bottom:6px}
+  .hero p{font-size:15px;line-height:1.75}
+  .hero .kicker{font-size:12px;padding:4px 10px;margin-bottom:10px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:inline-block}
+  .chips[data-chips]{margin:10px -10px 0;padding:7px 10px;top:56px}
+  .chips[data-chips] .chip{min-height:34px;padding:5px 13px;font-size:13.5px}
+  .topbar{padding:8px 12px;padding-top:max(8px,env(safe-area-inset-top))}
+  .sec{margin:28px 0}
+  .sec>h2{font-size:21px;gap:8px;margin-bottom:10px}
+  .card{padding:16px 14px;margin:12px 0;border-radius:18px}
+  .fhead h3{font-size:18px}
+  .fhead .en{font-size:12.5px;flex-basis:100%;order:3}
+  .fhead .tag{margin-inline-start:auto}
+  .eq{margin:10px -4px;padding:10px 6px;border-radius:14px}
+  .meaning,.step .why{padding:11px 12px}
+  .note{padding:12px 12px;padding-inline-start:40px}
+  .note::before{inset-inline-start:12px;top:15px;width:19px;height:19px}
+  .ltabs button{font-size:13px;gap:4px;min-height:38px}
+  .ltabs button svg{width:15px;height:15px;flex-basis:15px}
+  /* steps: number inline with the heading, full-width content */
+  .step{padding-inline-start:0;margin:0;padding:16px 0}
+  .step+.step{border-top:1px solid var(--line)}
+  .step::after{display:none}
+  .step::before{position:static;float:right;width:28px;height:28px;font-size:13.5px;margin-inline-start:10px;margin-top:1px;box-shadow:none}
+  .step h4{font-size:16.5px;margin:0 0 8px;min-height:28px;display:flex;align-items:center;flex-wrap:wrap;gap:0 6px}
+  .step h4 .en{display:none}
+  .step>*:not(h4){clear:both}
+  .steps{margin-top:-6px}
+  /* tables & forms */
+  .tbl-wrap{border-radius:14px;margin:10px 0}
+  .form{gap:10px}
+  .form input,.form select{min-height:44px;padding:9px 10px}
+  .seg button{font-size:12.5px}
+  .problem{font-size:15.5px;padding:14px}
+  .kn span{font-size:13.5px;padding:6px 10px}
+  .road a{padding:13px;min-height:68px;gap:12px}
+  .road a .ic{width:40px;height:40px;flex-basis:40px;border-radius:12px}
+  .road a .st{display:none}
+  .fact{padding:14px 10px}
+  .fact b{font-size:22px}
+  .dash{gap:14px}
+  .ring,.ring svg{width:80px;height:80px}
+  .ring b{font-size:19px}
+  .pager{gap:8px;margin-top:24px}
+  .pager a{padding:11px 12px;border-radius:16px}
+  .pager a b{font-size:14px}
+  .slider{gap:8px}
+  .slider .v{min-width:70px;font-size:12px}
+  .lab3d{height:300px}
+  details.ro{padding:0 12px}
+  .done-btn{min-height:48px;font-size:14.5px}
+  .tabbar a{font-size:10.5px;min-height:48px}
+}
+details.ro summary{display:block;position:relative;padding-inline-end:26px;line-height:1.7}
+details.ro summary .tag{margin-inline-end:6px}
+details.ro summary::after{position:absolute;left:4px;top:50%;margin-top:-6px}
+@media(max-width:600px){
+  .step::before{margin-inline-start:0;margin-left:10px}
+  .step h4{display:block;line-height:28px}
+}

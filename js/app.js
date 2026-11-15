@@ -33,7 +33,7 @@ function route(){
   $$('.tabbar a').forEach(a=>a.classList.toggle('on',a.dataset.tab===grp));
   if(name!=='home') ED.store.set('ed-last',name);
   setupReveal(v); paintDash();
-  closeNav(); window.scrollTo(0,0);
+  closeNav(); document.body.classList.remove('hdr-hide'); window.scrollTo(0,0);
   document.title = (v.querySelector('h1')?.textContent.replace(/\s+/g,' ').trim()||'') + ' · تصميم المعدات';
 }
 window.addEventListener('hashchange',route);
@@ -191,6 +191,11 @@ function paintDash(){
   else if(last && views[last]){ $('#dashTitle').textContent=`خلصت ${n} من ${ids.length}`; $('#dashSub').textContent=`آخر مكان كنت بيه: ${NAMES[last]||''}`; $('#dashGo').href='#'+last; $('#dashGo').textContent='كمّل من وين وكفت ←'; }
   else if(nextUndone){ $('#dashGo').href='#'+nextUndone; }
 }
+
+/* ---------- hide top bar while scrolling down (phones/tablets) ---------- */
+let lastY=scrollY;
+addEventListener('scroll',()=>{ const y=scrollY, d=y-lastY; if(Math.abs(d)<6) return;
+  document.body.classList.toggle('hdr-hide', d>0 && y>140 && innerWidth<1100); lastY=y; },{passive:true});
 
 /* ---------- boot (after all deferred scripts) ---------- */
 document.addEventListener('DOMContentLoaded',()=>{
