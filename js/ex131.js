@@ -45,12 +45,12 @@ ED.vesselSolve = function(inp){
   const step=(title, texs, why, extra='')=>`<div class="step"><h4>${title}</h4>${texs.map(t=>`<div class="eq">${T(t)}</div>`).join('')}${why?`<div class="why"><b class="q">ليش؟</b> ${why}</div>`:''}${extra}</div>`;
     const {P,Tc,mat,jt,rad,Dm,c,RcIn,cpk,DeIn,abs,fac,jhSame}=inp; const rk=inp.rkPct/100;
     const deAuto = (cpk==='a'||cpk==='bc');
-    if(!(P>0&&Dm>0&&c>=0&&rk>0)) return {html:'<div class="note trap"><span class="t">⚠️</span>دخّل أرقام موجبة.</div>'};
+    if(!(P>0&&Dm>0&&c>=0&&rk>0)) return {html:'<div class="note trap"><span class="t"></span>دخّل أرقام موجبة.</div>'};
     const st = ED.stressAt(mat,Tc); const f=st.f;
-    if(f==null) return {html:`<div class="note trap"><span class="t">⚠️</span>${st.note}.</div>`};
+    if(f==null) return {html:`<div class="note trap"><span class="t"></span>${st.note}.</div>`};
     const Pg = abs? P-1 : P, Pd = Pg*fac, Pi = Pd/10, J = ED.JTAB[jt][rad], Di=Dm*1000;
     const Jh = jhSame ? J : 1;
-    const denC = 2*J*f - Pi; if(denC<=0) return {html:'<div class="note trap"><span class="t">⚠️</span>الضغط عالي جداً على هذا الإجهاد.</div>'};
+    const denC = 2*J*f - Pi; if(denC<=0) return {html:'<div class="note trap"><span class="t"></span>الضغط عالي جداً على هذا الإجهاد.</div>'};
     const eC = Pi*Di/denC, eCc=eC+c, pC=plate(eCc);
     const minT = ED.minThk(Dm);
     const eH = 0.6*eC, eHc=eH+c, pH=plate(eHc);
@@ -72,11 +72,11 @@ ED.vesselSolve = function(inp){
       `\\begin{aligned}e&=\\frac{P_iD_i}{2Jf-P_i}\\\\&=\\frac{${F(Pi,4)}\\times${F(Di,1)}}{2\\times${J}\\times${F(f)}-${F(Pi,4)}}\\\\&=\\frac{${F(Pi*Di,1)}}{${F(denC,2)}}=${F(eC,2)}\\ \\text{mm}\\end{aligned}`,
       `\\begin{aligned}e+c&=${F(eC,2)}+${F(c)}=${F(eCc,2)}\\\\&\\Rightarrow\\ \\boxed{${pC}\\ \\text{mm}}\\end{aligned}`],
       `D بالـ mm (${F(Dm)} m × 1000). ضفنا c وقرّبنا لأقرب لوح للأعلى.`,
-      minT? `<div class="note ${pC>=minT?'aha':'warn'}"><span class="t">${pC>=minT?'✓':'⚠️'} فحص أقل سُمك عملي</span>لقطر ${F(Dm)} m أقل سُمك = ${minT} mm${pC>=minT?'، والحل أكبر منه.':'، فخذ '+minT+' mm.'}</div>`:'');
+      minT? `<div class="note ${pC>=minT?'aha':'warn'}"><span class="t">${pC>=minT?'✓':''} فحص أقل سُمك عملي</span>لقطر ${F(Dm)} m أقل سُمك = ${minT} mm${pC>=minT?'، والحل أكبر منه.':'، فخذ '+minT+' mm.'}</div>`:'');
     // 4 hemi
     h += step('رأس نصف كروي (إضافي)', [`\\begin{aligned}e&=0.6\\,e_{shell}=0.6\\times${F(eC,2)}\\\\&=${F(eH,2)}\\ \\text{mm}\\\\e+c&=${F(eHc,2)}\\Rightarrow ${pH}\\ \\text{mm}\\end{aligned}`], 'قاعدة المحاضرة «نص كرة = 60%».');
     // 5 tori
-    const warnT = (rk<0.06?'<div class="note trap"><span class="t">⚠️</span>Rk/Rc أقل من 0.06، فيصير خطر انبعاج (buckling).</div>':'') + (Rc>Dm+1e-9?'<div class="note trap"><span class="t">⚠️</span>Rc لازم يكون ≤ D.</div>':'');
+    const warnT = (rk<0.06?'<div class="note trap"><span class="t"></span>Rk/Rc أقل من 0.06، فيصير خطر انبعاج (buckling).</div>':'') + (Rc>Dm+1e-9?'<div class="note trap"><span class="t"></span>Rc لازم يكون ≤ D.</div>':'');
     h += step('رأس تورِي', [
       `\\begin{aligned}R_c&=${F(Rc)}\\ \\text{m}\\\\R_k&=${F(rk*100)}\\%\\times${F(Rc)}=${F(Rk,4)}\\ \\text{m}\\\\J&=${Jh}\\end{aligned}`,
       `\\begin{aligned}C_s&=\\tfrac14\\left(3+\\sqrt{\\tfrac{${F(Rc)}}{${F(Rk,4)}}}\\right)\\\\&=\\tfrac14\\,(3+${F(Math.sqrt(Rc/Rk),2)})=${F(Cs,2)}\\end{aligned}`,
@@ -92,7 +92,7 @@ ED.vesselSolve = function(inp){
       `e+c=${F(eFc,1)}\\Rightarrow\\boxed{${pF}\\ \\text{mm}}`], `${ED.CP[cpk].ar}.`);
     h += '</div>';
     // summary
-    h += `<h3>📋 الخلاصة</h3><div class="tbl-wrap"><table class="num"><tr><th>الجزء</th><th>e محسوب (mm)</th><th>+ c</th><th>اللوح المختار</th></tr>
+    h += `<h3>الخلاصة</h3><div class="tbl-wrap"><table class="num"><tr><th>الجزء</th><th>e محسوب (mm)</th><th>+ c</th><th>اللوح المختار</th></tr>
       <tr><td>جسم أسطواني</td><td>${F(eC,2)}</td><td>${F(eCc,2)}</td><td class="hl">${pC}</td></tr>
       <tr><td>بيضوي 2:1</td><td>${F(eE,2)}</td><td>${F(eEc,2)}</td><td class="hl">${pE}</td></tr>
       <tr><td>تورِي</td><td>${F(eT,2)}</td><td>${F(eTc,2)}</td><td class="hl">${pT}</td></tr>

@@ -51,12 +51,12 @@ function initCards(){
   const box=ED.$('#fc'); let set='ch1', deck=[], i=0, flipped=false, known=0;
   function load(s){ set=s; deck=shuffle(CARDS[s].map((c,k)=>k)); i=0; known=0; draw(); }
   function draw(){
-    if(!deck.length){ box.innerHTML=`<div style="text-align:center;padding:20px"><div style="font-size:42px">🏆</div><b>خلصت كل البطاقات!</b><p class="muted">حفظت ${known} من أول مرة.</p><button class="btn small" data-fc="again">↺ من جديد</button></div>`; return; }
+    if(!deck.length){ box.innerHTML=`<div style="text-align:center;padding:20px"><div class="trophy">✓</div><b>خلصت كل البطاقات!</b><p class="muted">حفظت ${known} من أول مرة.</p><button class="btn small" data-fc="again">↺ من جديد</button></div>`; return; }
     const c=CARDS[set][deck[i%deck.length]]; flipped=false;
     box.innerHTML=`<div class="muted" style="font-size:13px">باقي ${deck.length} بطاقة</div>
       <div class="fc-face"><div style="font-size:21px;font-weight:700">${c[0]}</div><div class="en muted">${c[1]}</div>
-      <div class="fc-back hide"><div class="eq">${ED.tex(c[2])}</div>${c[3]?`<div class="note hook" style="margin:6px 0 0"><span class="t">🧠</span>${c[3]}</div>`:''}</div></div>
-      <div class="row" style="justify-content:center;margin-top:12px" data-pre><button class="btn" data-fc="flip">🔄 اقلب البطاقة</button></div>
+      <div class="fc-back hide"><div class="eq">${ED.tex(c[2])}</div>${c[3]?`<div class="note hook" style="margin:6px 0 0"><span class="t"></span>${c[3]}</div>`:''}</div></div>
+      <div class="row" style="justify-content:center;margin-top:12px" data-pre><button class="btn" data-fc="flip">اقلب البطاقة</button></div>
       <div class="row hide" style="justify-content:center;margin-top:12px" data-post><button class="btn small" data-fc="yes" style="background:var(--green);color:#03140c">✓ كنت أعرفه</button><button class="btn small ghost" data-fc="no">✗ رجّعه بعدين</button></div>`;
   }
   box.addEventListener('click',e=>{ const b=e.target.closest('[data-fc]'); if(!b) return; const a=b.dataset.fc;
@@ -100,7 +100,7 @@ function initGen(){
   $('#pg-all').addEventListener('click',()=>{ shown=999; paint(); });
   $('#pg-new').addEventListener('click',make);
   $('#pg-check').addEventListener('click',()=>{ const v=+$('#pg-ans').value; if(!v){ return; } const err=Math.abs(v-cur.key)/cur.key;
-    $('#pg-fb').innerHTML = err<=0.02 ? `<div class="note aha"><span class="t">✅ صح!</span>الجواب ${ED.fmt(cur.key,2)}. ممتاز، كمّل للخطوات الباقية أو جرّب مسألة ثانية.</div>` : `<div class="note trap"><span class="t">❌ مو مضبوط</span>جوابك ${v}، والصح ${ED.fmt(cur.key,2)}. اكشف الخطوات وشوف وين الفرق (وحدات؟ −1؟ 460؟).</div>`; });
+    $('#pg-fb').innerHTML = err<=0.02 ? `<div class="note aha"><span class="t">صح!</span>الجواب ${ED.fmt(cur.key,2)}. ممتاز، كمّل للخطوات الباقية أو جرّب مسألة ثانية.</div>` : `<div class="note trap"><span class="t">مو مضبوط</span>جوابك ${v}، والصح ${ED.fmt(cur.key,2)}. اكشف الخطوات وشوف وين الفرق (وحدات؟ −1؟ 460؟).</div>`; });
   $('#pg-type').addEventListener('click',e=>{ const b=e.target.closest('[data-p]'); if(!b) return; ED.$$('#pg-type .chip').forEach(x=>x.classList.toggle('on',x===b)); type=b.dataset.p; make(); });
   make();
 }
@@ -108,6 +108,6 @@ ED.onView.practice = function(){ initCards(); initGen(); };
 
 /* 3D lab: lazy-load the module */
 ED.onView.lab = function(){
-  import('./lab3d.js').then(m=>m.start()).catch(err=>{ console.warn(err); ED.$$('.lab-msg').forEach(x=>x.textContent='⚠️ ما كدر يحمّل المجسمات (تحتاج إنترنت ومتصفح يدعم WebGL).'); });
+  import('./lab3d.js').then(m=>m.start()).catch(err=>{ console.warn(err); ED.$$('.lab-msg').forEach(x=>x.textContent='ما كدر يحمّل المجسمات (تحتاج إنترنت ومتصفح يدعم WebGL).'); });
 };
 })();

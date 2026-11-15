@@ -180,8 +180,8 @@ function initSolver(box,type,preset={},opts={}){
     const i={}; box.querySelectorAll('[data-k]').forEach(x=>i[x.dataset.k]= x.dataset.k==='ds'? x.value : +x.value);
     const out=$('[data-out]');
     const ds=String(i.ds).split(/[,\s،]+/).map(Number).filter(x=>x>0).sort((a,b)=>a-b);
-    if(!(i.Qg>0&&i.S>0&&i.Ql>0&&i.P>0&&i.Z>0&&i.mu>0&&i.dm>0&&i.tr>0&&ds.length)){ out.innerHTML='<div class="note trap"><span class="t">⚠️</span>دخّل أرقام موجبة.</div>'; return; }
-    const p=SEP.props(i); if(!(p.rl>p.rg)){ out.innerHTML='<div class="note trap"><span class="t">⚠️</span>كثافة الغاز طلعت أكبر من السائل. تأكد من الأرقام.</div>'; return; }
+    if(!(i.Qg>0&&i.S>0&&i.Ql>0&&i.P>0&&i.Z>0&&i.mu>0&&i.dm>0&&i.tr>0&&ds.length)){ out.innerHTML='<div class="note trap"><span class="t"></span>دخّل أرقام موجبة.</div>'; return; }
+    const p=SEP.props(i); if(!(p.rl>p.rg)){ out.innerHTML='<div class="note trap"><span class="t"></span>كثافة الغاز طلعت أكبر من السائل. تأكد من الأرقام.</div>'; return; }
     const it=SEP.iterate(p.rl,p.rg,i.dm,i.mu), cd=it[it.length-1].cdn, K=SEP.K(i,p,cd), tzq=p.T*i.Z*i.Qg/i.P, br=Math.sqrt((p.rg/(p.rl-p.rg))*cd/i.dm);
     let h='<div class="steps">';
     h+=step('الحرارة والكثافات',[`\\begin{aligned}T&=${F(i.T)}+460=${F(p.T)}\\ ^\\circ\\text{R}\\\\\\rho_l&=62.4\\left[\\tfrac{141.5}{131.5+${F(i.API)}}\\right]=${F(p.rl,2)}\\\\\\rho_g&=2.70\\,\\tfrac{(${F(i.S)})(${F(i.P)})}{(${F(p.T)})(${F(i.Z)})}=${F(p.rg,3)}\\end{aligned}`],'حرارة مطلقة، وكثافات بـ lb/ft³.');
@@ -194,7 +194,7 @@ function initSolver(box,type,preset={},opts={}){
       const pk=pickRow(rows);
       h+=step('الطول والنحافة لكل قطر',[`\\begin{aligned}L_{ss}&=\\max\\Big(\\tfrac{h+76}{12},\\\\&\\qquad\\tfrac{h+${F(dmin,1)}+40}{12}\\Big)\\\\SR&=\\frac{12L_{ss}}{d}\\end{aligned}`],'','<div class="tbl-wrap"><table class="num"><tr><th>d</th><th>h (in)</th><th>L<sub>ss</sub> (ft)</th><th>SR</th></tr>'+rows.map(r=>`<tr class="${r===pk?'pick':(r.ok&&r.SR>=2.95&&r.SR<=4.05?'good':'')}"><td>${r.d}${r.ok?'':' ✗'}</td><td>${F(r.h,1)}</td><td>${F(r.L,1)}</td><td>${F(r.SR,1)}${r===pk?' ✓':''}</td></tr>`).join('')+'</table></div>');
       h+='</div>';
-      h+= pk? `<div class="note aha"><span class="t">✅ الاختيار</span><b class="en">${pk.d} in × ${Math.ceil(pk.L)} ft</b> (L<sub>ss</sub> = ${F(pk.L,1)} → ${Math.ceil(pk.L)}، SR = ${F(pk.SR,1)}). الشروط: d ≥ ${F(dmin,1)} ✓ والنحافة ${pk.SR>=2.95&&pk.SR<=4.05?'بين 3 و 4 ✓':'أقرب وحدة لـ 3–4 (جرّب أقطار ثانية)'}</div>` : '<div class="note trap"><span class="t">⚠️</span>ولا قطر أكبر من القطر الأدنى. ضيف أقطار أكبر.</div>';
+      h+= pk? `<div class="note aha"><span class="t">الاختيار</span><b class="en">${pk.d} in × ${Math.ceil(pk.L)} ft</b> (L<sub>ss</sub> = ${F(pk.L,1)} → ${Math.ceil(pk.L)}، SR = ${F(pk.SR,1)}). الشروط: d ≥ ${F(dmin,1)} ✓ والنحافة ${pk.SR>=2.95&&pk.SR<=4.05?'بين 3 و 4 ✓':'أقرب وحدة لـ 3–4 (جرّب أقطار ثانية)'}</div>` : '<div class="note trap"><span class="t"></span>ولا قطر أكبر من القطر الأدنى. ضيف أقطار أكبر.</div>';
       out.innerHTML=h+'<figure><svg data-ch></svg></figure>';
       ED.sepChart(out.querySelector('[data-ch]'),{xmin:Math.max(6,Math.min(ds[0],dmin)-4),xmax:ds[ds.length-1]+2,ymax:Math.max(12,Math.ceil(Math.min(30,Math.max(...rows.map(r=>r.L)))/2)*2+2),dmin,cstart:dmin,
         curve:d=>vLss(liq/(d*d),dmin), points:rows.filter(r=>r.ok).map(r=>({d:r.d,L:r.L,pick:r===pk}))});
@@ -206,7 +206,7 @@ function initSolver(box,type,preset={},opts={}){
       const pk=pickRow(rows);
       h+=step('الطول الحاكم والنحافة',[`\\begin{aligned}L_{ss}=\\max\\Big(&L_{eff,g}+\\tfrac{d}{12},\\\\&\\tfrac43L_{eff,l},\\ L_{eff,l}+2.5\\Big)\\\\SR=&\\ \\frac{12L_{ss}}{d}\\end{aligned}`],'نحسب الطول للغاز وللسائل وناخذ الأكبر.','<div class="tbl-wrap"><table class="num"><tr><th>d</th><th>Gas L<sub>eff</sub></th><th>Liq L<sub>eff</sub></th><th>L<sub>ss</sub></th><th>SR</th></tr>'+rows.map(r=>`<tr class="${r===pk?'pick':(r.SR>=2.95&&r.SR<=4.05?'good':'')}"><td>${r.d}</td><td>${F(r.g,2)}</td><td>${F(r.l,1)}</td><td>${F(r.L,1)}${r.gov==='+2.5'?'*':r.gov==='gas'?'ᵍ':''}</td><td>${F(r.SR,1)}${r===pk?' ✓':''}</td></tr>`).join('')+'</table></div><p class="muted" style="font-size:13px">* حكم L<sub>eff</sub> + 2.5 · ᵍ حكم الغاز</p>');
       h+='</div>';
-      h+= pk? `<div class="note aha"><span class="t">✅ الاختيار</span><b class="en">${pk.d} in × ${Math.ceil(pk.L)} ft</b> (L<sub>ss</sub> = ${F(pk.L,1)} → ${Math.ceil(pk.L)}، SR = ${F(pk.SR,1)}). النحافة ${pk.SR>=2.95&&pk.SR<=4.05?'بين 3 و 4 ✓':'أقرب وحدة لـ 3–4 (جرّب أقطار ثانية)'}.</div>`:'';
+      h+= pk? `<div class="note aha"><span class="t">الاختيار</span><b class="en">${pk.d} in × ${Math.ceil(pk.L)} ft</b> (L<sub>ss</sub> = ${F(pk.L,1)} → ${Math.ceil(pk.L)}، SR = ${F(pk.SR,1)}). النحافة ${pk.SR>=2.95&&pk.SR<=4.05?'بين 3 و 4 ✓':'أقرب وحدة لـ 3–4 (جرّب أقطار ثانية)'}.</div>`:'';
       out.innerHTML=h+'<figure><svg data-ch></svg></figure>';
       ED.sepChart(out.querySelector('[data-ch]'),{xmin:Math.max(6,ds[0]-2),xmax:ds[ds.length-1]+2,ymax:Math.min(40,Math.max(12,Math.ceil(rows[Math.min(2,rows.length-1)].L/5)*5+5)),
         curve:d=>hLss(dL,liq,d).Lss, points:rows.map(r=>({d:r.d,L:r.L,pick:r===pk}))});

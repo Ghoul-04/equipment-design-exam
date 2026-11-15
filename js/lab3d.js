@@ -145,6 +145,6 @@ function separator(){
 export function start(){
   if(started) return; started=true;
   try{ const c=document.createElement('canvas'); if(!(c.getContext('webgl2')||c.getContext('webgl'))) throw new Error('no webgl'); }
-  catch(e){ $$('.lab-msg').forEach(x=>x.textContent='⚠️ جهازك ما يدعم WebGL، فالمجسمات ثلاثية الأبعاد ما تشتغل عليه. باقي الموقع يشتغل عادي.'); return; }
+  catch(e){ $$('.lab-msg').forEach(x=>x.textContent='جهازك ما يدعم WebGL، فالمجسمات ثلاثية الأبعاد ما تشتغل عليه. باقي الموقع يشتغل عادي.'); return; }
   vessel(); separator();
 }

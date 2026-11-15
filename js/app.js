@@ -29,6 +29,10 @@ function route(){
   const v = views[name]; v.classList.add('on');
   if (!inited[name]){ inited[name]=true; renderMath(v); $$('[data-quiz]',v).forEach(q=>initQuiz(q)); if (ED.onView[name]) ED.onView[name](v); }
   $$('nav.side a').forEach(a=>a.classList.toggle('active', a.dataset.nav===name));
+  const grp={home:'home',ch1:'c1',ex131:'c1',ch2:'c2',ex41:'c2',ex42:'c2',lab:'pr',practice:'pr',cheat:'ch'}[name];
+  $$('.tabbar a').forEach(a=>a.classList.toggle('on',a.dataset.tab===grp));
+  if(name!=='home') ED.store.set('ed-last',name);
+  setupReveal(v); paintDash();
   closeNav(); window.scrollTo(0,0);
   document.title = (v.querySelector('h1')?.textContent.replace(/\s+/g,' ').trim()||'') + ' · تصميم المعدات';
 }
@@ -43,7 +47,8 @@ scrim.addEventListener('click',closeNav);
 /* ---------- theme ---------- */
 $('#themeBtn').addEventListener('click',()=>{
   const t = document.documentElement.dataset.theme==='light'?'dark':'light';
-  document.documentElement.dataset.theme=t; try{localStorage.setItem('ed-theme',t);}catch(e){}
+  document.documentElement.dataset.theme=t; try{localStorage.setItem('ed-theme2',t);}catch(e){}
+  document.querySelector('meta[name=theme-color]').setAttribute('content', t==='dark'?'#000000':'#f5f5f7');
 });
 
 /* ---------- chips scroll ---------- */
@@ -65,12 +70,12 @@ document.addEventListener('click',e=>{
 let done = ED.store.get('ed-done',{});
 function paintDone(){
   const ids = $$('[data-done]').map(b=>b.dataset.done);
-  $$('[data-done]').forEach(b=>{ const on=!!done[b.dataset.done]; b.classList.toggle('on',on); if(!b.dataset.label) b.dataset.label=b.textContent; b.textContent = on ? '✅ تم! (اضغط للإلغاء)' : b.dataset.label; });
+  $$('[data-done]').forEach(b=>{ const on=!!done[b.dataset.done]; b.classList.toggle('on',on); if(!b.dataset.label) b.dataset.label=b.textContent; b.textContent = on ? 'تم! (اضغط للإلغاء)' : b.dataset.label; });
   $$('[data-ok]').forEach(s=>s.textContent = done[s.dataset.ok] ? '✓' : '');
   $$('[data-road]').forEach(s=>{ const on=!!done[s.dataset.road]; s.textContent = on?'✓ خلصت':'ابدأ'; s.classList.toggle('ok',on); });
   const n = ids.filter(i=>done[i]).length; $('#progBar').style.width = (ids.length? (100*n/ids.length):0)+'%';
 }
-document.addEventListener('click',e=>{ const b=e.target.closest('[data-done]'); if(!b) return; done[b.dataset.done]=!done[b.dataset.done]; ED.store.set('ed-done',done); paintDone(); });
+document.addEventListener('click',e=>{ const b=e.target.closest('[data-done]'); if(!b) return; done[b.dataset.done]=!done[b.dataset.done]; ED.store.set('ed-done',done); paintDone(); paintDash(); });
 
 /* ---------- quiz ---------- */
 function initQuiz(box){
@@ -78,7 +83,7 @@ function initQuiz(box){
   let i=0, score=0, answered=false;
   function draw(){
     if (i>=set.length){
-      box.innerHTML = `<div class="q">النتيجة: ${score} / ${set.length} ${score===set.length?'🏆 ممتاز!':score>=set.length*0.7?'👏 زين جداً':'💪 راجع الفخاخ وعيد'}</div><div class="bar"><button class="btn small" data-act="again">↺ أعد الاختبار</button></div>`;
+      box.innerHTML = `<div class="q">النتيجة: ${score} / ${set.length} ${score===set.length?'ممتاز!':score>=set.length*0.7?'زين جداً':'راجع الفخاخ وعيد'}</div><div class="bar"><button class="btn small" data-act="again">↺ أعد الاختبار</button></div>`;
       return;
     }
     const it=set[i]; answered=false;
@@ -94,7 +99,7 @@ function initQuiz(box){
       answered=true; const k=+o.dataset.k, it=set[i]; const ok=k===it.a; if(ok) score++;
       $$('.opt',box).forEach((b,j)=>{ if(j===it.a) b.classList.add('right'); else if(j===k) b.classList.add('wrong'); });
       const fb=$('.fb',box); fb.style.display='block'; fb.classList.toggle('trap',!ok); fb.classList.toggle('aha',ok);
-      $('.t',fb).textContent = ok?'✅ صح!':'❌ مو هيج'; $('.w',fb).innerHTML=' '+it.why; renderMath(fb);
+      $('.t',fb).textContent = ok?'صح!':'مو هيج'; $('.w',fb).innerHTML=' '+it.why; renderMath(fb);
       $('[data-act=next]',box).classList.remove('hide');
     }
     if (act){ if(act.dataset.act==='next'){ i++; draw(); } else { i=0; score=0; draw(); } }
@@ -156,6 +161,36 @@ ED.onView.ch1 = function(){
   }
   [P,D,F,J].forEach(x=>x.addEventListener('input',drawB)); drawB();
 };
+
+
+/* ---------- pager (prev / next) ---------- */
+const ORDER=[['home','الرئيسية'],['ch1','الفصل الأول'],['ex131','مثال 13.1'],['ch2','الفصل الثاني'],['ex41','مثال 4-1 العمودي'],['ex42','مثال 4-2 الأفقي'],['lab','المختبر 3D'],['practice','التدريب'],['cheat','ورقة المراجعة']].filter(([k])=>views[k]);
+ORDER.forEach(([k],i)=>{ const v=views[k]; const pg=document.createElement('nav'); pg.className='pager';
+  const prev=ORDER[i-1], next=ORDER[i+1];
+  pg.innerHTML=(prev?`<a class="prev" href="#${prev[0]}"><small>→ السابق</small><b>${prev[1]}</b></a>`:'')+(next?`<a class="next" href="#${next[0]}"><small>التالي ←</small><b>${next[1]}</b></a>`:'');
+  v.appendChild(pg); });
+
+/* ---------- layer-tab icons ---------- */
+const LIC=['<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg>',
+  '<svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>',
+  '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>'];
+$$('.ltabs').forEach(t=>$$('button',t).forEach((b,i)=>{ if(LIC[i]) b.insertAdjacentHTML('afterbegin',LIC[i]); }));
+
+/* ---------- reveal on scroll ---------- */
+const io = ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) ? new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{rootMargin:'0px 0px -6% 0px',threshold:.04}) : null;
+function setupReveal(v){ if(!io || v.dataset.rv) return; v.dataset.rv=1;
+  $$('.card,.road a,.fact,.note.doc,.pager',v).forEach(el=>{ if(el.closest('.card')!==el && el.closest('.card')) return; el.classList.add('rv'); io.observe(el); }); }
+
+/* ---------- dashboard ---------- */
+const NAMES=Object.fromEntries(ORDER);
+function paintDash(){
+  const ids=$$('[data-done]').map(b=>b.dataset.done); const n=ids.filter(i=>done[i]).length; const pct=ids.length?Math.round(100*n/ids.length):0;
+  const fg=$('#ringFg'); if(!fg) return; fg.style.strokeDashoffset = 263.9*(1-pct/100); $('#ringTxt').textContent=pct+'%';
+  const last=ED.store.get('ed-last',null); const nextUndone=ids.find(i=>!done[i]);
+  if(pct===100){ $('#dashTitle').textContent='خلصت كلشي، عاشت إيدك'; $('#dashSub').textContent='راجع ورقة المراجعة الأخيرة وحل كم مسألة جديدة.'; $('#dashGo').href='#cheat'; $('#dashGo').textContent='ورقة المراجعة ←'; }
+  else if(last && views[last]){ $('#dashTitle').textContent=`خلصت ${n} من ${ids.length}`; $('#dashSub').textContent=`آخر مكان كنت بيه: ${NAMES[last]||''}`; $('#dashGo').href='#'+last; $('#dashGo').textContent='كمّل من وين وكفت ←'; }
+  else if(nextUndone){ $('#dashGo').href='#'+nextUndone; }
+}
 
 /* ---------- boot (after all deferred scripts) ---------- */
 document.addEventListener('DOMContentLoaded',()=>{
