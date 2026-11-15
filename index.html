@@ -742,6 +742,431 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],packag
   </div>
 </section>
 
+<!-- ===================== CHAPTER 2 ===================== -->
+<section class="view" id="v-ch2" data-view="ch2">
+  <div class="hero">
+    <span class="kicker">الفصل الثاني · Two-Phase Oil and Gas Separation</span>
+    <h1>العازلة: غرفة انتظار يتفارق بيها الغاز والنفط</h1>
+    <p>هنا نحسب <b>قطر وطول</b> العازلة (Separator). <span class="tag t-giv">🟢 القوانين تنطى</span> <span class="tag t-key">🟡 الأرقام والوحدات احفظها</span></p>
+  </div>
+  <div class="chips" data-chips>
+    <button class="chip" data-go="c2-idea">الفكرة</button>
+    <button class="chip" data-go="c2-parts">الأجزاء والرسم</button>
+    <button class="chip" data-go="c2-cmp">أفقي أو عمودي</button>
+    <button class="chip" data-go="c2-notes">ملاحظات الدكتورة</button>
+    <button class="chip" data-go="c2-keys">الأرقام والوحدات</button>
+    <button class="chip" data-go="c2-conv">التحويلات</button>
+    <button class="chip" data-go="c2-cd">تكرار CD</button>
+    <button class="chip" data-go="c2-formulas">القوانين</button>
+    <button class="chip" data-go="c2-traps">الفخاخ</button>
+    <button class="chip" data-go="c2-check">اختبر نفسك</button>
+  </div>
+
+  <div class="sec" id="c2-idea">
+    <h2><span class="num">2.0</span>الفكرة الكبيرة بدقيقة</h2>
+    <div class="card">
+      <p><b>👶 بالبساطة:</b> النفط يطلع من البئر <b>خليط</b>: غاز شايل قطرات نفط، ونفط شايل فقاعات غاز. العازلة هي <b>غرفة انتظار</b> نخلي بيها الخليط يرتاح حتى:</p>
+      <ul>
+        <li><b>قطرات النفط تنزل</b> من الغاز، مثل المطر ينزل والهوا يدفعه، وهذي تحدد <b>القطر</b> (Gas capacity).</li>
+        <li><b>فقاعات الغاز تصعد</b> من النفط، مثل ما تخلي الببسي يرتاح قبل لا تسدّه، وهذي تحدد <b>الحجم</b> (Liquid capacity، زمن المكوث).</li>
+      </ul>
+      <div class="note aha"><span class="t">💡 كل الفصل بجملة</span>نحسب أقل حجم يحقق الشرطين (الغاز والسائل)، ونختار قطر وطول بنسبة نحافة <b class="en">12L<sub>ss</sub>/d = 3–4</b>.</div>
+      <p class="muted" style="margin:0"><b>Two-phase:</b> تفصل غاز عن سائل · <b>Three-phase:</b> تفصل كمان النفط عن الماء (مو موضوعنا).</p>
+    </div>
+  </div>
+
+  <div class="sec" id="c2-parts">
+    <h2><span class="num">2.1</span>الأجزاء الأربعة: اضغط على الأرقام</h2>
+    <div class="card">
+      <div class="chips" id="sep-tabs">
+        <button class="chip on" data-sep="h">أفقية Horizontal</button>
+        <button class="chip" data-sep="v">عمودية Vertical</button>
+        <button class="chip" data-sep="s">كروية Spherical</button>
+      </div>
+      <figure style="margin:0"><div id="sep-fig"></div></figure>
+      <div class="meaning" id="sep-info"><b>اضغط على أي رقم</b> بالرسم حتى تعرف شنو هذا الجزء وشنو شغلته.</div>
+      <details class="ro" style="margin-top:10px"><summary>✏️ شلون ترسمها بالامتحان بـ 60 ثانية (الرسم مطلوب بالمقارنات)</summary>
+        <div id="sep-draw"></div>
+      </details>
+    </div>
+  </div>
+
+  <div class="sec" id="c2-cmp">
+    <h2><span class="num">2.2</span>أفقي لو عمودي؟ <span class="tag t-ro">⚪ خفيف</span></h2>
+    <div class="card">
+      <div class="tbl-wrap"><table>
+        <tr><th></th><th>أفقية Horizontal</th><th>عمودية Vertical</th></tr>
+        <tr><td>الكلفة لنفس كمية الغاز</td><td>✅ أصغر وأرخص</td><td>أكبر</td></tr>
+        <tr><td>نزول القطرات</td><td>✅ عمودي على جريان الغاز، فأسهل</td><td>عكس جريان الغاز</td></tr>
+        <tr><td>مساحة سطح التلامس</td><td>✅ أكبر، والفقاعات تطلع أسهل</td><td>أصغر</td></tr>
+        <tr><td>الرغوة والمستحلبات</td><td>✅ أفضل</td><td>—</td></tr>
+        <tr><td>الرمل والمواد الصلبة</td><td>❌ تحتاج مصارف هواية</td><td>✅ مصرف بنص القاع</td></tr>
+        <tr><td>المساحة على الأرض</td><td>❌ أكبر (مشكلة بالبحر)</td><td>✅ أقل</td></tr>
+        <tr><td>تحمّل الدفقات (surge)</td><td>❌ أقل، وجهاز الإطفاء قريب من المستوى</td><td>✅ أفضل</td></tr>
+        <tr><td>عيوبها الأخرى</td><td>—</td><td>صعوبة صيانة الصمامات العالية، والنقل بسبب الارتفاع</td></tr>
+      </table></div>
+      <p class="muted" style="margin:6px 0 0"><b>الكروية:</b> قوية للضغط، بس سعة الدفقات بيها قليلة وتصنيعها صعب، فنادراً تُستخدم.</p>
+    </div>
+  </div>
+
+  <div class="sec" id="c2-notes">
+    <h2><span class="num">2.3</span>ملاحظات الدكتورة (من أوراقك)</h2>
+    <div class="grid2">
+      <div class="note doc"><span class="t">📌 زمن المكوث</span>زمن مكوث العازلة <b>3 min</b> حتى ينفصل الغاز عن النفط.</div>
+      <div class="note doc"><span class="t">📌 الطوران</span>العازلة تنقسم إلى طورين: أحدهما للغاز والآخر للسائل.</div>
+      <div class="note doc"><span class="t">📌 الاختيار</span>إذا نسبة الغاز أكبر من النفط نستخدم عازلة عمودية، والعكس صحيح.</div>
+      <div class="note doc"><span class="t">📌 الرسم</span>الرسم مطلوب بالمقارنات (رسم العازلة العمودية).</div>
+      <div class="note doc"><span class="t">📌 حفظ</span><b>50% full</b> · <b>100-micron</b> · <b>3 min</b> · نسبة النحافة <b>3 to 4</b> · ووحدات الكثافة <b>lb/ft³</b>.</div>
+      <div class="note doc"><span class="t">📌 الإجراء</span>نفرض قطر، ولازم يطلع الناتج (نسبة النحافة) بين 3 و 4.</div>
+    </div>
+    <p class="muted" style="font-size:13.5px">ملاحظة صغيرة: الكتاب يكول إن الأفقية أوفر للخليط اللي بيه غاز هواية، والعمودية أحسن للغاز القليل وللـ scrubbers. والشرح ما داخل بالامتحان، فاعتمد كلام الدكتورة.</p>
+  </div>
+
+  <div class="sec" id="c2-keys">
+    <h2><span class="num">2.4</span>الأرقام والوحدات <span class="tag t-key">🟡 احفظ</span></h2>
+    <div class="card">
+      <div class="kn" style="margin-bottom:12px">
+        <span>الأفقية: <b>50% full</b></span><span>القطرة: <b>100 micron</b></span><span>زمن المكوث: <b>3 min</b></span><span>النحافة: <b>3–4</b> (لا تتجاوز 5)</span>
+      </div>
+      <div class="tbl-wrap"><table>
+        <tr><th>الرمز</th><th>المعنى</th><th>الوحدة</th></tr>
+        <tr><td class="sym">\(d\)</td><td>القطر الداخلي للعازلة</td><td class="unit">in</td></tr>
+        <tr><td class="sym">\(L_{eff}\)</td><td>الطول الفعّال (اللي يصير بيه الفصل)</td><td class="unit">ft</td></tr>
+        <tr><td class="sym">\(L_{ss}\)</td><td>الطول من لحام للحام <span class="en muted">seam-to-seam</span></td><td class="unit">ft</td></tr>
+        <tr><td class="sym">\(h\)</td><td>ارتفاع السائل (العمودية)</td><td class="unit">in</td></tr>
+        <tr><td class="sym">\(T\)</td><td>حرارة التشغيل</td><td class="unit">°R</td></tr>
+        <tr><td class="sym">\(P\)</td><td>ضغط التشغيل</td><td class="unit">psia</td></tr>
+        <tr><td class="sym">\(Q_g\)</td><td>جريان الغاز</td><td class="unit">MMscfd</td></tr>
+        <tr><td class="sym">\(Q_l\)</td><td>جريان السائل</td><td class="unit">bpd</td></tr>
+        <tr><td class="sym">\(t_r\)</td><td>زمن المكوث <span class="en muted">retention time</span></td><td class="unit">min</td></tr>
+        <tr><td class="sym">\(d_m\)</td><td>قطر القطرة المراد فصلها</td><td class="unit">micron</td></tr>
+        <tr><td class="sym">\(\rho_g,\ \rho_l\)</td><td>كثافة الغاز والسائل</td><td class="unit">lb/ft³</td></tr>
+        <tr><td class="sym">\(Z\)</td><td>معامل انضغاطية الغاز</td><td class="unit">—</td></tr>
+        <tr><td class="sym">\(C_D\)</td><td>معامل السحب <span class="en muted">drag coefficient</span></td><td class="unit">—</td></tr>
+        <tr><td class="sym">\(\mu\)</td><td>لزوجة الغاز</td><td class="unit">cp</td></tr>
+        <tr><td class="sym">\(V_t\)</td><td>السرعة النهائية لنزول القطرة</td><td class="unit">ft/s</td></tr>
+      </table></div>
+      <div class="note hook"><span class="t">🧠 حيلة الوحدات</span>«<b>القطر بالإنج، والطول بالقدم</b>». لهذا تشوف رقم <b>12</b> بكل مكان: يحوّل بين الإنج والقدم (1 ft = 12 in).</div>
+    </div>
+  </div>
+
+  <div class="sec" id="c2-conv">
+    <h2><span class="num">2.5</span>التحويلات الثلاثة قبل أي قانون</h2>
+    <div class="card fcard">
+      <div class="fhead"><h3>الحرارة والكثافتين</h3><span class="tag t-giv">🟢 مُعطى</span></div>
+      <div class="eq">$$T(^\circ R)=T(^\circ F)+460$$</div>
+      <div class="eq">$$\rho_l=62.4\left[\frac{141.5}{131.5+API}\right]$$</div>
+      <div class="eq">$$\rho_g=2.70\,\frac{S\,P}{T\,Z}$$</div>
+      <div class="meaning"><b>المعنى:</b> الحرارة لازم تكون مطلقة (رانكن). وكثافة السائل = الوزن النوعي (من الـ API) × كثافة الماء 62.4. وكثافة الغاز من قانون الغاز المثالي مصحّح بـ Z، و S هو الوزن النوعي للغاز.</div>
+      <h3>🧮 جرّب التحويل</h3>
+      <div class="form" id="cv-form">
+        <label>API<input type="number" id="cv-api" value="40" step="0.5" inputmode="decimal"></label>
+        <label>S (gas sp. gr.)<input type="number" id="cv-s" value="0.6" step="0.01" inputmode="decimal"></label>
+        <label>P (psia)<input type="number" id="cv-p" value="1000" step="10" inputmode="decimal"></label>
+        <label>T (°F)<input type="number" id="cv-t" value="60" step="1" inputmode="decimal"></label>
+        <label>Z<input type="number" id="cv-z" value="0.84" step="0.01" inputmode="decimal"></label>
+      </div>
+      <div id="cv-out" style="margin-top:8px"></div>
+      <div class="note trap"><span class="t">⚠️ فخ</span>إذا نسيت تضيف 460 للحرارة، الكثافة والقطر كلهم يطلعون غلط.</div>
+    </div>
+  </div>
+
+  <div class="sec" id="c2-cd">
+    <h2><span class="num">2.6</span>تكرار معامل السحب <span class="en">C<sub>D</sub></span></h2>
+    <div class="card fcard">
+      <div class="fhead"><h3>ليش نكرر؟</h3><span class="tag t-giv">🟢 مُعطى</span></div>
+      <p><b>👶</b> مثل ما تعدّل حرارة الدوش: تجرّب، تحس، تصحح، لحد ما تثبت. هنا <b>C<sub>D</sub> يعتمد على Re</b>، و<b>Re يعتمد على V<sub>t</sub></b>، و<b>V<sub>t</sub> يعتمد على C<sub>D</sub></b>. دائرة مغلقة، فنفرض قيمة ونصحح.</p>
+      <div class="eq">$$\textbf{1.}\ \ V_t=0.0204\left[\frac{(\rho_l-\rho_g)\,d_m}{\rho_g}\right]^{1/2}$$</div>
+      <div class="eq">$$\textbf{2.}\ \ Re=0.0049\,\frac{\rho_g\,d_m\,V_t}{\mu}$$</div>
+      <div class="eq">$$\textbf{3.}\ \ C_D=\frac{24}{Re}+\frac{3}{Re^{1/2}}+0.34$$</div>
+      <div class="eq">$$\textbf{4.}\ \ V_t=0.0119\left[\left(\frac{\rho_l-\rho_g}{\rho_g}\right)\frac{d_m}{C_D}\right]^{1/2}$$</div>
+      <p><b>5.</b> ارجع للخطوة 2 وكرر لحد ما <b>C<sub>D</sub> يثبت</b> (ما يتغيّر).</p>
+      <div class="note aha"><span class="t">💡 سر الرقم 0.0204</span><span class="en">0.0204 = 0.0119 ÷ √0.34</span>. يعني «ابدأ بالقانون 1» هو نفسه «افرض <span class="en">C<sub>D</sub> = 0.34</span> بالقانون 4». الكتاب سوّاها بالطريقة الثانية.</div>
+      <h3>🔁 جرّبها خطوة خطوة</h3>
+      <div class="form">
+        <label><span>ρ<sub>l</sub> (lb/ft³)</span><input type="number" id="cd-rl" value="51.5" step="0.1" inputmode="decimal"></label>
+        <label><span>ρ<sub>g</sub> (lb/ft³)</span><input type="number" id="cd-rg" value="3.71" step="0.01" inputmode="decimal"></label>
+        <label><span>d<sub>m</sub> (micron)</span><input type="number" id="cd-dm" value="140" step="5" inputmode="decimal"></label>
+        <label>μ (cp)<input type="number" id="cd-mu" value="0.013" step="0.001" inputmode="decimal"></label>
+      </div>
+      <div class="row" style="margin:12px 0"><button class="btn small" id="cd-step">▶ تكرار واحد</button><button class="btn small ghost" id="cd-all">⏭ لحد ما يثبت</button><button class="btn small ghost" id="cd-reset">↺ من جديد</button></div>
+      <div class="tbl-wrap"><table class="num" id="cd-table"></table></div>
+      <figure><svg id="cd-chart" viewBox="0 0 420 180"></svg><figcaption>C<sub>D</sub> يقرّب ويثبت بعد كم تكرار</figcaption></figure>
+      <div class="note hook"><span class="t">🧠 «24 على Re، 3 على جذر Re، زائد 0.34»</span></div>
+    </div>
+  </div>
+
+  <div class="sec" id="c2-formulas">
+    <h2><span class="num">2.7</span>قوانين الحجم <span class="tag t-giv">🟢 تنطى، افهمها</span></h2>
+
+    <div class="card fcard">
+      <div class="fhead"><h3>سعة الغاز: الأفقية</h3><span class="en">Horizontal · Gas capacity</span><span class="tag t-giv">🟢</span></div>
+      <div class="eq">$$\begin{aligned}d\,L_{eff}=420&\left[\frac{T\,Z\,Q_g}{P}\right]\\&\times\left[\left(\frac{\rho_g}{\rho_l-\rho_g}\right)\frac{C_D}{d_m}\right]^{1/2}\end{aligned}$$</div>
+      <div class="meaning"><b>المعنى:</b> حاصل ضرب القطر بالطول الفعّال لازم يكفي حتى <b>القطرة توصل للسائل قبل لا الغاز يطلّعها</b> من الطرف الثاني (عازلة نصها مليان، وقطرات 100 مايكرون).</div>
+      <div class="layers">
+        <div class="ltabs"><button class="on">👶 للطفل</button><button>🛠️ للمهندس</button><button>🎯 للامتحان</button></div>
+        <div class="lpanel on"><p>تخيّل كرة تدحرجها على طاولة طويلة وهي تطيح ببطء: لازم الطاولة تكون طويلة كفاية حتى توصل الكرة للأرض قبل نهاية الطاولة.</p></div>
+        <div class="lpanel"><p>الغاز يمشي بالعرض، والقطرة تنزل مسافة d/2 بسرعة V<sub>t</sub>. فلازم زمن بقاء الغاز (يزيد مع L<sub>eff</sub>) أكبر من زمن نزول القطرة. والنتيجة <b>d·L<sub>eff</sub> = ثابت</b>، يعني منحني (hyperbola): كل ما يكبر القطر يقصر الطول.</p></div>
+        <div class="lpanel"><p>يطلعلك رقم واحد (39.85 بالمثال). بعدها لكل قطر d: <span class="en">L<sub>eff</sub> = 39.85 / d</span>.</p></div>
+      </div>
+    </div>
+
+    <div class="card fcard">
+      <div class="fhead"><h3>سعة السائل: الأفقية</h3><span class="en">Horizontal · Liquid capacity</span><span class="tag t-giv">🟢</span></div>
+      <div class="eq">$$d^2L_{eff}=\frac{t_r\,Q_l}{0.7}$$</div>
+      <div class="meaning"><b>المعنى:</b> حجم السائل (نص العازلة ∝ d²L) لازم يساوي الجريان × زمن المكوث.</div>
+      <p><b>👶</b> إذا تملّي حوض (Q<sub>l</sub>) وتريد كل قطرة تبقى بيه 3 دقايق (t<sub>r</sub>)، لازم حجمه = الجريان × 3 دقايق. و0.7 مجرد تحويل وحدات.</p>
+    </div>
+
+    <div class="card fcard">
+      <div class="fhead"><h3>الطول الكلي والنحافة: الأفقية</h3><span class="en">Seam-to-seam & slenderness</span><span class="tag t-giv">🟢</span><span class="tag t-key">🟡 3–4</span></div>
+      <div class="eq">$$L_{ss}=L_{eff}+\frac{d}{12}\quad\text{(gas capacity)}$$</div>
+      <div class="eq">$$L_{ss}=\frac{4}{3}\,L_{eff}\quad\text{(liquid capacity)}$$</div>
+      <div class="eq">$$\text{Slenderness ratio}=\frac{12\,L_{ss}}{d}\ \approx\ 3\ \text{to}\ 4$$</div>
+      <div class="meaning"><b>المعنى:</b> نضيف طول للمدخل (inlet diverter) ولمانع الضباب (mist extractor). ونسبة النحافة الشائعة 3–4، ولا تتجاوز 5 بدون دراسة (re-entrainment).</div>
+      <div class="note warn"><span class="t">⚠️ قاعدة بجدول الكتاب ومو بالمحاضرة</span>بجدول 4-2 للأقطار الكبيرة استخدموا <span class="en">L<sub>ss</sub> = L<sub>eff</sub> + 2.5</span> لأنه أكبر من <span class="en">4/3 L<sub>eff</sub></span>. يعني دائماً نحتاج تقريباً <b>2.5 ft</b> إضافية للأجزاء الداخلية. <b>خذ الأكبر.</b></div>
+    </div>
+
+    <div class="card fcard">
+      <div class="fhead"><h3>العمودية: الغاز والسائل والطول</h3><span class="en">Vertical separators</span><span class="tag t-giv">🟢</span></div>
+      <div class="eq">$$\begin{aligned}d^2=5040&\left[\frac{T\,Z\,Q_g}{P}\right]\\&\times\left[\left(\frac{\rho_g}{\rho_l-\rho_g}\right)\frac{C_D}{d_m}\right]^{1/2}\end{aligned}$$</div>
+      <div class="eq">$$d^2h=\frac{t_r\,Q_l}{0.12}$$</div>
+      <div class="eq">$$\begin{aligned}L_{ss}&=\frac{h+76}{12}\\ \text{or}\quad L_{ss}&=\frac{h+d+40}{12}\end{aligned}$$</div>
+      <div class="meaning"><b>خذ الأكبر من قيمتي L<sub>ss</sub>.</b><br><b>المعنى:</b> بالعمودية الغاز يصعد والقطرة تنزل عكسه، فلازم <b>سرعة الغاز أقل من سرعة نزول القطرة</b>، وهذا يحدد <b>أقل قطر</b> بس. أي قطر أكبر منه ينفع.</div>
+      <div class="layers">
+        <div class="ltabs"><button class="on">👶 للطفل</button><button>🛠️ للمهندس</button><button>🎯 للامتحان</button></div>
+        <div class="lpanel on"><p>مثل مروحة تنفخ لفوك وأنت تذب ريشة: إذا الهوا أسرع من نزول الريشة تطير لفوك. فنوسّع الأنبوب حتى يبطئ الهوا.</p></div>
+        <div class="lpanel"><p>قانون الغاز يعطي d² مباشرة (مو d·L)، يعني أقل قطر. والسائل يعطي d²h، فلكل قطر نحسب ارتفاع السائل h بالإنج. والطول يضيف مسافات للمدخل ولمانع الضباب.</p></div>
+        <div class="lpanel"><p>لا تنسى <b>الجذر</b> بعد قانون الغاز. وبقانون L<sub>ss</sub> الثاني، d هو <b>أقل قطر للغاز</b> (21.8 بالمثال). احسب الاثنين وخذ الأكبر.</p></div>
+      </div>
+      <details class="ro"><summary>🧠 حيل احتياط (إذا ما انطوك القوانين)</summary>
+        <ul>
+          <li><span class="en">5040 = 12 × 420</span>: العمودي = 12 × الأفقي.</li>
+          <li>ثوابت السائل: الأفقي <b class="en">0.7</b> والعمودي <b class="en">0.12</b>.</li>
+          <li>الطول الأفقي: «الغاز + d/12، والسائل × 4/3». والعمودي: «h + 76 على 12».</li>
+          <li><span class="en">ρ<sub>g</sub></span> = «2.7 SP على TZ».</li>
+        </ul>
+      </details>
+    </div>
+  </div>
+
+  <div class="sec" id="c2-traps">
+    <h2><span class="num">2.8</span>فخاخ الفصل الثاني</h2>
+    <div class="card">
+      <div class="tbl-wrap"><table>
+        <tr><th>#</th><th>الفخ</th><th>الصح</th></tr>
+        <tr><td>1</td><td>الحرارة بالفهرنهايت</td><td><span class="en">°R = °F + 460</span></td></tr>
+        <tr><td>2</td><td>تستخدم 100 micron دائماً</td><td>استخدم d<sub>m</sub> اللي بالسؤال (140 بالمثال)</td></tr>
+        <tr><td>3</td><td>تنسى الجذر بقانون العمودي</td><td>القانون يطلع <span class="en">d²</span></td></tr>
+        <tr><td>4</td><td>توقف التكرار مبكر</td><td>كرر لحد ما C<sub>D</sub> يثبت</td></tr>
+        <tr><td>5</td><td>تقارن d بالإنج وL بالقدم مباشرة</td><td><span class="en">SR = 12 L<sub>ss</sub> / d</span></td></tr>
+        <tr><td>6</td><td>تاخذ L<sub>ss</sub> الأصغر</td><td>خذ الأكبر دائماً (الحاكم = governs)</td></tr>
+        <tr><td>7</td><td>تختار قطر أصغر من قطر الغاز</td><td>لازم <span class="en">d ≥ d<sub>min</sub></span></td></tr>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="sec" id="c2-check">
+    <h2><span class="num">✔</span>اختبر نفسك</h2>
+    <div class="card quiz" data-quiz="ch2"></div>
+    <button class="done-btn" data-done="ch2">✔ خلصت الفصل الثاني وفهمته</button>
+  </div>
+</section>
+
+<!-- ===================== EXAMPLE 4-1 (VERTICAL) ===================== -->
+<section class="view" id="v-ex41" data-view="ex41">
+  <div class="hero">
+    <span class="kicker">Example 4-1 · Sizing a Vertical Separator</span>
+    <h1>مثال 4-1: تحجيم عازلة عمودية</h1>
+    <p>نفس المعطيات راح نستخدمها بالمثال الأفقي، فإذا فهمت هذا يصير الثاني نص الشغل.</p>
+  </div>
+  <div class="chips" data-chips>
+    <button class="chip" data-go="e41-q">السؤال</button>
+    <button class="chip" data-go="e41-sol">الحل</button>
+    <button class="chip" data-go="e41-tab">الجدول والاختيار</button>
+    <button class="chip" data-go="e41-solver">🎯 حاسبة رقمك</button>
+  </div>
+
+  <div class="sec" id="e41-q">
+    <h2><span class="num">Q</span>السؤال</h2>
+    <div class="card">
+      <div class="problem">Size a <b>vertical</b> two-phase separator for:<br>
+        • Gas: <b>10 MMscfd</b> at <b>0.6</b> specific gravity<br>
+        • Oil: <b>2,000 bopd</b> at <b>40° API</b><br>
+        • Operating pressure: <b>1,000 psia</b><br>
+        • Operating temperature: <b>60 °F</b><br>
+        • Given: Z = 0.84, μ<sub>g</sub> = 0.013 cp, d<sub>m</sub> = 140 micron</div>
+      <p class="tr">بالعربي: لازم نلقى قطر العازلة العمودية وطولها حتى تفصل قطرات 140 مايكرون، ويبقى النفط بيها 3 دقايق.</p>
+    </div>
+  </div>
+
+  <div class="sec" id="e41-sol">
+    <h2><span class="num">S</span>الحل خطوة بخطوة</h2>
+    <div class="card">
+      <div class="steps">
+        <div class="step">
+          <h4>حوّل الحرارة إلى رانكن</h4>
+          <div class="eq">$$T=60+460=520\ ^\circ\text{R}$$</div>
+          <div class="why"><b class="q">ليش؟</b> قوانين الغاز تحتاج حرارة مطلقة. وهذي أول شي تسويه دائماً.</div>
+        </div>
+        <div class="step">
+          <h4>كثافة السائل ρ<sub>l</sub></h4>
+          <div class="eq">$$\begin{aligned}\rho_l&=62.4\left[\frac{141.5}{131.5+40}\right]\\&=51.5\ \text{lb/ft}^3\end{aligned}$$</div>
+          <div class="why"><b class="q">ليش؟</b> الجزء بين القوسين يحوّل الـ API إلى وزن نوعي (0.825)، ونضربه بكثافة الماء 62.4 lb/ft³.</div>
+        </div>
+        <div class="step">
+          <h4>كثافة الغاز ρ<sub>g</sub></h4>
+          <div class="eq">$$\begin{aligned}\rho_g&=2.70\,\frac{SP}{TZ}=2.70\,\frac{(0.6)(1000)}{(520)(0.84)}\\&=3.71\ \text{lb/ft}^3\end{aligned}$$</div>
+          <div class="why"><b class="q">ليش؟</b> قانون الغاز (PV = ZnRT) مرتّب للكثافة. والـ 2.70 يجمع وزن الهوا الجزيئي مع ثابت الغاز.</div>
+        </div>
+        <div class="step">
+          <h4>تكرار C<sub>D</sub> (افرض 0.34 وصحّح)</h4>
+          <div class="eq">$$\begin{aligned}V_t&=0.0119\left[\left(\tfrac{51.5-3.71}{3.71}\right)\tfrac{140}{0.34}\right]^{1/2}\\&=0.866\ \text{ft/s}\\Re&=0.0049\,\frac{(3.71)(140)(0.866)}{0.013}\\&=169.54\\C_D&=\frac{24}{169.54}+\frac{3}{(169.54)^{1/2}}+0.34\\&=0.711\end{aligned}$$</div>
+          <div class="tbl-wrap"><table class="num">
+            <tr><th>#</th><th>C<sub>D</sub> المستخدم</th><th>V<sub>t</sub></th><th>Re</th><th>C<sub>D</sub> الجديد</th></tr>
+            <tr><td>1</td><td>0.34</td><td>0.866</td><td>169.54</td><td>0.711</td></tr>
+            <tr><td>2</td><td>0.711</td><td>0.597</td><td>118</td><td>0.820</td></tr>
+            <tr><td>3</td><td>0.820</td><td>0.556</td><td>110</td><td>0.844</td></tr>
+            <tr><td>4</td><td>0.844</td><td>0.548</td><td>108</td><td>0.851</td></tr>
+            <tr class="pick"><td>5</td><td>0.851</td><td>0.545</td><td>108</td><td>0.851 ✓</td></tr>
+          </table></div>
+          <div class="why"><b class="q">ليش نوقف؟</b> لأن C<sub>D</sub> رجع نفس القيمة (0.851)، يعني ثبت. <span class="muted">(الحساب الدقيق يثبت على 0.854، والفرق ما يأثر.)</span></div>
+        </div>
+        <div class="step">
+          <h4>سعة الغاز: أقل قطر</h4>
+          <div class="eq">$$\begin{aligned}d^2&=5040\left[\frac{(520)(0.84)(10)}{1000}\right]\\&\quad\times\left[\left(\frac{3.71}{51.5-3.71}\right)\frac{0.851}{140}\right]^{1/2}\\&=5040\times4.368\times0.02172=478\\d&=\sqrt{478}=\boxed{21.8\ \text{in}}\end{aligned}$$</div>
+          <div class="why"><b class="q">ليش؟</b> بالعمودية الغاز يصعد، فلازم يكون بطيء أكثر من نزول القطرة، وهذا يحدد <b>أقل قطر</b>. أي قطر ≥ 21.8 in ينفع للغاز.</div>
+        </div>
+        <div class="step">
+          <h4>سعة السائل: ارتفاع السائل h لكل قطر</h4>
+          <div class="eq">$$\begin{aligned}d^2h&=\frac{t_rQ_l}{0.12}=\frac{3\times2000}{0.12}=50000\\h&=\frac{50000}{d^2}\end{aligned}$$</div>
+          <div class="why"><b class="q">ليش؟</b> حتى النفط يبقى 3 دقايق ويطلع منه الغاز. مثلاً d = 36: <span class="en">h = 50000/1296 = 38.6 in</span>.</div>
+        </div>
+        <div class="step">
+          <h4>الطول الكلي L<sub>ss</sub> (خذ الأكبر)</h4>
+          <div class="eq">$$\begin{aligned}L_{ss}&=\frac{h+76}{12}=\frac{38.6+76}{12}\\&=9.55\\L_{ss}&=\frac{h+d+40}{12}\\&=\frac{38.6+21.8+40}{12}=8.37\end{aligned}$$</div>
+          <div class="why"><b class="q">ليش؟</b> نضيف مسافات للمدخل وقسم الترسيب ومانع الضباب. و d بالقانون الثاني هو <b>أقل قطر للغاز</b> (21.8). الأكبر يحكم: <b>9.6 ft</b>.</div>
+        </div>
+        <div class="step">
+          <h4>نسبة النحافة واختيار الحجم</h4>
+          <div class="eq">$$SR=\frac{12\,L_{ss}}{d}=\frac{12\times9.6}{36}=3.2\ \checkmark$$</div>
+          <div class="why"><b class="q">ليش 36 × 10؟</b> شروطنا ثلاثة: (1) <span class="en">d ≥ 21.8</span> ✓، (2) النحافة بين 3 و 4 ✓ (3.2)، (3) الطول نقرّبه لرقم صحيح للأعلى: <span class="en">9.6 → 10 ft</span>. فالجواب <b>36 in × 10 ft</b>، ويعطي أكثر شوية من 3 دقايق.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="e41-tab">
+    <h2><span class="num">T</span>جدول 4-1 والرسم</h2>
+    <div class="card">
+      <div class="tbl-wrap"><table class="num">
+        <tr><th>t<sub>r</sub> (min)</th><th>d (in)</th><th>h (in)</th><th>L<sub>ss</sub> (ft)</th><th>12L<sub>ss</sub>/d</th></tr>
+        <tr><td>3</td><td>24</td><td>86.8</td><td>13.6</td><td>6.8</td></tr>
+        <tr><td>3</td><td>30</td><td>55.6</td><td>11.0</td><td>4.4</td></tr>
+        <tr class="pick"><td>3</td><td>36</td><td>38.6</td><td>9.6</td><td>3.2 ✓</td></tr>
+        <tr><td>3</td><td>42</td><td>28.3</td><td>8.7</td><td>2.5</td></tr>
+        <tr><td>3</td><td>48</td><td>21.7</td><td>8.1</td><td>2.0</td></tr>
+        <tr><td>2</td><td>24</td><td>57.9</td><td>11.2</td><td>5.6</td></tr>
+        <tr class="good"><td>2</td><td>30</td><td>37.0</td><td>9.4</td><td>3.8</td></tr>
+        <tr><td>2</td><td>36</td><td>25.7</td><td>8.5</td><td>2.8</td></tr>
+        <tr><td>2</td><td>42</td><td>18.9</td><td>7.9</td><td>2.3</td></tr>
+        <tr><td>1</td><td>24</td><td>28.9</td><td>8.7</td><td>4.4</td></tr>
+        <tr class="good"><td>1</td><td>30</td><td>18.5</td><td>7.9</td><td>3.2</td></tr>
+        <tr><td>1</td><td>36</td><td>12.9</td><td>7.4</td><td>2.5</td></tr>
+      </table></div>
+      <p class="muted" style="font-size:13.5px">الأخضر = نسبة النحافة بين 3 و 4. والغامق = الاختيار لزمن 3 دقايق.</p>
+      <figure><svg id="e41-chart"></svg><figcaption>الخط = L<sub>ss</sub> لزمن 3 دقايق · الشريط = منطقة النحافة 3–4</figcaption></figure>
+      <div class="note hook"><span class="t">🧠 خطوات العمودية بكلمات</span>«حرارة ← كثافتين ← C<sub>D</sub> ← قطر أدنى ← h ← L<sub>ss</sub> ← نحافة ← اختيار».</div>
+    </div>
+  </div>
+
+  <div class="sec" id="e41-solver">
+    <h2><span class="num">🎯</span>حاسبة رقمك: العمودية</h2>
+    <p class="lead">غيّر أي معطى حسب رقمك بالامتحان، والحل ينكتب كله من جديد ويختارلك الحجم.</p>
+    <div class="card solver" data-sep-solver="v"></div>
+    <button class="done-btn" data-done="ex41">✔ فهمت المثال العمودي</button>
+  </div>
+</section>
+
+<!-- ===================== EXAMPLE 4-2 (HORIZONTAL) ===================== -->
+<section class="view" id="v-ex42" data-view="ex42">
+  <div class="hero">
+    <span class="kicker">Example 4-2 · Sizing a Horizontal Separator</span>
+    <h1>مثال 4-2: تحجيم عازلة أفقية</h1>
+    <p>نفس معطيات 4-1 بالضبط. الفرق إن الغاز يعطينا <b>d × L</b> مو قطر أدنى، والسائل عادةً هو اللي يحكم.</p>
+  </div>
+  <div class="chips" data-chips>
+    <button class="chip" data-go="e42-sol">الحل</button>
+    <button class="chip" data-go="e42-tab">الجدول والرسم</button>
+    <button class="chip" data-go="e42-solver">🎯 حاسبة رقمك</button>
+  </div>
+
+  <div class="sec" id="e42-sol">
+    <h2><span class="num">S</span>الحل خطوة بخطوة</h2>
+    <div class="card">
+      <div class="problem">Same data as Example 4-1: 10 MMscfd (S = 0.6), 2,000 bopd (40° API), 1,000 psia, 60 °F, Z = 0.84, d<sub>m</sub> = 140 micron. Size a <b>horizontal</b> separator (t<sub>r</sub> = 3 min).</div>
+      <div class="steps" style="margin-top:14px">
+        <div class="step">
+          <h4>C<sub>D</sub> نفس المثال العمودي</h4>
+          <div class="eq">$$\begin{aligned}&C_D=0.851\\&\rho_l=51.5,\ \rho_g=3.71,\ T=520\ ^\circ\text{R}\end{aligned}$$</div>
+          <div class="why"><b class="q">ليش؟</b> C<sub>D</sub> يعتمد على القطرة والكثافات واللزوجة بس، مو على شكل العازلة. فما نعيد التكرار.</div>
+        </div>
+        <div class="step">
+          <h4>سعة الغاز: d × L<sub>eff</sub></h4>
+          <div class="eq">$$\begin{aligned}dL_{eff}&=420\left[\frac{(520)(0.84)(10)}{1000}\right]\\&\quad\times\left[\left(\tfrac{3.71}{51.5-3.71}\right)\tfrac{0.851}{140}\right]^{1/2}\\&=420\times4.368\times0.02172\\&=\boxed{39.85}\end{aligned}$$</div>
+          <div class="note warn"><span class="t">⚠️ غلط مطبعي بالكتاب</span>الكتاب كاتب <span class="en">d L<sub>eff</sub> = 55.04</span>، بس بأرقامه نفسها الجواب <b>39.85</b>، وجدول 4-2 مبني على 39.85 (مثلاً <span class="en">16 × 2.5 ≈ 40</span> و <span class="en">36 × 1.1 ≈ 40</span>). <b>اعتمد 39.85.</b></div>
+          <div class="why"><b class="q">ليش هيج؟</b> نفس قانون العمودي بس الثابت 420 بدل 5040 (5040 = 12 × 420). والجواب حاصل ضرب، فلكل قطر <span class="en">L<sub>eff</sub> = 39.85 / d</span>.</div>
+        </div>
+        <div class="step">
+          <h4>سعة السائل</h4>
+          <div class="eq">$$\begin{aligned}d^2L_{eff}&=\frac{t_rQ_l}{0.7}=\frac{3\times2000}{0.7}\\&=8571\\L_{eff}&=\frac{8571}{d^2}\end{aligned}$$</div>
+          <div class="why"><b class="q">ليش؟</b> العازلة نصها سائل، والسائل لازم يبقى 3 دقايق. مثلاً d = 36: <span class="en">L<sub>eff</sub> = 8571/1296 = 6.6 ft</span>.</div>
+        </div>
+        <div class="step">
+          <h4>مين يحكم؟ قارن الطولين</h4>
+          <div class="eq">$$\begin{aligned}L_{eff,gas}&=\frac{39.85}{36}=1.1\ \text{ft}\\L_{eff,liq}&=6.6\ \text{ft}\ \gg\ 1.1\end{aligned}$$</div>
+          <div class="why"><b class="q">ليش مهم؟</b> السائل يحتاج طول أكبر بهواية، فهو <b>الحاكم (governs)</b>. وهذا الشائع بالأفقية.</div>
+        </div>
+        <div class="step">
+          <h4>الطول الكلي L<sub>ss</sub></h4>
+          <div class="eq">$$\begin{aligned}\text{gas:}\ \ &L_{ss}=1.1+\tfrac{36}{12}=4.1\\\text{liquid:}\ \ &L_{ss}=\tfrac43(6.6)=8.8\\\text{or}\ \ &L_{ss}=6.6+2.5=\boxed{9.1}\end{aligned}$$</div>
+          <div class="why"><b class="q">ليش 2.5؟</b> جدول الكتاب يستخدم <span class="en">L<sub>eff</sub> + 2.5</span> إذا كان أكبر من 4/3 L<sub>eff</sub> (الأقطار 36 وفوك)، لأن الأجزاء الداخلية تحتاج تقريباً 2.5 ft. خذ دائماً <b>الأكبر</b>.</div>
+        </div>
+        <div class="step">
+          <h4>نسبة النحافة والاختيار</h4>
+          <div class="eq">$$SR=\frac{12\times9.1}{36}=3.0\ \checkmark$$</div>
+          <div class="why"><b class="q">ليش 36 × 10؟</b> قطر 30 يعطي نسبة 5.1 (طويل ورفيع هواية)، وقطر 42 يعطي 2.1 (سمين وغالي). قطر 36 يعطي 3.0 ✓، والطول <span class="en">9.1 → 10 ft</span>. والنتيجة <b>36 in × 10 ft</b> بحوالي 3 دقايق مكوث.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="e42-tab">
+    <h2><span class="num">T</span>جدول 4-2 والرسم</h2>
+    <div class="card">
+      <div class="tbl-wrap"><table class="num">
+        <tr><th>d (in)</th><th>Gas L<sub>eff</sub></th><th>Liquid L<sub>eff</sub></th><th>L<sub>ss</sub> (ft)</th><th>12L<sub>ss</sub>/d</th></tr>
+        <tr><td>16</td><td>2.5</td><td>33.5</td><td>44.7</td><td>33.5</td></tr>
+        <tr><td>20</td><td>2.0</td><td>21.4</td><td>28.5</td><td>17.1</td></tr>
+        <tr><td>24</td><td>1.7</td><td>14.9</td><td>19.9</td><td>9.9</td></tr>
+        <tr><td>30</td><td>1.3</td><td>9.5</td><td>12.7</td><td>5.1</td></tr>
+        <tr class="pick"><td>36</td><td>1.1</td><td>6.6</td><td>9.1*</td><td>3.0 ✓</td></tr>
+        <tr><td>42</td><td>0.9</td><td>4.9</td><td>7.4*</td><td>2.1</td></tr>
+        <tr><td>48</td><td>0.8</td><td>3.7</td><td>6.2*</td><td>1.6</td></tr>
+      </table></div>
+      <p class="muted" style="font-size:13.5px">* <span class="en">L<sub>ss</sub> = L<sub>eff</sub> + 2.5</span> هو الحاكم.</p>
+      <figure><svg id="e42-chart"></svg><figcaption>الخط = L<sub>ss</sub> الحاكم · الشريط = منطقة النحافة 3–4 · النقطة = الاختيار</figcaption></figure>
+      <div class="note hook"><span class="t">🧠 الفرق بين المثالين بجملة</span>العمودي: الغاز يعطي <b>قطر أدنى</b> (d²). الأفقي: الغاز يعطي <b>d × L</b>، والسائل عادةً يحكم.</div>
+    </div>
+  </div>
+
+  <div class="sec" id="e42-solver">
+    <h2><span class="num">🎯</span>حاسبة رقمك: الأفقية</h2>
+    <div class="card solver" data-sep-solver="h"></div>
+    <button class="done-btn" data-done="ex42">✔ فهمت المثال الأفقي</button>
+  </div>
+</section>
+
 <!-- ===================== CHEAT SHEET ===================== -->
 <section class="view" id="v-cheat" data-view="cheat">
   <div class="hero">
@@ -814,5 +1239,6 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],packag
 <script defer src="js/data.js"></script>
 <script defer src="js/app.js"></script>
 <script defer src="js/ex131.js"></script>
+<script defer src="js/sep.js"></script>
 </body>
 </html>

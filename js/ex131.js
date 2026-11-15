@@ -66,7 +66,7 @@ ED.onView.ex131 = function(){
       `D بالـ mm (${F(Dm)} m × 1000). ضفنا c وقرّبنا لأقرب لوح للأعلى.`,
       minT? `<div class="note ${pC>=minT?'aha':'warn'}"><span class="t">${pC>=minT?'✓':'⚠️'} فحص أقل سُمك عملي</span>لقطر ${F(Dm)} m أقل سُمك = ${minT} mm${pC>=minT?'، والحل أكبر منه.':'، فخذ '+minT+' mm.'}</div>`:'');
     // 4 hemi
-    h += step('رأس نصف كروي (إضافي)', [`\\begin{aligned}e&=0.6\\,e_{shell}=0.6\\times${F(eC,2)}=${F(eH,2)}\\ \\text{mm}\\\\e+c&=${F(eHc,2)}\\Rightarrow ${pH}\\ \\text{mm}\\end{aligned}`], 'قاعدة المحاضرة «نص كرة = 60%».');
+    h += step('رأس نصف كروي (إضافي)', [`\\begin{aligned}e&=0.6\\,e_{shell}=0.6\\times${F(eC,2)}\\\\&=${F(eH,2)}\\ \\text{mm}\\\\e+c&=${F(eHc,2)}\\Rightarrow ${pH}\\ \\text{mm}\\end{aligned}`], 'قاعدة المحاضرة «نص كرة = 60%».');
     // 5 tori
     const warnT = (rk<0.06?'<div class="note trap"><span class="t">⚠️</span>Rk/Rc أقل من 0.06، فيصير خطر انبعاج (buckling).</div>':'') + (Rc>Dm+1e-9?'<div class="note trap"><span class="t">⚠️</span>Rc لازم يكون ≤ D.</div>':'');
     h += step('رأس تورِي', [
