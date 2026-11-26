@@ -553,3 +553,10 @@ body{background:radial-gradient(1200px 600px at 100% -10%,color-mix(in srgb,var(
 .nm-suf{background:color-mix(in srgb,var(--green) 14%,transparent);color:var(--green)}
 .nm-name{font-size:18px;direction:ltr;text-align:center;margin:8px 0;line-height:2.2}
 .row .nm-part{font-family:var(--font);direction:rtl;font-size:12.5px}
+.nmsvg{width:100%;max-width:420px;height:auto;display:block;margin:6px auto;background:var(--sunk);border-radius:16px}
+.nmsvg polygon,.nmsvg polyline,.nmsvg line{fill:none;stroke:var(--text);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.nmsvg .nmB{stroke:var(--violet)}
+.nmsvg .nmC{fill:color-mix(in srgb,var(--amber) 18%,var(--card));stroke:var(--amber);stroke-width:1.5}
+.nmsvg .nmN{fill:var(--amber);font:700 11px var(--mono);text-anchor:middle}
+.nmsvg .nmS{fill:var(--green);font:700 14px var(--mono)}
+#nmquiz .opt.x{opacity:.5}
