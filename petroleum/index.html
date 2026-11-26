@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f5f5f7">
+<title>خواص النفط — ليلة الامتحان</title>
+<meta name="description" content="موقع دراسة تفاعلي لمادة خواص النفط والغاز الطبيعي: الشرح المختصر، والمسائل خطوة بخطوة، ودليل الشيت، وبنك الأسئلة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231d1d1f'/%3E%3Cpath d='M32 12c7 10 13 17 13 25a13 13 0 0 1-26 0c0-8 6-15 13-25z' fill='none' stroke='%23fff' stroke-width='4'/%3E%3C/svg%3E">
+<style>html[data-theme=light] .i-sun,html[data-theme=dark] .i-moon{display:none}</style>
+<script>try{var t=localStorage.getItem('pp-theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']],packages:{'[+]':['ams']}},
+ svg:{fontCache:'global'},options:{ignoreHtmlClass:'no-math'},startup:{typeset:false}};</script>
+</head>
+<body>
+<header class="topbar">
+  <button class="iconbtn menu-btn" id="menuBtn" aria-label="القائمة"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
+  <a class="brand" href="#home">
+    <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="var(--text)"/><path d="M32 12c7 10 13 17 13 25a13 13 0 0 1-26 0c0-8 6-15 13-25z" fill="none" stroke="var(--bg)" stroke-width="3.5"/><path d="M26 40a6 6 0 0 0 6 6" stroke="var(--amber)" stroke-width="3.5" stroke-linecap="round" fill="none"/></svg>
+    <span>خواص النفط<em class="sub"> · ليلة الامتحان</em></span>
+  </a>
+  <div class="spacer"></div>
+  <button class="iconbtn" id="themeBtn" aria-label="تبديل الوضع"><svg viewBox="0 0 24 24" class="i-moon"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg viewBox="0 0 24 24" class="i-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  <div class="progress"><i id="progBar"></i></div>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+<nav class="side" id="side" aria-label="الفهرس">
+  <h4>ابدأ من هنا</h4>
+  <a href="#home" data-nav="home"><span class="n"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>الرئيسية وخطة الامتحان</a>
+  <h4>الفصل الأول · تصنيف النفط</h4>
+  <a href="#ch1" data-nav="ch1"><span class="n">1</span>تعريف النفط وتركيبه<span class="ok" data-ok="ch1"></span></a>
+  <a href="#cls" data-nav="cls"><span class="n">2</span>تصنيف النفط: Kw · API · S · C.I.<span class="ok" data-ok="cls"></span></a>
+  <h4>الفصل الثاني · الخواص</h4>
+  <a href="#mech" data-nav="mech"><span class="n">3</span>الكثافة واللزوجة و VI<span class="ok" data-ok="mech"></span></a>
+  <a href="#therm" data-nav="therm"><span class="n">4</span>الخواص الحرارية وبقية الخواص<span class="ok" data-ok="therm"></span></a>
+  <h4>الامتحان</h4>
+  <a href="#sheet" data-nav="sheet"><span class="n">5</span>دليل الشيت: الجدول والمخطط<span class="ok" data-ok="sheet"></span></a>
+  <a href="#bank" data-nav="bank"><span class="n">6</span>بنك الأسئلة (EN / عربي)<span class="ok" data-ok="bank"></span></a>
+  <a href="#practice" data-nav="practice"><span class="n">7</span>تدريب المسائل والبطاقات</a>
+  <a href="#cheat" data-nav="cheat"><span class="n">8</span>ورقة المراجعة الأخيرة</a>
+</nav>
+<main id="main">
+
+<!-- ===================== HOME ===================== -->
+<section class="view" id="v-home" data-view="home">
+  <div class="hero">
+    <span class="kicker">Petroleum Refinery I · خواص النفط والغاز الطبيعي</span>
+    <h1>خواص النفط<br>مرتّبة حتى تحفظها وتكتبها</h1>
+    <p>كل اللي داخل بالامتحان وبس: الشرح النظري بصيغة جواب جاهز تكتبه، والمسائل خطوة بخطوة ووياها طريقة تتذكر بيها الحل، ودليل يعلّمك تستخدم الشيت والجدول والمخطط.</p>
+  </div>
+
+  <div class="card dash">
+    <div class="ring"><svg viewBox="0 0 100 100"><circle class="bgc" cx="50" cy="50" r="42"/><circle class="fgc" id="ringFg" cx="50" cy="50" r="42" stroke-dasharray="263.9" stroke-dashoffset="263.9"/></svg><b id="ringTxt">0%</b></div>
+    <div><h3 id="dashTitle">يلا نبدأ</h3><p id="dashSub">ست أقسام، وكل قسم تخلصه علّم عليه «فهمت» حتى يتقدم العداد.</p><a class="btn small" id="dashGo" href="#ch1">ابدأ من الفصل الأول ←</a></div>
+  </div>
+
+  <div class="sec">
+    <h2>شنو داخل بالامتحان؟</h2>
+    <div class="grid3">
+      <div class="fact"><b>ص 1–27</b><small>الشرح والقوانين داخلة</small></div>
+      <div class="fact"><b>ص 28–30</b><small>القوانين بس (%A، DI، الحرارة النوعية)</small></div>
+      <div class="fact"><b>المسائل</b><small>أغلب الأسئلة مسائل، وعليها الدرجة الأعلى</small></div>
+      <div class="fact"><b>الشيت</b><small>تاخذه وياك: 10 قوانين + جدول التصنيف + جدول L و H + المخطط</small></div>
+    </div>
+    <div class="grid2" style="margin-top:14px">
+      <div class="card" style="margin:0">
+        <h3 style="margin-top:0">مو داخل <span class="tag t-ro">اتركه</span></h3>
+        <ul style="margin:0;padding-inline-start:1.2em">
+          <li>الشد السطحي <span class="en">Surface / interfacial tension (IFT)</span>، ص 25.</li>
+          <li>موضوع الصخور والمكامن والمصائد <span class="en">(reservoirs, traps)</span>، ص 15–17.</li>
+        </ul>
+      </div>
+      <div class="card" style="margin:0">
+        <h3 style="margin-top:0">قوانين لازم تحفظها <span class="tag t-mem">مو بالشيت</span></h3>
+        <p style="margin:0">Kw و T<sub>av</sub> والميل Δt، و API، وتحويلات الحرارة، و SG عند أي حرارة (γ)، و <span class="en">ν = μ/ρ</span>، و <span class="en">ν = c·t</span>، والاستيفاء. <a href="#cheat">شوفها بورقة المراجعة ←</a></p>
+      </div>
+    </div>
+    <div class="note warn"><span class="t">انتبه للغة الجواب</span>ورقة امتحان 2025 كاتبة <span class="en">"Answers in English only"</span>، والست بلغتكم إن النظري بالعربي عادي. لهذا كل جواب بالموقع موجود بالعربي وبالإنكليزي، وتختار حسب ورقتكم.</div>
+  </div>
+
+  <div class="sec">
+    <h2>الطريق (بالترتيب)</h2>
+    <div class="road">
+      <a href="#ch1"><span class="ic">1</span><span><b>تعريف النفط وتركيبه</b><small>الأصل، والهيدروكاربونات، وغير الهيدروكاربونات وعيوبها</small></span><span class="st" data-road="ch1">ابدأ</span></a>
+      <a href="#cls"><span class="ic">2</span><span><b>تصنيف النفط</b><small>Kw، و API، والكبريت، و C.I. مع مسائل محلولة</small></span><span class="st" data-road="cls">ابدأ</span></a>
+      <a href="#mech"><span class="ic">3</span><span><b>الكثافة واللزوجة و VI</b><small>SG عند أي حرارة، و ν = c·t، ومؤشر اللزوجة والاستيفاء</small></span><span class="st" data-road="mech">ابدأ</span></a>
+      <a href="#therm"><span class="ic">4</span><span><b>الخواص الحرارية وبقية الخواص</b><small>نقطة الانسكاب، والوميض، والأوكتان، والأنيلين، و DI</small></span><span class="st" data-road="therm">ابدأ</span></a>
+      <a href="#sheet"><span class="ic">5</span><span><b>دليل الشيت</b><small>شلون تقرا الجدول والمخطط خطوة خطوة</small></span><span class="st" data-road="sheet">ابدأ</span></a>
+      <a href="#bank"><span class="ic">6</span><span><b>بنك الأسئلة</b><small>أسئلة سنوات سابقة وجديدة، EN + ترجمة + جواب بالعربي والإنكليزي</small></span><span class="st" data-road="bank">ابدأ</span></a>
+      <a href="#practice"><span class="ic">7</span><span><b>تدريب المسائل</b><small>مسائل بأرقام جديدة، وبطاقات حفظ، واختبار</small></span><span class="st">تدرّب</span></a>
+      <a href="#cheat"><span class="ic">8</span><span><b>ورقة المراجعة الأخيرة</b><small>كل شي بصفحة وحدة لآخر ساعة</small></span><span class="st">راجع</span></a>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>خطة الساعتين داخل القاعة</h2>
+    <div class="card">
+      <div class="steps">
+        <div class="step"><h4>أول 5 دقايق: اختار أسئلتك</h4><p>الورقة تطلب تجاوب جزء من الأسئلة بس (ثلاثة أو أربعة). ابدأ بالمسائل لأن درجتها أعلى وجوابها مضمون إذا مشيت على الخطوات.</p></div>
+        <div class="step"><h4>المسألة: نفس الشكل كل مرة</h4><p>المعطى ← المطلوب ← القانون (واكتب رقمه بالشيت إذا منه) ← التحويل للوحدة الصح ← التعويض ← الناتج مع الوحدة ← التصنيف إذا مطلوب.</p></div>
+        <div class="step"><h4>النظري: نقاط مرقّمة</h4><p>عرّف بجملة، وبعدها نقاط قصيرة. الأستاذ يدوّر على الكلمات المفتاحية، والموقع يعلّمها إلك بالخط الغامق.</p></div>
+        <div class="step"><h4>آخر 10 دقايق: افحص الوحدات</h4><p>Kw بالرانكن؟ و C.I. بالكلفن؟ و Tp و TF ناتجهم بالكلفن؟ و AP بالسيليزي؟ واللزوجة بالسنتي ستوك؟</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>شلون تقرا العلامات</h2>
+    <div class="card">
+      <div class="row" style="gap:10px 14px">
+        <span class="src mem">احفظ · مو بالشيت</span><span>قانون لازم تحفظه</span>
+        <span class="src sheet">بالشيت #</span><span>القانون بالشيت برقمه، افهم بس متى تستخدمه</span>
+        <span class="write">اكتب بالامتحان</span><span>جواب نظري جاهز بنقاط</span>
+      </div>
+    </div>
+  </div>
+  <footer>مبني من ملزمة «Properties of Petroleum and Natural Gas» وورقة الامتحان وأسئلة السنوات السابقة. كل أرقام المسائل متحقق منها بالحساب.</footer>
+</section>
+
+<!-- ===================== CH1: COMPOSITION ===================== -->
+<section class="view" id="v-ch1" data-view="ch1">
+  <div class="hero">
+    <span class="kicker">Chapter 1 · Classification of Crude Oil · ص 3–11</span>
+    <h1>النفط: شنو هو ومن شنو يتكوّن؟</h1>
+    <p>كل جزء هنا مكتوب بصيغة <b>جواب جاهز</b>: تعريف بجملة وبعده نقاط قصيرة. اقرا العربي، وإذا ورقتك تطلب إنكليزي افتح «English answer».</p>
+  </div>
+  <div class="chips" data-chips>
+    <button class="chip" data-go="c1-def">التعريف</button>
+    <button class="chip" data-go="c1-origin">الأصل</button>
+    <button class="chip" data-go="c1-imp">الأهمية</button>
+    <button class="chip" data-go="c1-elem">التحليل العنصري</button>
+    <button class="chip" data-go="c1-hc">الهيدروكاربونات</button>
+    <button class="chip" data-go="c1-nhc">غير الهيدروكاربونات</button>
+    <button class="chip" data-go="c1-name">تسمية المركبات</button>
+    <button class="chip" data-go="c1-map">خريطة الحفظ</button>
+    <button class="chip" data-go="c1-check">اختبر نفسك</button>
+  </div>
+
+<div class="sec" id="c1-def"><h2><span class="num">1</span>تعريف النفط وأشكاله</h2>
+<div class="ans"><header><h3>تعريف البترول<br><span class="en">Definition of petroleum</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0">خليط من <b>مركبات هيدروكاربونية</b> وكميات قليلة نسبياً من مواد ثانية مثل <b>الأوكسجين والنتروجين والكبريت والأملاح والماء</b>، وغازات ذائبة مثل <b>H₂S</b>، وآثار من المعادن مثل <b>الحديد والنيكل والنحاس والفناديوم</b>.</p><div class="hook2">حيلة: «هيدروكاربون + ONS + ملح وماي + H₂S + Fe Ni Cu V»</div><details class="enans"><summary>English answer</summary><div>It is a mixture of <b>hydrocarbon compounds</b> and relatively small quantities of other materials such as oxygen, nitrogen, sulphur, salt, water, dissolved gases such as hydrogen sulphide (H₂S) and trace amounts of metals such as iron, nickel, copper and vanadium.</div></details></div></div>
+<div class="ans"><header><h3>أشكال البترول الثلاثة<br><span class="en">Forms of petroleum (introduction)</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><ol>
+<li><b>غازي (Gaseous):</b> أجزاء خفيفة أشهرها <b>الميثان CH₄</b>، ويسمى <b>الغاز الطبيعي</b>.</li>
+<li><b>سائل (Liquid):</b> هيدروكاربونات سائلة وبيها غازات ذائبة ومواد قيرية، ويسمى <b>النفط الخام (crude oil)</b>.</li>
+<li><b>صلب وشبه صلب (Solid):</b> أجزاء ثقيلة ومواد قيرية، ويسمى <b>القير أو الأسفلت (bitumen / asphalt)</b>.</li></ol><div class="hook2">غاز ← ميثان · سائل ← خام · صلب ← أسفلت</div><details class="enans"><summary>English answer</summary><div><ol><li><b>Gaseous:</b> lighter fractions, mainly methane (CH₄), called natural gas.</li><li><b>Liquid:</b> liquid hydrocarbons with dissolved gases and bituminous materials, called crude oil.</li><li><b>Solid / semisolid:</b> heavier fractions and bituminous materials, called bitumen or asphalt.</li></ol></div></details></div></div>
+</div>
+<div class="sec" id="c1-origin"><h2><span class="num">2</span>أصل البترول: فرضيتين</h2>
+<div class="ans"><header><h3>الفرضية غير العضوية<br><span class="en">Inorganic hypothesis</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0 0 6px">تفترض إن الهيدروكاربونات تكوّنت من <b>تفاعل بخار الماء الحار مع الكاربيدات</b> تحت <b>ضغط وحرارة عالية</b>:</p>
+<div class="eq">$$\begin{aligned}Al_4C_3+12H_2O&\rightarrow4Al(OH)_3+3CH_4\\CaC_2+2H_2O&\rightarrow C_2H_2+Ca(OH)_2\\C_2H_2&\xrightarrow[\text{Press.}]{\text{Temp.}}\text{petroleum}\end{aligned}$$</div><div class="hook2">كاربيد الألمنيوم يطلع ميثان · كاربيد الكالسيوم يطلع أستيلين ← نفط</div><details class="enans"><summary>English answer</summary><div>This hypothesis assumes the oil hydrocarbons were produced from the reaction of hot water vapour with carbides, forming hydrocarbons under high pressure and temperature: Al₄C₃ + 12H₂O → 4Al(OH)₃ + 3CH₄ ; CaC₂ + 2H₂O → C₂H₂ + Ca(OH)₂ ; C₂H₂ → petroleum (Temp., Press.).</div></details></div></div>
+<div class="ans"><header><h3>الفرضية العضوية<br><span class="en">Organic hypothesis</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0">تفترض إن البترول تكوّن من <b>تحلل بقايا الحيوانات والنباتات الميتة</b>، اللي تحولت لهيدروكاربونات سائلة وغازية بتأثير <b>الحرارة العالية والضغط والعوامل المساعدة</b> (كائنات مجهرية). وبعض المصادر تستخدمها لتفسير تكوّن <b>نفط الخليج العربي</b>.</p><div class="hook2">عضوي = «حرارة + ضغط + ميكروبات» على كائنات ميتة</div><details class="enans"><summary>English answer</summary><div>This hypothesis assumes petroleum was formed from the decomposition of dead animals and plants, converted into liquid and gaseous hydrocarbons by high temperature, pressure and catalysts (microscopic beings). Some sources use it to explain the formation of the Arabian Gulf petroleum.</div></details></div></div>
+</div>
+<div class="sec" id="c1-imp"><h2><span class="num">3</span>أهمية البترول</h2>
+<div class="ans"><header><h3>أهمية البترول<br><span class="en">Importance of petroleum</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><ol><li>المصدر الرئيسي للطاقة بالعالم: <b>45% نفط خام و15% غاز طبيعي</b>.</li>
+<li>توليد الطاقة الكهربائية.</li><li>وقود للسيارات والسفن والطائرات.</li><li>وقود للتدفئة والطبخ.</li>
+<li>الصناعات البتروكيمياوية: ملابس، وبلاستك، وأدوية، وأنابيب.</li><li>تزييت المحركات بأنواعها.</li></ol><div class="hook2">«طاقة، كهرباء، نقل، بيت، بتروكيمياويات، تزييت» = 6</div><details class="enans"><summary>English answer</summary><div><ol><li>Major source of energy in the world (45% crude oil and 15% natural gas).</li><li>Electrical power generation.</li><li>Fuel for cars, ships and airliners.</li><li>Fuel for heating and cooking.</li><li>Petrochemical industries: clothes, plastics, drugs, pipes, etc.</li><li>Lubrication of engines.</li></ol></div></details></div></div>
+</div>
+<div class="sec" id="c1-elem"><h2><span class="num">4</span>التحليل الكيمياوي (العناصر)</h2>
+<div class="card">
+<p style="margin-top:0">نسبة الهيدروكاربونات تتغيّر هواية: من <b>97% وزناً بالنفط الخفيف</b> لحد <b>50% بالنفط الثقيل والقير</b>. بس نسب العناصر تبقى ضمن حدود ضيقة:</p>
+<div class="tbl-wrap"><table class="num"><tr><th>العنصر Element</th><th>wt %</th></tr>
+<tr><td>كاربون C</td><td>83 – 88</td></tr><tr><td>هيدروجين H₂</td><td>11 – 14</td></tr><tr><td>كبريت S</td><td>0.05 – 8</td></tr>
+<tr><td>نتروجين N₂</td><td>1 – 2</td></tr><tr><td>أوكسجين O₂</td><td>0.05 – 1.5</td></tr><tr><td>معادن Fe, Ni, Cu, V</td><td>&lt; 0.03</td></tr></table></div>
+<div class="note hook"><span class="t">حيلة حفظ الجدول</span>الكاربون <b class="en">83–88</b> (ثمانينات)، والهيدروجين <b class="en">11–14</b> (مراهق)، والكبريت <b class="en">0.05–8</b> (أوسع مدى)، والنتروجين <b class="en">1–2</b>، والأوكسجين <b class="en">0.05–1.5</b>، والمعادن <b class="en">&lt;0.03</b>.</div>
+</div></div>
+<div class="sec" id="c1-hc"><h2><span class="num">5</span>المكونات الهيدروكاربونية</h2>
+<p class="lead">كل أنواع النفط بيها نفس المجاميع، وكل جزيئة بيها من <b>1 إلى 60 ذرة كاربون</b>.</p>
+<div class="card"><div class="mols"><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><polyline points="47.0,36.0 69.0,48.0 91.0,36.0 113.0,48.0"/></svg><b>n-butane</b><small>normal paraffin</small></div><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><line x1="58.0" y1="56.0" x2="80.0" y2="44.0"/><line x1="80.0" y1="44.0" x2="102.0" y2="56.0"/><line x1="80.0" y1="44.0" x2="80.0" y2="20.0"/></svg><b>iso-butane</b><small>branched paraffin</small></div><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><polygon points="80.0,18.0 100.8,30.0 100.8,54.0 80.0,66.0 59.2,54.0 59.2,30.0"/></svg><b>Cyclohexane</b><small>naphthene</small></div><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><polyline points="47.0,36.0 69.0,48.0 91.0,36.0 113.0,48.0"/><line x1="50.0" y1="42.0" x2="68.0" y2="45.0"/></svg><b>1-butene</b><small>olefin</small></div><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><polygon points="80.0,18.0 100.8,30.0 100.8,54.0 80.0,66.0 59.2,54.0 59.2,30.0"/><circle cx="80" cy="42" r="13"/></svg><b>Benzene</b><small>aromatic</small></div><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><polygon points="62.7,22.0 80.0,32.0 80.0,52.0 62.7,62.0 45.4,52.0 45.4,32.0"/><polygon points="97.3,22.0 114.6,32.0 114.6,52.0 97.3,62.0 80.0,52.0 80.0,32.0"/><circle cx="62.67949192431123" cy="42" r="11"/><circle cx="97.32050807568876" cy="42" r="11"/></svg><b>Naphthalene</b><small>aromatic</small></div></div></div>
+<div class="card"><div class="tbl-wrap"><table>
+<tr><th>النوع</th><th>الصيغة العامة</th><th>مشبع؟</th><th>أهم صفة</th></tr>
+<tr><td><b>بارافين عادي</b> <span class="en muted">n-paraffin</span></td><td class="unit">C<sub>n</sub>H<sub>2n+2</sub></td><td>✓</td><td>درجة غليان عالية، أوكتان واطي</td></tr>
+<tr><td><b>بارافين متفرع</b> <span class="en muted">iso-paraffin</span></td><td class="unit">C<sub>n</sub>H<sub>2n+2</sub></td><td>✓</td><td>غليان واطي، أوكتان عالي</td></tr>
+<tr><td><b>نفثين</b> <span class="en muted">naphthene</span></td><td class="unit">C<sub>n</sub>H<sub>2n</sub></td><td>✓ حلقي</td><td>غليان أعلى من الألكانات</td></tr>
+<tr><td><b>أوليفين</b> <span class="en muted">olefin</span></td><td class="unit">C<sub>n</sub>H<sub>2n</sub></td><td>✗</td><td>مو موجود بالخام، بنواتج التكسير</td></tr>
+<tr><td><b>أروماتي</b> <span class="en muted">aromatic</span></td><td class="unit">C<sub>n</sub>H<sub>n</sub></td><td>✗ حلقة بنزين</td><td>ريحة حلوة ومسرطن، أوكتان عالي جداً</td></tr>
+</table></div>
+<p class="muted" style="font-size:13px;margin:4px 0 0">الصيغة C<sub>n</sub>H<sub>n</sub> للأروماتيات مثل ما بالملزمة (تنطبق على البنزين C₆H₆).</p></div>
+<div class="ans"><header><h3>البارافينات العادية<br><span class="en">Normal (straight-chain) paraffins</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0 0 4px">سلسلة مستقيمة، والصيغة <b class="en">C<sub>n</sub>H<sub>2n+2</sub></b>، مثل n-butane (C₄H₁₀). صفاتها:</p><ol><li><b>وزن جزيئي عالي.</b></li><li><b>درجة غليان عالية.</b></li><li><b>رقم أوكتاني واطي.</b></li></ol><div class="hook2">العادي «عالي عالي واطي»: وزن، غليان، أوكتان</div><details class="enans"><summary>English answer</summary><div>Straight hydrocarbon chain, general formula CnH2n+2, e.g. n-butane (C₄H₁₀). Properties: high molecular weight, high boiling point, low octane number.</div></details></div></div>
+<div class="ans"><header><h3>البارافينات المتفرعة<br><span class="en">Branched (iso) paraffins</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0 0 4px">سلسلة متفرعة، ونفس الصيغة <b class="en">C<sub>n</sub>H<sub>2n+2</sub></b>، مثل iso-butane. صفاتها:</p><ol><li><b>درجة غليان واطية.</b></li><li><b>رقم أوكتاني عالي</b>، لهذا هي المفضلة بوقود السيارات.</li><li>الشائع بالخام <b>فرع واحد</b>، والفرعين أقل.</li></ol><div class="hook2">المتفرع عكس العادي: غليان واطي، أوكتان عالي</div><details class="enans"><summary>English answer</summary><div>Branched chain, general formula CnH2n+2, e.g. iso-butane. Properties: low boiling point; high octane number, therefore favourite in car fuel; the common type in crude oil has one branch, less two branches.</div></details></div></div>
+<div class="ans"><header><h3>النفثينات (البارافينات الحلقية)<br><span class="en">Cycloparaffins (naphthenes)</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0">هيدروكاربونات <b>مشبعة</b> بيها حلقة كاربون وحدة أو أكثر، والصيغة <b class="en">C<sub>n</sub>H<sub>2n</sub></b>. صفاتها تشبه الألكانات بس <b>درجة غليانها أعلى</b>. أمثلة: cyclopentane و cyclohexane و decalin.</p><details class="enans"><summary>English answer</summary><div>Cycloalkanes (naphthenes) are saturated hydrocarbons with one or more carbon rings, formula CnH2n. They have similar properties to alkanes but higher boiling points. Examples: cyclopentane, cyclohexane, decalin.</div></details></div></div>
+<div class="ans"><header><h3>الأوليفينات<br><span class="en">Olefins (alkenes)</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0">هيدروكاربونات <b>غير مشبعة</b> (بيها آصرة مزدوجة)، والصيغة <b class="en">C<sub>n</sub>H<sub>2n</sub></b>. الخفيفة منها <b>مو موجودة بالنفط الخام</b>، بس تنلقى <b>بنواتج التكسير (cracked products)</b>. مثال: 1-butene.</p><div class="hook2">انتبه: النفثين والأوليفين نفس الصيغة C<sub>n</sub>H<sub>2n</sub>، بس النفثين مشبع حلقي</div><details class="enans"><summary>English answer</summary><div>Olefins (alkenes) are unsaturated hydrocarbons with general formula CnH2n. The low-boiling olefins are probably not present in crude petroleum, but they are found in cracked products. Example: 1-butene.</div></details></div></div>
+<div class="ans"><header><h3>الأروماتيات<br><span class="en">Aromatics</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0 0 4px">هيدروكاربونات <b>غير مشبعة</b> بيها حلقة بنزين سداسية مستوية وحدة أو أكثر، والصيغة (C<sub>n</sub>H<sub>n</sub>)، وأغلبها <b>ريحتها حلوة ومسرطنة</b>.</p><p style="margin:0">أمثلة: التولوين (methyl benzene)، والزايلينات ortho (1,2) و meta (1,3) و para (1,4)، والنفثالين.</p><details class="enans"><summary>English answer</summary><div>Aromatic hydrocarbons are unsaturated hydrocarbons with one or more planar six-carbon (benzene) rings, formula CnHn; many have a sweet aroma and are carcinogenic. Examples: toluene (methyl benzene), o-, m-, p-xylene (1,2-, 1,3-, 1,4-dimethyl benzene), naphthalene.</div></details></div></div>
+<div class="card"><div class="mols"><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><polygon points="70.0,22.0 89.1,33.0 89.1,55.0 70.0,66.0 50.9,55.0 50.9,33.0"/><circle cx="70" cy="44" r="12"/><line x1="89.1" y1="33.0" x2="108.1" y2="22.0"/><text x="123.1" y="23.0" text-anchor="middle">CH₃</text></svg><b>Toluene</b><small>methyl benzene</small></div><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><polygon points="80.0,20.0 99.1,31.0 99.1,53.0 80.0,64.0 60.9,53.0 60.9,31.0"/><circle cx="80" cy="42" r="12"/><line x1="80.0" y1="20.0" x2="80.0" y2="6.0"/><line x1="80.0" y1="64.0" x2="80.0" y2="78.0"/></svg><b>p-Xylene</b><small>1,4-dimethyl benzene</small></div><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><polygon points="80.0,20.0 102.8,36.6 94.1,63.4 65.9,63.4 57.2,36.6"/></svg><b>Cyclopentane</b><small>naphthene</small></div><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><polygon points="62.7,22.0 80.0,32.0 80.0,52.0 62.7,62.0 45.4,52.0 45.4,32.0"/><polygon points="97.3,22.0 114.6,32.0 114.6,52.0 97.3,62.0 80.0,52.0 80.0,32.0"/></svg><b>Decalin</b><small>naphthene</small></div></div></div>
+</div>
+<div class="sec" id="c1-nhc"><h2><span class="num">6</span>المكونات غير الهيدروكاربونية</h2>
+<div class="ans"><header><h3>شنو تسبب؟ (عموماً)<br><span class="en">Effects of non-hydrocarbon components</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><ol><li><b>التآكل (Corrosion).</b></li><li><b>تعطّل عمليات المصفى (Breakdown in refinery operation).</b></li></ol><details class="enans"><summary>English answer</summary><div><ol><li>Corrosion.</li><li>Breakdown in the refinery operation.</li></ol></div></details></div></div>
+<div class="ans"><header><h3>١. مركبات الكبريت<br><span class="en">I. Sulphur components</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0 0 4px"><b>أهمها</b>، وتزيد كل ما تزيد كثافة النفط. أنواعها:</p>
+<ol><li>كبريتيد الهيدروجين <b class="en">H–S–H (H₂S)</b>.</li><li>المركابتانات <b class="en">H–S–R</b>، و R مجموعة ألكيل، مثل H–S–CH₃.</li><li>الكبريتيدات: أليفاتية <b class="en">R–S–R</b>، وحلقية (حلقة بيها S).</li></ol>
+<p style="margin:8px 0 4px"><b>عيوبها (Disadvantages):</b></p>
+<ol><li><b>تآكل الأجزاء المعدنية للمحرك.</b></li><li><b>تقلل الرقم الأوكتاني.</b></li><li><b>تقلل مقاومة الأكسدة.</b></li><li><b>ترسّب مواد صلبة.</b></li></ol><div class="hook2">عيوب الكبريت الأربعة: «تآكل، أوكتان، أكسدة، ترسّب»، كلها تبدي بحرف ت أو أ</div><details class="enans"><summary>English answer</summary><div>The most important; increases as density increases. Types: hydrogen sulphide H₂S; mercaptans H–S–R (R = alkyl, e.g. H–S–CH₃); sulphides: aliphatic R–S–R and cyclic. Disadvantages: 1) corrosion of the metal parts of the engine, 2) reduce octane number, 3) reduce oxidation resistance, 4) solids deposition.</div></details></div></div>
+<div class="card"><div class="mols"><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><text x="80.0" y="48.0" text-anchor="middle">H − S − H</text></svg><b>Hydrogen sulphide</b><small>H₂S</small></div><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><text x="80.0" y="48.0" text-anchor="middle">R − S − H</text></svg><b>Mercaptan</b><small>R–SH</small></div><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><text x="80.0" y="48.0" text-anchor="middle">R − S − R</text></svg><b>Aliphatic sulphide</b><small>R–S–R</small></div><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><polygon points="80.0,22.0 102.8,38.6 94.1,65.4 65.9,65.4 57.2,38.6"/><rect x="73.0" y="14.0" width="14" height="14" style="fill:var(--sunk);stroke:none"/><text x="80.0" y="27.0" text-anchor="middle">S</text></svg><b>Cyclo sulphide</b><small>ring with S</small></div></div></div>
+<div class="ans"><header><h3>٢. مركبات الأوكسجين<br><span class="en">II. Oxygen components</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0 0 4px">تزيد كل ما تزيد <b>درجة غليان الجزء</b>. نوعين:</p>
+<ol><li><b>حامضية (Acidic):</b> أحماض عضوية عادية <span class="en">R–COOH</span>، وأحماض متفرعة، وأحماض أروماتية.</li>
+<li><b>غير حامضية (Non-acidic):</b> الإسترات <span class="en">R–COO–R</span>، والأمايدات <span class="en">R–CO–NH–R</span>، والكيتونات <span class="en">R–CO–R</span>، والإيثرات <span class="en">R–O–R</span>، والكحولات <span class="en">R–OH</span> (مثل الميثانول والإيثانول).</li></ol><div class="hook2">غير الحامضية = «إسـ أمـ كيـ إيـ كحـ»: إستر، أمايد، كيتون، إيثر، كحول</div><details class="enans"><summary>English answer</summary><div>They increase with increasing boiling point of the fraction. Types: (i) acidic: normal organic acids R–COOH, branched organic acids, aromatic acids; (ii) non-acidic: esters R–COO–R, amides R–CO–NH–R, ketones R–CO–R, ethers R–O–R, alcohols R–OH (methanol, ethanol).</div></details></div></div>
+<div class="ans"><header><h3>٣. مركبات النتروجين<br><span class="en">III. Nitrogen components</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0 0 4px">تكثر بالنفط <b>الأسفلتي</b>، والمسموح بيها لحد <b>0.25% وزناً</b>. أمثلة: البيريدين والكينولين (والكاربازول).</p>
+<p style="margin:6px 0 4px"><b>عيوبها:</b></p><ol><li><b>تسمّم العوامل المساعدة (poison catalysts).</b></li><li><b>تزيد المتبقي الكاربوني (carbon residue).</b></li><li><b>تقلل الـ API.</b></li></ol><div class="hook2">النتروجين «سمّ، كاربون، API↓»</div><details class="enans"><summary>English answer</summary><div>More asphaltic crudes contain nitrogen compounds; usually tolerated up to 0.25 wt%. Examples: pyridine, quinoline. Disadvantages: 1) can poison catalysts, 2) increased carbon residue, 3) decreased API.</div></details></div></div>
+<div class="card"><div class="mols"><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><polygon points="80.0,18.0 100.8,30.0 100.8,54.0 80.0,66.0 59.2,54.0 59.2,30.0"/><circle cx="80" cy="42" r="13"/><rect x="73.0" y="58.0" width="14" height="14" style="fill:var(--sunk);stroke:none"/><text x="80.0" y="71.0" text-anchor="middle">N</text></svg><b>Pyridine</b><small>N in benzene ring</small></div><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><polygon points="62.7,22.0 80.0,32.0 80.0,52.0 62.7,62.0 45.4,52.0 45.4,32.0"/><polygon points="97.3,22.0 114.6,32.0 114.6,52.0 97.3,62.0 80.0,52.0 80.0,32.0"/><circle cx="62.67949192431123" cy="42" r="11"/><circle cx="97.32050807568876" cy="42" r="11"/><rect x="55.7" y="54.0" width="14" height="14" style="fill:var(--sunk);stroke:none"/><text x="62.7" y="67.0" text-anchor="middle">N</text></svg><b>Quinoline</b><small>N in naphthalene</small></div><div class="mol"><svg viewBox="0 0 160 86" aria-hidden="true"><polygon points="44.0,16.0 59.6,25.0 59.6,43.0 44.0,52.0 28.4,43.0 28.4,25.0"/><polygon points="116.0,16.0 131.6,25.0 131.6,43.0 116.0,52.0 100.4,43.0 100.4,25.0"/><circle cx="44" cy="34" r="10"/><circle cx="116" cy="34" r="10"/><line x1="59.6" y1="25.0" x2="100.4" y2="25.0"/><line x1="59.6" y1="43.0" x2="73.0" y2="60.0"/><line x1="100.4" y1="43.0" x2="87.0" y2="60.0"/><text x="80.0" y="69.0" text-anchor="middle">N</text><text x="80.0" y="82.0" text-anchor="middle">H</text></svg><b>Carbazole</b><small>سؤال 2024</small></div></div></div>
+<div class="ans"><header><h3>٤. المركبات المعدنية<br><span class="en">IV. Metallic components</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0 0 4px"><b>عيوبها:</b></p><ol><li>تأثر على <b>فعالية العامل المساعد</b>.</li><li><b>تكوّن الكوك</b>.</li><li><b>تقلل ناتج الكازولين</b>.</li><li>تكوّن <b>ترسبات رماد</b> بمحطات توليد الكهرباء.</li><li><b>التآكل</b>.</li></ol>
+<p style="margin:6px 0 4px"><b>أنواعها:</b></p><ol><li>عضوية معدنية: <span class="en">Fe, Ni, V, Cd</span>.</li><li>صابونية: <span class="en">Mg, Ca</span>.</li><li>ملحية: <span class="en">Na⁺, Ba²⁺</span>.</li></ol><div class="hook2">المعادن 5 عيوب: «عامل، كوك، كازولين، رماد، تآكل»</div><details class="enans"><summary>English answer</summary><div>Disadvantages: 1) affect catalyst activity, 2) coke formation, 3) reduce the yield of gasoline, 4) form ash deposits in power generation plants, 5) corrosion. Types: organo-metallic (Fe, Ni, V, Cd), soap metallic (Mg, Ca), salt metallic (Na⁺, Ba²⁺).</div></details></div></div>
+<div class="ans"><header><h3>٥. الماء المالح<br><span class="en">Brine water</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0">جزيئات ماء عالقة بالنفط بيها تراكيز عالية جداً من الأيونات الذائبة، حوالي <b>300 – 300,000 ppm</b>. الأيونات نوعين: <b>موجبة</b> <span class="en">(Na⁺, Ba²⁺, Mg²⁺, Al³⁺)</span> و<b>سالبة</b> <span class="en">(Cl⁻, Br⁻, SO₄²⁻, I⁻)</span>.</p><details class="enans"><summary>English answer</summary><div>Water molecules suspended in crude oil with extremely high concentrations of dissolved salt ions, nearly 300–300,000 ppm. Ions are positive (Na⁺, Ba²⁺, Mg²⁺, Al³⁺) and negative (Cl⁻, Br⁻, SO₄²⁻, I⁻).</div></details></div></div>
+<div class="note trap"><span class="t">مزايا وعيوب بسؤال التسمية</span>إذا السؤال طلب «advantages and disadvantages» لمركب كبريتي أو نتروجيني، الملزمة ما بيها مزايا إلهم. اكتب العيوب واذكر إنه «non-hydrocarbon component: its presence is undesirable». أما المتفرّع فاكتب صفاته كمزايا (أوكتان عالي، مفضل بالوقود).</div>
+</div>
+<div class="sec" id="c1-name"><h2><span class="num">7</span>مهارة: تسمية المركب وتصنيفه (سؤال 2024)</h2>
+<div class="card">
+<p style="margin-top:0"><b>السؤال:</b> <span class="en">Name the following compounds and determine which of them is a hydrocarbon or a non-hydrocarbon. In addition, mention the advantages and disadvantages of each compound.</span></p>
+<div class="recipe"><b>الطريقة:</b><span>شوف العناصر</span><i>←</i><span>بيه S أو N أو O؟ = غير هيدروكاربون</span><i>←</i><span>حدد العائلة</span><i>←</i><span>سمّ</span><i>←</i><span>اكتب صفات العائلة</span></div>
+<div class="mols"><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><line x1="56.0" y1="42.0" x2="80.0" y2="42.0"/><line x1="80.0" y1="42.0" x2="104.0" y2="42.0"/><line x1="80.0" y1="42.0" x2="80.0" y2="18.0"/><line x1="80.0" y1="42.0" x2="80.0" y2="66.0"/></svg><b>2,2-dimethylpropane</b><small>C₅H₁₂ · iso-paraffin</small></div><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><polygon points="70.0,24.0 90.9,39.2 82.9,63.8 57.1,63.8 49.1,39.2"/><line x1="90.9" y1="39.2" x2="110.9" y2="29.2"/><line x1="110.9" y1="29.2" x2="130.9" y2="39.2"/><line x1="70.0" y1="24.0" x2="70.0" y2="6.0"/><text x="74.0" y="3.0" text-anchor="middle"></text></svg><b>1-ethyl-2-methylcyclopentane</b><small>naphthene</small></div><div class="mol"><svg viewBox="0 0 160 84" aria-hidden="true"><text x="80.0" y="48.0" text-anchor="middle">R − S − H</text></svg><b>1-butanethiol (butyl mercaptan)</b><small>CH₃CH₂CH₂CH₂SH</small></div><div class="mol"><svg viewBox="0 0 160 86" aria-hidden="true"><polygon points="44.0,16.0 59.6,25.0 59.6,43.0 44.0,52.0 28.4,43.0 28.4,25.0"/><polygon points="116.0,16.0 131.6,25.0 131.6,43.0 116.0,52.0 100.4,43.0 100.4,25.0"/><circle cx="44" cy="34" r="10"/><circle cx="116" cy="34" r="10"/><line x1="59.6" y1="25.0" x2="100.4" y2="25.0"/><line x1="59.6" y1="43.0" x2="73.0" y2="60.0"/><line x1="100.4" y1="43.0" x2="87.0" y2="60.0"/><text x="80.0" y="69.0" text-anchor="middle">N</text><text x="80.0" y="82.0" text-anchor="middle">H</text></svg><b>Carbazole</b><small>nitrogen compound</small></div></div>
+<div class="tbl-wrap"><table>
+<tr><th>#</th><th>الاسم</th><th>نوعه</th><th>الصفات (مزايا / عيوب)</th></tr>
+<tr><td>1</td><td class="en">2,2-dimethylpropane</td><td>هيدروكاربون: بارافين متفرع</td><td>غليان واطي · <b>أوكتان عالي (ميزة: مفضل بوقود السيارات)</b> · شائع بالخام بفرع واحد وأقل بفرعين</td></tr>
+<tr><td>2</td><td class="en">1-ethyl-2-methylcyclopentane</td><td>هيدروكاربون: نفثين (مشبع حلقي)</td><td>صفات تشبه الألكانات بس غليان أعلى · أوكتان أعلى نسبياً من البارافين المقابل</td></tr>
+<tr><td>3</td><td class="en">1-butanethiol (n-butyl mercaptan)</td><td>غير هيدروكاربون: مركب كبريتي (مركابتان)</td><td>عيوب: تآكل المحرك · يقلل الأوكتان · يقلل مقاومة الأكسدة · ترسب مواد صلبة</td></tr>
+<tr><td>4</td><td class="en">Carbazole</td><td>غير هيدروكاربون: مركب نتروجيني</td><td>عيوب: يسمم العامل المساعد · يزيد المتبقي الكاربوني · يقلل API</td></tr>
+</table></div>
+<div class="note warn"><span class="t">تصحيح لحلّك</span>المركب الثاني اسمه <b class="en">1-ethyl-2-methylcyclopentane</b> (مو «1-ethyl-2-cyclomethyl pentane»)، وعائلته <b class="en">Naphthenes</b>. قاعدة التسمية: الحلقة هي الأساس (cyclopentane)، والمجاميع بالترتيب الأبجدي (ethyl قبل methyl) وتاخذ أصغر الأرقام.</div>
+</div>
+</div>
+<div class="sec" id="c1-map"><h2><span class="num">★</span>خريطة الحفظ: سؤال «مين يسبب شنو؟»</h2>
+<div class="card">
+<div class="tbl-wrap"><table>
+<tr><th>التأثير (Effect)</th><th>المسبب</th></tr>
+<tr><td class="en">Corrosion of metal parts of the engine</td><td>الكبريت <span class="en">(Sulphur)</span></td></tr>
+<tr><td class="en">Reduce octane number / oxidation resistance</td><td>الكبريت</td></tr>
+<tr><td class="en">Solids deposition</td><td>الكبريت</td></tr>
+<tr><td class="en">Poison catalysts · increase carbon residue · decrease API</td><td>النتروجين <span class="en">(Nitrogen)</span></td></tr>
+<tr><td class="en">Coke formation · reduce gasoline yield · ash deposits</td><td>المعادن <span class="en">(Metallic)</span></td></tr>
+<tr><td class="en">Affect catalyst activity · corrosion</td><td>المعادن</td></tr>
+<tr><td class="en">Better engine performance (high octane)</td><td>الأروماتيات (أعلى أوكتان)، وبعدها النفثينات والمتفرعة</td></tr>
+<tr><td class="en">Increase with density</td><td>الكبريت</td></tr>
+<tr><td class="en">Increase with boiling point of fraction</td><td>الأوكسجين</td></tr>
+<tr><td class="en">Found in cracked products, not in crude</td><td>الأوليفينات</td></tr>
+</table></div>
+<div class="note hook"><span class="t">جملة وحدة تحفظ بيها الكل</span>«<b>الكبريت ياكل المحرك، والنتروجين يسمّ العامل، والمعادن تسوي كوك وتاكل الكازولين</b>».</div>
+</div></div>
+<div class="sec" id="c1-check"><h2><span class="num">✓</span>اختبر نفسك</h2>
+<div class="card quiz" data-quiz="ch1"></div>
+<button class="done-btn" data-done="ch1">✓ خلصت التركيب وفهمته</button></div>
+</section>
+<!-- ===================== CLASSIFICATION ===================== -->
+<section class="view" id="v-cls" data-view="cls">
+  <div class="hero">
+    <span class="kicker">Chapter 1 · Classification of Crude Oil · ص 11–15</span>
+    <h1>تصنيف النفط: أربع طرق</h1>
+    <p>هنا أهم مسائل الفصل الأول. <b>قانون واتسون و API لازم تحفظهم</b> (مو بالشيت)، و C.I. بالشيت، وجدول الحدود كله بالشيت.</p>
+  </div>
+  <div class="chips" data-chips>
+    <button class="chip" data-go="cl-intro">الفكرة</button>
+    <button class="chip" data-go="cl-temp">تحويل الحرارة</button>
+    <button class="chip" data-go="cl-kw">واتسون Kw</button>
+    <button class="chip" data-go="cl-mid">سؤال الميدتيرم</button>
+    <button class="chip" data-go="cl-api">API</button>
+    <button class="chip" data-go="cl-s">الكبريت</button>
+    <button class="chip" data-go="cl-ci">C.I.</button>
+    <button class="chip" data-go="cl-gauge">المصنّف التفاعلي</button>
+    <button class="chip" data-go="cl-check">اختبر نفسك</button>
+  </div>
+
+<div class="sec" id="cl-intro"><h2><span class="num">0</span>الفكرة بدقيقة</h2>
+<div class="ans"><header><h3>تصنيف النفط الخام<br><span class="en">Classification of crude oil</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0 0 4px">يعني نعرف <b>طبيعة النفط ونوع الهيدروكاربونات بيه</b> بفحوصات بسيطة. أربع طرق رئيسية:</p><ol><li><b>عامل واتسون (Kw).</b></li><li><b>الجزء المفتاحي (API gravity).</b></li><li><b>محتوى الكبريت (Sulfur content).</b></li><li><b>معامل الارتباط (Correlation Index, C.I.).</b></li></ol><div class="hook2">اثنين بقانون تحفظه (Kw و API)، وواحد بدون قانون (الكبريت)، وواحد بالشيت (C.I.)</div><details class="enans"><summary>English answer</summary><div>Classification of crude oil refers to the nature and type of crude oil (type of hydrocarbons in it) by simplified tests. Four main methods: A) Watson characterization factor (Kw), B) Key fraction (API gravity), C) Sulfur content, D) Correlation index (C.I.).</div></details></div></div>
+<div class="card"><div class="tbl-wrap"><table>
+<tr><th>الطريقة</th><th>القانون</th><th>الحرارة بـ</th><th>وين القانون؟</th></tr>
+<tr><td>واتسون Kw</td><td class="unit">∛T / SG</td><td><b>رانكن °R</b></td><td><span class="src mem">احفظ</span></td></tr>
+<tr><td>API</td><td class="unit">141.5/SG − 131.5</td><td>—</td><td><span class="src mem">احفظ</span></td></tr>
+<tr><td>الكبريت</td><td>بدون قانون</td><td>—</td><td><span class="src sheet">الحدود بالشيت</span></td></tr>
+<tr><td>C.I.</td><td class="unit">48640/T + 473.3 SG − 456.8</td><td><b>كلفن K</b></td><td><span class="src sheet">بالشيت #10</span></td></tr>
+</table></div>
+<div class="note trap"><span class="t">أكبر فخ بالفصل</span>واتسون <b>بالرانكن</b>، و C.I. <b>بالكلفن</b>. حيلة: «<b>واتسون رانكن</b> (و-ر)، و<b>C.I. كلفن</b> (ك-ك)».</div></div></div>
+<div class="sec" id="cl-temp"><h2><span class="num">1</span>تحويل الحرارة <span class="src mem">احفظ</span></h2>
+<div class="card fcard mem">
+<div class="eq">$$\begin{aligned}F&=C\times1.8+32\\K&=C+273.15\\R&=C\times1.8+32+459.67=F+459.67\end{aligned}$$</div>
+<div class="note hook"><span class="t">حيلة</span>«السيليزي هو المحطة»: أي حرارة حوّلها لسيليزي، ومنه لأي وحدة. والرانكن = فهرنهايت + 459.67 (نفس فكرة الكلفن = سيليزي + 273.15).</div>
+<h3>جرّب</h3><div class="solver" data-solver="temp"></div></div></div>
+<div class="sec" id="cl-kw"><h2><span class="num">2</span>عامل واتسون K<sub>w</sub> <span class="src mem">احفظ</span></h2>
+<div class="card fcard mem">
+<div class="eq">$$K_w=\frac{\sqrt[3]{T_{av.bo.po.}}}{Sp.Gr_{60/60\,^\circ F}}$$</div>
+<div class="eq">$$\begin{aligned}T_{av.bo.po.}&=T_{av.\,volume}-\Delta t\\T_{av.\,volume}&=\frac{T_1+T_2+\dots+T_9}{9}\\\Delta t&=\frac{T_9-T_1}{90-10}=\frac{T_9-T_1}{80}\end{aligned}$$</div>
+<div class="tbl-wrap"><table><tr><th>الرمز</th><th>المعنى</th></tr>
+<tr><td class="sym">K<sub>w</sub></td><td>عامل واتسون للتوصيف <span class="en muted">Watson characterization factor</span></td></tr>
+<tr><td class="sym">T<sub>av.bo.po.</sub></td><td>معدل درجة الغليان، <b>بالرانكن °R</b></td></tr>
+<tr><td class="sym">T<sub>av. volume</sub></td><td>معدل الحرارة الحجمي (معدل T1 لحد T9، يعني 10% لـ 90%)</td></tr>
+<tr><td class="sym">Δt</td><td>عامل التصحيح = ميل منحني التقطير <span class="en muted">(ASTM)</span></td></tr>
+<tr><td class="sym">Sp.Gr</td><td>الوزن النوعي عند 60 °F = كثافة النفط ÷ كثافة الماء عند 60 °F</td></tr>
+</table></div>
+<p class="muted" style="font-size:13.5px">التجربة: 100 ml نفط تتقطّر، ونسجل الحرارة عند كل 10% مقطّر. IBP عند 0% و FBP عند نهاية التقطير، وما ندخلهم بالمعدل.</p>
+<div class="recipe"><b>طريقة الحل:</b><span>اجمع التسعة ÷ 9</span><i>←</i><span>الميل ÷ 80</span><i>←</i><span>اطرح</span><i>←</i><span>+459.67</span><i>←</i><span>جذر تكعيبي ÷ SG</span><i>←</i><span>صنّف</span></div>
+<div class="note hook"><span class="t">حيلة تتذكر بيها الترتيب</span>«<b>معدّل، ميل، طرح، رانكن، جذر</b>». كأنك تعدّ على أصابع إيد وحدة: كل إصبع خطوة.</div>
+<div class="note hook"><span class="t">حيلة حدود التصنيف</span><b class="en">12.15–12.9</b> بارافيني (فوق 12) · <b class="en">11.5–12.1</b> مختلط (حول 12) · <b class="en">10.5–11.45</b> نفثيني (حول 11). «<b>الرقم الأكبر = بارافين أكثر</b>».</div>
+</div>
+<div class="card"><h3 style="margin-top:0">مثال محلول (أرقام من عندي حتى تتدرّب)</h3>
+<div class="problem">A crude oil (Sp.Gr 60/60 °F = 0.82) gave the ASTM distillation (°F): 10%: 250, 20%: 300, 30%: 345, 40%: 390, 50%: 440, 60%: 490, 70%: 545, 80%: 600, 90%: 660. Calculate K<sub>w</sub> and classify.</div>
+<div data-worked="kw"></div></div>
+<div class="card solver"><h3 style="margin-top:0">حاسبة واتسون: حط أرقامك</h3><div data-solver="kw"></div></div>
+</div>
+<div class="sec" id="cl-mid"><h2><span class="num">★</span>سؤال ميدتيرم 2025 (Q1، 13 درجة)</h2>
+<div class="card">
+<div class="problem">Analyze the complete Watson characterization factor equation and explain how each component (specific gravity, density, average boiling point, and temperature conversions) contributes to the final classification. Critique whether you think this method is a complete way to characterize crude oil or if additional factors should be considered.<br>Distillation (°F): 10%: 323.974 · 20%: 332.981 · 30%: 341.987 · 40%: 350.994 · 50%: 360.000 · 60%: 369.006 · 70%: 378.013 · 80%: 387.019 · 90%: 396.026 (SG from the chart: SG vs T).</div>
+<p class="tr">الترجمة: حلّل معادلة واتسون كاملة، واشرح شلون كل جزء (الوزن النوعي، الكثافة، معدل درجة الغليان، تحويل الحرارة) يأثر على التصنيف النهائي. وانتقد: هل هي طريقة كاملة لتوصيف النفط لو لازم عوامل ثانية؟</p>
+<div class="note warn"><span class="t">انتبه: القانون المطبوع بالورقة</span>الورقة كاتبة <span class="en">K<sub>w</sub> = SpGr × T<sub>av.bo.po.</sub>(°R) / (60 × Δt)</span>، وهذا يختلف عن قانون الملزمة <span class="en">K<sub>w</sub> = ∛T / SG</span>. اكتب قانون الملزمة واحسب بيه. وإذا تحب، احسب بالقانون المطبوع كمان واذكر الفرق، لأن السؤال يطلب «Critique».</div>
+<h3>قراءة SG من المخطط</h3>
+<p>المخطط خطي: SG ≈ 0.862 عند 0 °C و ≈ 0.803 عند 100 °C. الـ 60/60 يعني عند <b>60 °F = 15.56 °C</b>، فنقرا: <b>SG ≈ 0.853</b>. (بالامتحان اقرا من الورقة نفسها، وأي قراءة قريبة مقبولة.)</p>
+<div data-worked="kw" data-in='{"u":"F","t10":323.974,"t20":332.981,"t30":341.987,"t40":350.994,"t50":360.000,"t60":369.006,"t70":378.013,"t80":387.019,"t90":396.026,"sg":0.853}'></div>
+<div class="note aha"><span class="t">بالقانون المطبوع بالورقة (للمقارنة)</span><span class="en">K = 0.853 × 818.77 / (60 × 0.9007) = 698.4 / 54.04 ≈ 12.92</span>، وهذا يطلع فوق حد البارافيني. الفرق الكبير بين النتيجتين نقطة تكتبها بالنقد.</div>
+<div class="ans"><header><h3>التحليل والنقد (الجزء النظري من السؤال)<br><span class="en">Analysis & critique</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><ol><li><b>الوزن النوعي SG:</b> بالمقام، فكل ما يزيد (نفط أثقل، أروماتي أو نفثيني) يقل K<sub>w</sub>. والـ SG هو نسبة كثافة النفط لكثافة الماء عند 60 °F، يعني الكثافة تدخل عن طريقه.</li>
+<li><b>معدل درجة الغليان:</b> بالبسط تحت جذر تكعيبي، فكل ما يزيد يزيد K<sub>w</sub> بس ببطء. ويُحسب من التقطير: المعدل الحجمي ناقص الميل Δt.</li>
+<li><b>تحويل الحرارة:</b> لازم تكون مطلقة (رانكن)، لأن الجذر التكعيبي لحرارة نسبية يعطي نتيجة غلط.</li>
+<li><b>النقد:</b> الطريقة سهلة وسريعة، بس <b>مو كاملة</b>: تعطي رقم واحد لخليط معقد، وتعتمد على SG ونقطة الغليان بس. لازم نكمّلها بطرق ثانية مثل <b>API</b> و<b>محتوى الكبريت</b> و<b>C.I.</b>، والمكونات غير الهيدروكاربونية (N، المعادن، الماء المالح).</li></ol><details class="enans"><summary>English answer</summary><div><ol><li><b>Specific gravity</b> is in the denominator: a heavier (aromatic/naphthenic) oil has higher SG and lower Kw. Density enters through SG (oil density / water density at 60 °F).</li>
+<li><b>Average boiling point</b> is in the numerator under a cube root, so Kw increases with it but slowly. It is obtained from ASTM distillation: T<sub>av.bo.po.</sub> = T<sub>av.vol</sub> − Δt.</li>
+<li><b>Temperature conversion:</b> the boiling point must be absolute (°R); using °F or °C gives wrong values.</li>
+<li><b>Critique:</b> simple and quick but not complete: it reduces a complex mixture to one number using only SG and boiling point. It should be supported by API gravity, sulfur content, correlation index and non-hydrocarbon content (N, metals, brine).</li></ol></div></details></div></div>
+</div></div>
+<div class="sec" id="cl-api"><h2><span class="num">3</span>جاذبية API <span class="src mem">احفظ</span></h2>
+<div class="card fcard mem">
+<div class="eq">$$API=\frac{141.5}{Sp.Gr_{60/60\,^\circ F}}-131.5$$</div><div class="eq">$$Sp.Gr=\frac{141.5}{API+131.5}$$</div>
+<p><b>API</b> = American Petroleum Institute. العلاقة <b>عكسية</b>: نفط أخف ← SG أقل ← API أعلى.</p>
+<div class="tbl-wrap"><table class="num"><tr><th>التصنيف</th><th>عند 1 atm</th><th>عند 40 mmHg</th></tr>
+<tr><td>بارافيني (خفيف)</td><td>&gt; 40</td><td>&gt; 30</td></tr><tr><td>مختلط (متوسط)</td><td>33 – 40</td><td>20 – 30</td></tr><tr><td>نفثيني (أسفلتي، ثقيل)</td><td>&lt; 33</td><td>&lt; 20</td></tr></table></div>
+<div class="recipe"><b>طريقة الحل:</b><span>141.5 ÷ SG</span><i>←</i><span>− 131.5</span><i>←</i><span>صنّف مرتين (جوي ومخلخل)</span></div>
+<div class="note hook"><span class="t">حيلة الأرقام</span>«<b>141.5 و 131.5</b>»: الفرق بيناتهم 10 بالضبط. وحدود الضغط المخلخل = حدود الجوي <b>ناقص 10</b> (40←30، 33←20 تقريباً).</div>
+<h3>مثال محلول</h3><div class="problem">A crude oil has Sp.Gr = 0.85. Calculate API gravity and classify it at atmospheric and vacuum pressure.</div>
+<div data-worked="api" data-in='{"sg":0.85}'></div>
+<h3>حاسبة</h3><div data-solver="api"></div></div></div>
+<div class="sec" id="cl-s"><h2><span class="num">4</span>محتوى الكبريت</h2>
+<div class="ans"><header><h3>التصنيف حسب الكبريت<br><span class="en">Sulfur content</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><ul><li>أقل من <b>0.5%</b>: نفط <b>حلو (sweet crude oil)</b>.</li><li>بين <b>0.5% و 2.5%</b>: <b>متوسط (intermediate)</b>.</li><li>أكثر من <b>2.5%</b>: نفط <b>حامض (sour crude oil)</b>.</li></ul><div class="hook2">«نص وثنين ونص»: 0.5 و 2.5</div><details class="enans"><summary>English answer</summary><div>Crude oil naturally contains sulfur compounds. If a crude has less than 0.5% sulfur it is "sweet crude oil"; greater than 2.5% it is "sour crude oil"; between these two it is "intermediate".</div></details></div></div>
+</div>
+<div class="sec" id="cl-ci"><h2><span class="num">5</span>معامل الارتباط C.I. <span class="src sheet">بالشيت #10</span></h2>
+<div class="card fcard">
+<div class="eq">$$\begin{aligned}C.I.=&\frac{48640}{T_{av.bo.po.}}\\&+473.3\times Sp.Gr_{60/60}-456.8\end{aligned}$$</div>
+<p>T<sub>av.bo.po.</sub> <b>بالكلفن</b>. الطريقة تعتمد على نسب أنواع الهيدروكاربونات وتصنّف النفط بارافيني أو أروماتي.</p>
+<div class="tbl-wrap"><table class="num"><tr><th>C.I.</th><th>التصنيف</th></tr><tr><td>0</td><td>بارافيني عادي</td></tr><tr><td>0 – 15</td><td>غالبيته بارافينات عادية</td></tr><tr><td>15 – 50</td><td>خليط بارافيني وأروماتي</td></tr><tr><td>&gt; 50</td><td>غالبيته أروماتي</td></tr><tr><td>100</td><td>بنزين (أروماتي)</td></tr></table></div>
+<div class="recipe"><b>طريقة الحل:</b><span>حوّل للكلفن</span><i>←</i><span>48640 ÷ T</span><i>←</i><span>+ 473.3 × SG</span><i>←</i><span>− 456.8</span><i>←</i><span>صنّف</span></div>
+<div class="note hook"><span class="t">حيلة</span>«<b>C.I. صفر = بارافين، C.I. مية = بنزين</b>». كل ما يكبر الرقم يصير النفط أروماتي أكثر (عكس واتسون).</div>
+<h3>مثال محلول</h3><div class="problem">Calculate the correlation index for a crude with T<sub>av.bo.po.</sub> = 500 K and Sp.Gr = 0.82, then classify it.</div>
+<div data-worked="ci" data-in='{"t":500,"u":"K","sg":0.82}'></div>
+<h3>حاسبة</h3><div data-solver="ci"></div></div></div>
+<div class="sec" id="cl-gauge"><h2><span class="num">★</span>المصنّف التفاعلي (نفس جدول الشيت)</h2>
+<div class="card"><p class="muted" style="margin-top:0">غيّر أي رقم وشوف وين يوكع بالجدول.</p><div data-classify></div></div></div>
+<div class="sec" id="cl-check"><h2><span class="num">✓</span>اختبر نفسك</h2>
+<div class="card quiz" data-quiz="cls"></div>
+<button class="done-btn" data-done="cls">✓ خلصت التصنيف وفهمته</button></div>
+</section>
+<!-- ===================== MECHANICAL PROPERTIES ===================== -->
+<section class="view" id="v-mech" data-view="mech">
+  <div class="hero">
+    <span class="kicker">Chapter 2 · Mechanical properties · ص 18–24</span>
+    <h1>الكثافة، واللزوجة، ومؤشر اللزوجة</h1>
+    <p>الخواص الميكانيكية ثلاث: الكثافة واللزوجة والشد السطحي. <b>الشد السطحي مو داخل</b>، فنركّز على الأولى والثانية. ومؤشر اللزوجة VI من أهم مسائل الفصل.</p>
+  </div>
+  <div class="chips" data-chips>
+    <button class="chip" data-go="me-den">الكثافة و SG</button>
+    <button class="chip" data-go="me-gam">SG عند أي حرارة</button>
+    <button class="chip" data-go="me-vis">اللزوجة</button>
+    <button class="chip" data-go="me-vi">مؤشر اللزوجة</button>
+    <button class="chip" data-go="me-int">الاستيفاء</button>
+    <button class="chip" data-go="me-check">اختبر نفسك</button>
+  </div>
+
+<div class="sec" id="me-den"><h2><span class="num">1</span>الكثافة والوزن النوعي</h2>
+<div class="ans"><header><h3>الكثافة<br><span class="en">Density</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0">هي <b>الكتلة لوحدة الحجم</b>، وتعتمد على <b>الحرارة والضغط</b>. كثافة السوائل <b>تقل لما تزيد الحرارة</b>، وتأثير الضغط عليها (بالضغوط المتوسطة) <b>مهمل</b>. وتُقاس <b>بالهيدروميتر</b>.</p><details class="enans"><summary>English answer</summary><div>Density is mass per unit volume; it is a state function depending on temperature and pressure. Liquid densities decrease as temperature increases, while the effect of pressure at moderate pressures is usually negligible. It can be determined by the hydrometer method.</div></details></div></div>
+<div class="ans"><header><h3>الوزن النوعي SG<br><span class="en">Specific gravity</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><div class="eq">$$SG_{(60/60\,^\circ F)}=\frac{\rho_{oil}\ \text{at }60^\circ F}{\rho_{water}\ \text{at }60^\circ F}=\frac{\rho_{oil}}{0.999}$$</div>
+<ul><li>الظروف القياسية بصناعة النفط: <b>60 °F (15.5 °C) و 1 atm</b>.</li><li>كثافة الماء عند 60 °F = <b>0.999 g/cm³</b> ≈ 1، فقيمة SG تقريباً نفس الكثافة بـ g/cm³.</li>
+<li><b>فوائده:</b> نحسب منه API، وعامل واتسون، ونعرف جريان المائع.</li></ul><div class="hook2">«ستين فهرنهايت، جو واحد، ماء 0.999»</div><details class="enans"><summary>English answer</summary><div>SG = density of liquid at T / density of water at T. Standard conditions in the petroleum industry are 60 °F (15.5 °C) and 1 atm; water density at 60 °F is 0.999 g/cm³ ≈ 1, so SG ≈ density in g/cm³. SG is useful in terms of API gravity, characterization factor and indication of fluid flow.</div></details></div></div>
+</div>
+<div class="sec" id="me-gam"><h2><span class="num">2</span>SG عند أي حرارة (معامل التمدد γ) <span class="src mem">احفظ</span></h2>
+<div class="card fcard mem">
+<div class="eq">$$SG_{T}=SG_{(60/60\,^\circ F)}-\gamma\,(T_F-60)$$</div>
+<div class="tbl-wrap"><table><tr><th>الرمز</th><th>المعنى</th></tr>
+<tr><td class="sym">SG<sub>T</sub></td><td>الوزن النوعي عند أي حرارة</td></tr>
+<tr><td class="sym">γ</td><td>معامل التمدد الحراري = <b class="en">0.000517 – 0.000897</b></td></tr>
+<tr><td class="sym">T<sub>F</sub></td><td>الحرارة <b>بالفهرنهايت</b></td></tr></table></div>
+<p>ليش نطرح؟ لأن النفط <b>يتمدد بالحرارة</b> فتقل كثافته. ونكدر نقرا SG تقريباً من <b>مخطط نيلسون (Figure 5-14)</b> بالشيت. <a href="#sheet">شلون تقرا المخطط ←</a></p>
+<div class="recipe"><b>طريقة الحل:</b><span>الحرارة بالفهرنهايت؟</span><i>←</i><span>T − 60</span><i>←</i><span>× γ</span><i>←</i><span>اطرح من SG</span></div>
+<div class="note hook"><span class="t">حيلة</span>«<b>كل درجة فوق الـ 60 تاكل γ من الـ SG</b>».</div>
+<h3>مثال محلول</h3><div class="problem">A petroleum fraction has SG (60/60 °F) = 0.876 and γ = 0.0006. Find its SG at 200 °F.</div>
+<div data-worked="sgt"></div>
+<h3>حاسبة</h3><div data-solver="sgt"></div></div></div>
+<div class="sec" id="me-vis"><h2><span class="num">3</span>اللزوجة <span class="src mem">احفظ القانونين</span></h2>
+<div class="ans"><header><h3>اللزوجة واستخداماتها<br><span class="en">Viscosity</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0 0 4px">مقياس <b>لمعامل الاحتكاك الداخلي</b> بين طبقتين من السائل مساحة كل وحدة 1 m².</p><p style="margin:0 0 4px"><b>نحتاجها بحساب:</b></p><ol><li>القدرة المطلوبة بالخلاطات أو لنقل المائع.</li><li>هبوط الضغط بالأنبوب أو العمود.</li><li>أجهزة قياس الجريان.</li></ol><details class="enans"><summary>English answer</summary><div>Viscosity is a measurement of the internal friction coefficient between two liquid layers each of area 1 m². It is needed in the calculation of the power required in mixers or to transfer a fluid, the pressure drop in a pipe or column, and flow measurement devices.</div></details></div></div>
+<div class="ans"><header><h3>نوعين اللزوجة<br><span class="en">Types of viscosity</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><ol><li><b>ديناميكية (Dynamic) μ:</b> وحدتها <b class="en">poise = g/(cm·s)</b>.</li><li><b>كينماتيكية (Kinematic) ν:</b> وحدتها <b class="en">stoke = cm²/s</b>.</li></ol>
+<div class="eq">$$\nu=\frac{\mu}{\rho}\qquad\qquad \nu=c\cdot t\ \ \text{(U-tube viscometer)}$$</div>
+<p style="margin:0">c ثابت المقياس <span class="en">(mm²/s²)</span>، و t زمن مرور الزيت بين العلامتين <span class="en">(s)</span>.</p><div class="hook2">«مـو على رو = نـو» (ν = μ/ρ) · «سي تي» (ν = c·t)</div><details class="enans"><summary>English answer</summary><div>Dynamic viscosity μ (poise, g/(cm·s)) and kinematic viscosity ν (stoke, cm²/s). Kinematic viscosity is the ratio of dynamic viscosity to density at the same temperature: ν = μ/ρ. It is measured by a U-tube viscometer: ν = c·t, where c is the viscometer constant (mm²/s²) and t is the time for the oil to pass between the marks (s).</div></details></div></div>
+<div class="card"><div class="kn"><span>1 St = <b>100 cSt</b></span><span>1 cSt = <b>1 mm²/s</b></span><span>1 P = <b>100 cP</b></span><span>St × g/cm³ = <b>P</b></span></div>
+<h3>مثال محلول</h3><div class="problem">An oil passes the U-tube viscometer marks in 350 s. The viscometer constant is 0.04 mm²/s² and the oil density is 0.85 g/cm³. Find ν and μ.</div>
+<div data-worked="visc"></div><h3>حاسبة</h3><div data-solver="visc"></div></div></div>
+<div class="sec" id="me-vi"><h2><span class="num">4</span>مؤشر اللزوجة VI <span class="src sheet">بالشيت #1 – #4</span></h2>
+<div class="ans"><header><h3>مؤشر اللزوجة<br><span class="en">Viscosity index</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0 0 4px">رقم يبيّن <b>تأثير تغيّر الحرارة على اللزوجة الكينماتيكية</b>. VI عالي يعني اللزوجة <b>تتغيّر قليل</b> مع الحرارة (وهذا الأحسن).</p><ul><li>يزيد مع <b>البارافين</b> ويقل مع <b>النفثين</b>.</li><li><b>VI = 100</b>: أحسن زيت (بارافيني).</li><li><b>VI = 0</b>: أوطى زيت (نفثيني).</li></ul><div class="hook2">«بارافين = مية، نفثين = صفر»</div><details class="enans"><summary>English answer</summary><div>The viscosity index is a number indicating the effect of temperature change on the kinematic viscosity of an oil. A high VI signifies a relatively small change of viscosity with temperature. VI increases with paraffins and decreases with naphthenes. VI = 100 best oil (paraffinic); VI = 0 lowest (naphthenic).</div></details></div></div>
+<div class="card fcard">
+<div class="eq">$$\text{I. }VI=0\text{–}100:\ \ VI=\frac{L-U}{L-H}\times100$$</div>
+<div class="eq">$$\text{II. }VI>100:\quad VI=\frac{\text{antilog}\,N-1}{0.00715}+100$$</div><div class="eq">$$N=\frac{\log H-\log U}{\log Y}$$</div>
+<div class="eq">$$\begin{aligned}&\text{For }Y>70\ \text{cSt}:\\L&=0.8353Y^2+14.67Y-216.25\\H&=0.1684Y^2+11.85Y-96.95\end{aligned}$$</div>
+<div class="tbl-wrap"><table><tr><th>الرمز</th><th>المعنى</th></tr>
+<tr><td class="sym">Y</td><td>لزوجة زيتك عند <b>100 °C</b> (cSt)</td></tr>
+<tr><td class="sym">U</td><td>لزوجة زيتك عند <b>40 °C</b> (cSt)</td></tr>
+<tr><td class="sym">L</td><td>لزوجة (عند 40 °C) لزيت <b>VI = 0</b> عنده نفس Y</td></tr>
+<tr><td class="sym">H</td><td>لزوجة (عند 40 °C) لزيت <b>VI = 100</b> عنده نفس Y</td></tr></table></div>
+<p>L و H ناخذهم من <b>الجدول</b> لحد Y = 70 cSt، وإذا Y أكبر من 70 من القوانين #3 و #4.</p>
+<div class="note aha"><span class="t">شلون تعرف أي قانون؟ (أهم خطوة)</span>قارن <b>U</b> بـ <b>H</b>: إذا <b>U ≥ H</b> فـ VI بين 0 و 100 ← القانون #1. وإذا <b>U &lt; H</b> فـ VI أكبر من 100 ← القانون #2.</div>
+<div class="recipe"><b>طريقة الحل:</b><span>Y > 70؟</span><i>←</i><span>L و H (جدول أو قانون)</span><i>←</i><span>قارن U بـ H</span><i>←</i><span>القانون المناسب</span><i>←</i><span>فسّر</span></div>
+<div class="note hook"><span class="t">حيلة «اللهو»</span><b>L</b> = <b>L</b>ow (زيت الصفر)، و <b>H</b> = <b>H</b>igh (زيت المية)، و <b>U</b> = <b>U</b>r oil (زيتك). وبالقانون الأول: «<b>L ناقص U على L ناقص H</b>»، وحرف L يبدي البسط والمقام.</div>
+</div>
+<div class="card"><h3 style="margin-top:0">مثال 1: VI بين 0 و 100 (من الجدول)</h3>
+<div class="problem">An oil has ν = 20.5 cSt at 100 °C and 300 cSt at 40 °C. From the table (by interpolation): L = 515.35, H = 238.25. Calculate VI.</div>
+<div data-worked="vi"></div></div>
+<div class="card"><h3 style="margin-top:0">مثال 2: VI أكبر من 100 (Y أكبر من 70)</h3>
+<div class="problem">An oil has ν = 80 cSt at 100 °C and 1800 cSt at 40 °C. Calculate its viscosity index.</div>
+<div data-worked="vi" data-in='{"y":80,"u":1800,"l":"","h":""}'></div></div>
+<div class="card"><h3 style="margin-top:0">مثال 3: Y أكبر من 70 و VI بين 0 و 100</h3>
+<div class="problem">An oil has ν = 75 cSt at 100 °C and 3000 cSt at 40 °C. Calculate its viscosity index.</div>
+<div data-worked="vi" data-in='{"y":75,"u":3000,"l":"","h":""}'></div></div>
+<div class="card solver"><h3 style="margin-top:0">حاسبة VI</h3><p class="muted" style="margin-top:0">إذا Y أكبر من 70 خلي L و H فارغات، والحاسبة تحسبهن بالقوانين.</p><div data-solver="vi"></div></div>
+</div>
+<div class="sec" id="me-int"><h2><span class="num">5</span>الاستيفاء من الجدول (Interpolation)</h2>
+<div class="card">
+<p style="margin-top:0">إذا Y مالتك <b>مو موجودة بالجدول</b> وتوكع بين صفين، نستوفي. الملزمة حلّتها بطريقة نسبة طويلة، بس <b>الاستيفاء الخطي أسهل ويعطي نفس الجواب بالضبط</b>:</p>
+<div class="eq">$$L=L_1+\frac{Y-Y_1}{Y_2-Y_1}\,(L_2-L_1)$$</div>
+<div class="note hook"><span class="t">حيلة</span>«<b>شكد مشيت ÷ شكد الطريق كله</b>، واضربها بفرق القيم». وإذا Y بالنص بالضبط، فالجواب معدل القيمتين.</div>
+<h3>مثال الملزمة</h3><div class="problem">Y = 20.4 → L = 510.8, H = 236.4 ; Y = 20.6 → L = 519.9, H = 240.1. Find L and H at Y = 20.5.</div>
+<div data-worked="interp"></div>
+<div class="note aha"><span class="t">نفس جواب الملزمة</span>الملزمة طلعت L = 515.3 و H = 238.2، ونفس الجواب طلع هنا.</div>
+<h3>حاسبة الاستيفاء</h3><div data-solver="interp"></div></div></div>
+<div class="sec" id="me-check"><h2><span class="num">✓</span>اختبر نفسك</h2><div class="card quiz" data-quiz="mech"></div>
+<button class="done-btn" data-done="mech">✓ خلصت الكثافة واللزوجة</button></div>
+</section>
+<!-- ===================== THERMAL & OTHER PROPERTIES ===================== -->
+<section class="view" id="v-therm" data-view="therm">
+  <div class="hero">
+    <span class="kicker">Chapter 2 · Thermal & optical properties · ص 25–30</span>
+    <h1>الخواص الحرارية وبقية الخواص</h1>
+    <p>تعاريف قصيرة تنكتب كما هي، وأربع مسائل بقوانين من الشيت: نقطة الانسكاب، ونقطة الوميض، ونسبة الأروماتيات، ومؤشر الديزل، والحرارة النوعية.</p>
+  </div>
+  <div class="chips" data-chips>
+    <button class="chip" data-go="th-low">نقاط البرودة</button>
+    <button class="chip" data-go="th-tp">نقطة الانسكاب</button>
+    <button class="chip" data-go="th-q3">سؤال Tp</button>
+    <button class="chip" data-go="th-hot">الغليان والوميض</button>
+    <button class="chip" data-go="th-tf">مسألة الوميض</button>
+    <button class="chip" data-go="th-after">بعد ص 27</button>
+    <button class="chip" data-go="th-ladder">سُلّم الحرارات</button>
+    <button class="chip" data-go="th-check">اختبر نفسك</button>
+  </div>
+
+<div class="sec" id="th-low"><h2><span class="num">B</span>الخواص الحرارية (البرودة)</h2>
+<div class="ans"><header><h3>نقطة الغيمة<br><span class="en">Cloud point (Tc)</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0">هي <b>أوطى حرارة تبدي عندها بلورات الشمع تتكوّن</b> بالتبريد التدريجي تحت ظروف قياسية. تحتها يتسارع تكوّن الشمع، لهذا المنتجات بنقطة غيمة واطية <b>مرغوبة بالأجواء الباردة</b>.</p><div class="hook2">غيمة = «أول شمع يبيّن»</div><details class="enans"><summary>English answer</summary><div>The cloud point is the lowest temperature at which wax crystals begin to form by gradual cooling under standard conditions. Below it, wax formation is accelerated; therefore low cloud point products are desirable under low-temperature conditions.</div></details></div></div>
+<div class="ans"><header><h3>نقطة الانسكاب<br><span class="en">Pour point (Tp)</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0 0 4px">هي <b>أوطى حرارة يكدر الزيت يجري (ينسكب) عندها</b> لما يبرد بدون تحريك تحت ظروف قياسية. من خواص الأجزاء الثقيلة بالحرارة الواطية.</p><ul><li>تحتها المنتج <b>ما يكدر ينخزن أو ينقل بالأنابيب</b>.</li><li><b>الشمع والمركبات الثقيلة تزيدها.</b></li></ul><div class="hook2">انسكاب = «آخر حرارة يجري بيها»</div><details class="enans"><summary>English answer</summary><div>The pour point is the lowest temperature at which the oil will pour or flow when cooled without stirring under standard conditions. Below it, the product cannot be stored or transferred through a pipeline. Presence of wax and heavy compounds increases the pour point.</div></details></div></div>
+<div class="ans"><header><h3>نقطة التجمد ونقطة الانصهار<br><span class="en">Freezing point & melting point</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><ul><li><b>التجمد:</b> الحرارة اللي يتصلب عندها السائل بضغط 1 atm.</li><li><b>الانصهار:</b> الحرارة اللي يسيل عندها الصلب بضغط 1 atm، و<b>تزيد مع الوزن الجزيئي</b>.</li><li>المادة النقية نقطة تجمدها = نقطة انصهارها.</li></ul><details class="enans"><summary>English answer</summary><div>Freezing point: the temperature at which a liquid solidifies at 1 atm pressure. Melting point: the temperature at which a solid substance liquefies at 1 atm; it increases with molecular weight. A pure substance has the same freezing and melting points.</div></details></div></div>
+</div>
+<div class="sec" id="th-tp"><h2><span class="num">1</span>مسألة نقطة الانسكاب <span class="src sheet">بالشيت #5</span></h2>
+<div class="card fcard">
+<div class="eq">$$\begin{aligned}T_p=130.47&\left[SG^{2.97}\right]\times\left[M^{(0.61-0.47SG)}\right]\\&\times\left[\nu_{38(100)}^{(0.31-0.33SG)}\right]\end{aligned}$$</div>
+<div class="kv"><dt>T<sub>p</sub></dt><dd>نقطة الانسكاب <b>بالكلفن</b></dd><dt>SG</dt><dd>الوزن النوعي القياسي</dd><dt>M</dt><dd>الوزن الجزيئي</dd><dt>ν<sub>38(100)</sub></dt><dd>اللزوجة الكينماتيكية عند 38 °C (100 °F) بالـ cSt</dd></div>
+<div class="recipe"><b>طريقة الحل:</b><span>الأسّين أولاً</span><i>←</i><span>ثلاث أقواس بزر xʸ</span><i>←</i><span>× 130.47</span><i>←</i><span>الناتج بالكلفن</span></div>
+<div class="note hook"><span class="t">حيلة القانون</span>«<b>SG بكل مكان</b>»: مرة أساس (أسه 2.97)، ومرتين داخل الأسس. احسب الأسس أول شي وراح تخلص بدقيقة.</div>
+<h3>مثال محلول</h3><div class="problem">Estimate the pour point of a fraction with SG = 0.85, M = 300 and ν<sub>38(100)</sub> = 25 cSt.</div>
+<div data-worked="tp"></div>
+<h3>حاسبة</h3><div data-solver="tp"></div></div></div>
+<div class="sec" id="th-q3"><h2><span class="num">★</span>سؤال سابق: Q3 (10 درجات)</h2>
+<div class="card">
+<div class="problem">A certain crude oil has the following properties: SG = 0.47, 0.61, 0.75, 0.85, 0.97 ; M = 150, 200, 250, 300, 350 ; ν<sub>38(100)</sub> = 10, 15, 20, 25, 30 cSt. Using the provided formula, calculate the pour point temperature (Tp) of the crude oil in Kelvin, then draw the relationship between Tp & SG.</div>
+<p class="tr">الترجمة: احسب نقطة الانسكاب بالكلفن لكل عينة باستخدام القانون، وبعدها ارسم العلاقة بين Tp و SG.</p>
+<div data-tpq></div>
+<div class="note aha"><span class="t">شنو تكتب عن الرسم</span>T<sub>p</sub> <b>يزيد مع SG</b> لأن الأجزاء الأثقل بيها شمع ومركبات ثقيلة أكثر. بس عند SG = 0.97 <b>نزل شوية</b>، لأن أس اللزوجة <span class="en">(0.31 − 0.33SG)</span> صار سالب وأس الوزن الجزيئي صغر.<br><span class="en">Tp increases with SG (heavier fractions contain more wax and heavy compounds), reaching a maximum near SG ≈ 0.85, then decreases slightly at SG = 0.97 because the exponents (0.61 − 0.47SG) and (0.31 − 0.33SG) become small/negative.</span></div>
+<div class="note warn"><span class="t">طريقة الرسم بالورقة</span>المحور الأفقي SG (من 0.4 لـ 1.0)، والعمودي T<sub>p</sub> بالكلفن (من 100 لـ 320). علّم النقاط الخمس واربطها بمنحني ناعم، واكتب عنوان لكل محور ووحدته.</div>
+</div></div>
+<div class="sec" id="th-hot"><h2><span class="num">C</span>الغليان، وضغط البخار، والوميض والاشتعال</h2>
+<div class="ans"><header><h3>درجة الغليان<br><span class="en">Boiling point</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0">درجة الغليان للمركب النقي بضغط معيّن هي <b>الحرارة اللي يتوازن عندها البخار والسائل</b>. إذا الضغط 1 atm تسمى <b>درجة الغليان الطبيعية (normal boiling point)</b>، وعندها ضغط البخار يساوي الضغط الجوي.</p><details class="enans"><summary>English answer</summary><div>The boiling point of a pure compound at a given pressure is the temperature at which vapour and liquid exist together at equilibrium. If the pressure is 1 atm, it is called the normal boiling point; at this temperature the vapour pressure equals atmospheric pressure.</div></details></div></div>
+<div class="ans"><header><h3>ضغط البخار<br><span class="en">Vapor pressure (Pvap)</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0">بإناء مسدود: <b>القوة اللي يسلطها الجزء المتبخر على وحدة المساحة من الجدران</b>. أو هو الضغط اللي يتوازن عنده طور البخار والسائل للمادة النقية. <b>يزيد مع الحرارة</b>، ويسمى كمان <b>ضغط التشبع (P<sub>sat</sub>)</b>.</p><details class="enans"><summary>English answer</summary><div>In a closed container, the vapour pressure of a pure compound is the force exerted per unit area of walls by the vaporized portion of the liquid; or the pressure at which vapour and liquid phases are in equilibrium. It increases with temperature; also called saturation pressure, Psat.</div></details></div></div>
+<div class="ans"><header><h3>نقطة الوميض<br><span class="en">Flash point (TF)</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0">هي <b>أوطى حرارة تشتعل عندها الأبخرة (ومضة)</b> لما تتعرض لشرارة أو لهب تحت ظروف محددة. لهذا تبيّن <b>أعلى حرارة نكدر نخزن بيها الوقود بدون خطر حريق</b>.</p><div class="hook2">وميض = «أعلى حرارة خزن آمنة»</div><details class="enans"><summary>English answer</summary><div>The flash point is the lowest temperature at which vapours arising from the oil will ignite (flash) when exposed to a spark or flame under specified conditions. Therefore it indicates the maximum temperature at which a fuel can be stored without serious fire hazard.</div></details></div></div>
+<div class="ans"><header><h3>نقطة الاشتعال (الحريق)<br><span class="en">Fire point</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0">هي <b>أوطى حرارة تشتعل عندها الأبخرة اشتعال مستمر (حريق)</b> لما تتعرض لشرارة أو لهب. لهذا هي <b>الحرارة اللي لازم ما يوصلها الوقود</b> حتى ما يحترق.</p><details class="enans"><summary>English answer</summary><div>The fire point is the lowest temperature at which vapours arising from the oil will ignite (fire) when exposed to a spark or flame under specified conditions. It indicates the maximum temperature the fuel must not reach to prevent its combustion.</div></details></div></div>
+<div class="ans"><header><h3>حرارة الاشتعال الذاتي<br><span class="en">Autoignition point</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0 0 4px"><b>أقل حرارة يشتعل عندها بخار الهيدروكاربون المخلوط بالهوا لحاله</b>، بدون أي مصدر خارجي (شرارة أو لهب).</p><ul><li>دائماً <b>أعلى من نقطة الوميض</b>.</li><li>الكازولين حوالي <b>351 °C (660 °F)</b>، والكحول حوالي <b>500 °C (930 °F)</b>.</li><li><b>تقل لما يزيد الضغط</b>.</li></ul><div class="hook2">ذاتي = «بدون شرارة»، وأعلى من الوميض، والضغط يقلله</div><details class="enans"><summary>English answer</summary><div>The minimum temperature at which hydrocarbon vapour mixed with air can spontaneously ignite without any external source. Values are generally higher than the flash point: gasoline about 351 °C (660 °F), alcohol about 500 °C (930 °F). Autoignition temperature decreases with increasing pressure.</div></details></div></div>
+</div>
+<div class="sec" id="th-tf"><h2><span class="num">2</span>مسألة نقطة الوميض <span class="src sheet">بالشيت #6</span></h2>
+<div class="card fcard">
+<div class="eq">$$T_F=231.2-40\log P^{vap}$$</div>
+<p>P<sup>vap</sup> = ضغط البخار عند <b>37.8 °C (100 °F)</b> بالـ <b>bar</b>، و T<sub>F</sub> بالـ <b>كلفن</b>.</p>
+<div class="recipe"><b>طريقة الحل:</b><span>P بالبار؟</span><i>←</i><span>log P</span><i>←</i><span>× 40</span><i>←</i><span>اطرحها من 231.2</span><i>←</i><span>الناتج كلفن</span></div>
+<h3>مثال محلول</h3><div class="problem">The vapour pressure of a fuel at 37.8 °C is 0.05 bar. Estimate its flash point.</div>
+<div data-worked="tf"></div><h3>حاسبة</h3><div data-solver="tf"></div></div></div>
+<div class="sec" id="th-after"><h2><span class="num">ص28+</span>بعد صفحة 27: القوانين أهم شي</h2>
+<div class="note warn"><span class="t">داخلة القوانين بس</span>المسائل عليها التركيز. التعاريف تحت قصيرة جداً، احفظها كـ«تأمين» لأن أسئلة الفراغات بالسنوات السابقة جابت منها (الأوكتان والأنيلين).</div>
+<div class="ans"><header><h3>الرقم الأوكتاني (مختصر)<br><span class="en">Octane number</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0 0 4px">مقياس <b>لمقاومة الوقود للاشتعال الذاتي</b> أثناء الانضغاط وقبل الإشعال (منع الطرق <span class="en">knock</span>). الأوكتان الأعلى يعني <b>أداء محرك أحسن</b>.</p>
+<ul><li>المتفرعة أعلى من العادية، والنفثينات أعلى من البارافينات، والأروماتيات عالية جداً.</li><li><b>نحسّنه بإضافة TEL</b> <span class="en">(tetraethyl lead, (CH₃CH₂)₄Pb)</span> <b>أو MTBE</b> <span class="en">(methyl-tertiary-butyl-ether)</span>.</li></ul>
+<div class="eq">$$A>N>O>\text{Iso P}>P$$</div>
+<div class="tbl-wrap"><table class="num"><tr><th>المركب</th><th>ON</th><th>المركب</th><th>ON</th></tr>
+<tr><td>n-butane</td><td>94</td><td>iso-butane</td><td>102</td></tr><tr><td>n-pentane</td><td>62</td><td>i-pentane</td><td>92</td></tr><tr><td>n-hexane</td><td>25</td><td>i-hexane</td><td>76</td></tr>
+<tr><td>n-butene</td><td>99</td><td>cyclopentane</td><td>100</td></tr><tr><td>n-pentene</td><td>90</td><td>cyclohexane</td><td>91</td></tr><tr><td>n-hexene</td><td>90</td><td>benzene</td><td>103</td></tr></table></div><div class="hook2">ترتيب الأوكتان «<b>A N O I P</b>»: أروماتي، نفثين، أوليفين، أيزو، بارافين</div><details class="enans"><summary>English answer</summary><div>Octane number is a measure of a fuel’s ability to resist auto-ignition during compression and prior to ignition (anti-knock). Higher octane fuels give better engine performance. Iso-paraffins > normal paraffins; naphthenes > corresponding paraffins; aromatics very high. Improved by adding tetraethyl lead (TEL) or MTBE. Order: A > N > O > Iso P > P.</div></details></div></div>
+<div class="ans"><header><h3>نقطة الأنيلين (مختصر)<br><span class="en">Aniline point (AP)</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><p style="margin:0"><b>أقل حرارة يكون عندها حجمين متساويين من الأنيلين والزيت ممتزجين بالكامل</b>. نقطة أنيلين <b>أعلى</b> تعني <b>أروماتيات أقل وبارافين أكثر</b>. الأنيلين مركب أروماتي <span class="en">C₆H₅–NH₂</span>.</p><details class="enans"><summary>English answer</summary><div>The aniline point is the minimum temperature at which equal volumes of aniline and the oil are completely miscible. A higher aniline point means lower aromatic content and higher paraffin content. Aniline is C₆H₅–NH₂.</div></details></div></div>
+<div class="card fcard"><h3 style="margin-top:0">نسبة الأروماتيات %A <span class="src sheet">بالشيت #7</span></h3>
+<div class="eq">$$\begin{aligned}\%A=692.4&+12.15\,(SG)(AP)\\&-794\,(SG)-10.4\,(AP)\end{aligned}$$</div><p>AP بالسيليزي.</p>
+<div class="recipe"><b>طريقة الحل:</b><span>ثلاث حدود لحالها</span><i>←</i><span>اجمع واطرح</span></div>
+<div class="problem">A fraction has SG = 0.80 and aniline point 65 °C. Calculate its aromatic content.</div>
+<div data-worked="arom"></div><h3>حاسبة</h3><div data-solver="arom"></div></div>
+<div class="card fcard"><h3 style="margin-top:0">مؤشر الديزل DI <span class="src sheet">بالشيت #8</span></h3>
+<div class="eq">$$DI=\frac{(API)\,(1.8\,AP+32)}{100}$$</div>
+<p>رقم يبيّن <b>سهولة الاشتعال الذاتي بمحركات الديزل</b>، والديزل الأحسن DI عالي. AP بالسيليزي.</p>
+<div class="note hook"><span class="t">حيلة</span>القوس <span class="en">(1.8AP + 32)</span> هو نفسه تحويل السيليزي لفهرنهايت. وإذا السؤال عطاك SG بدل API، احسب API أول شي من القانون اللي تحفظه.</div>
+<div class="problem">A diesel fuel has API = 40 and aniline point 65 °C. Calculate the diesel index.</div>
+<div data-worked="di"></div><h3>حاسبة</h3><div data-solver="di"></div></div>
+<div class="card fcard"><h3 style="margin-top:0">الحرارة النوعية <span class="src sheet">بالشيت #9</span></h3>
+<div class="eq">$$Sp.heat=\frac{1}{SG_{(60/60)^\circ F}}\,(0.4024+0.00081\,T)$$</div>
+<p>كمية الحرارة اللازمة لرفع حرارة وحدة الوزن درجة وحدة. الناتج بـ <b>kJ/kg·°C</b> و T <b>بالسيليزي</b>. مداها <b>0.3 – 0.85</b>، والأجزاء الأخف قيمتها أعلى، وتقل كل ما تزيد الكثافة.</p>
+<div class="problem">Calculate the specific heat of a fraction with SG = 0.80 at 100 °C.</div>
+<div data-worked="sph"></div><h3>حاسبة</h3><div data-solver="sph"></div></div>
+<div class="ans"><header><h3>التطاير ومعامل الانكسار (مختصر)<br><span class="en">Volatility & refractive index</span></h3><span class="write">اكتب بالامتحان</span></header><div class="body"><ul><li><b>التطاير:</b> ميل السائل يتحول من سائل لبخار بأي حرارة.</li><li><b>معامل الانكسار:</b> مؤشر للأجزاء الخفيفة والمتوسطة. <b>أعلى للأروماتيات، وأوطى للبارافينات، ومتوسط للنفثينات</b>، ويزيد مع الوزن الجزيئي.</li></ul><details class="enans"><summary>English answer</summary><div>Volatility: the tendency of a liquid to change from liquid to vapour at any given temperature. Refractive index: an indicator for light and medium fractions; higher for aromatics, lower for paraffins, medium for naphthenes; increases with molecular weight.</div></details></div></div>
+</div>
+<div class="sec" id="th-ladder"><h2><span class="num">★</span>سُلّم الحرارات: لا تخلط بيناتها</h2>
+<div class="card">
+<svg viewBox="0 0 420 250" style="width:100%;height:auto">
+<defs><linearGradient id="tg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#2f80c9"/><stop offset="1" stop-color="#d9480f"/></linearGradient></defs>
+<rect x="30" y="14" width="16" height="222" rx="8" fill="url(#tg)"/>
+<g font-size="13" style="font-family:var(--font)">
+<line x1="50" x2="80" y1="40" y2="40" stroke="var(--muted)"/><text x="88" y="44" class="lab" font-weight="700">الاشتعال الذاتي · Autoignition</text><text x="88" y="60" class="lab-en">بدون شرارة · الأعلى</text>
+<line x1="50" x2="80" y1="92" y2="92" stroke="var(--muted)"/><text x="88" y="96" class="lab" font-weight="700">الاشتعال (الحريق) · Fire point</text><text x="88" y="112" class="lab-en">يحترق ويستمر</text>
+<line x1="50" x2="80" y1="140" y2="140" stroke="var(--muted)"/><text x="88" y="144" class="lab" font-weight="700">الوميض · Flash point</text><text x="88" y="160" class="lab-en">ومضة بشرارة · حد الخزن الآمن</text>
+<line x1="50" x2="80" y1="192" y2="192" stroke="var(--muted)"/><text x="88" y="196" class="lab" font-weight="700">الغيمة · Cloud point</text><text x="88" y="212" class="lab-en">أول بلورات شمع</text>
+<line x1="50" x2="80" y1="226" y2="226" stroke="var(--muted)"/><text x="88" y="230" class="lab" font-weight="700">الانسكاب · Pour point</text><text x="250" y="230" class="lab-en">آخر حرارة يجري بيها</text>
+</g></svg>
+<div class="note hook"><span class="t">حيلة الترتيب</span>من فوك لجوه: «<b>ذاتي، حريق، وميض</b>» (حار)، و«<b>غيمة، انسكاب</b>» (بارد). الغيمة فوك الانسكاب: الشمع يبيّن أول، وبعدين يوقف الجريان.</div>
+</div></div>
+<div class="sec" id="th-check"><h2><span class="num">✓</span>اختبر نفسك</h2><div class="card quiz" data-quiz="therm"></div>
+<button class="done-btn" data-done="therm">✓ خلصت الخواص الحرارية</button></div>
+</section>
+<!-- ===================== EXAM SHEET GUIDE ===================== -->
+<section class="view" id="v-sheet" data-view="sheet">
+  <div class="hero">
+    <span class="kicker">Exam Sheet · 4 صفحات تاخذها وياك</span>
+    <h1>دليل الشيت: شلون تستخدمه خطوة بخطوة</h1>
+    <p>الشيت هو سلاحك بالامتحان. هنا تتعلم شنو بكل صفحة، ومتى تفتحها، وشلون تقرا الجدول والمخطط بدون غلط.</p>
+  </div>
+  <div class="chips" data-chips>
+    <button class="chip" data-go="sh-map">خريطة الشيت</button>
+    <button class="chip" data-go="sh-which">أي قانون؟</button>
+    <button class="chip" data-go="sh-p1">ص1 القوانين</button>
+    <button class="chip" data-go="sh-p2">ص2 التصنيف</button>
+    <button class="chip" data-go="sh-p3">ص3 جدول L و H</button>
+    <button class="chip" data-go="sh-p4">ص4 المخطط</button>
+    <button class="chip" data-go="sh-miss">مو بالشيت</button>
+  </div>
+
+<div class="sec" id="sh-map"><h2><span class="num">0</span>خريطة الشيت</h2>
+<div class="toc-mini">
+ <a href="#sh-p1" data-go="sh-p1">صفحة 1<small>Formula Sheet · 10 قوانين</small></a>
+ <a href="#sh-p2" data-go="sh-p2">صفحة 2<small>Crude Oil Classification Ranges</small></a>
+ <a href="#sh-p3" data-go="sh-p3">صفحة 3<small>ASTM D2270 · جدول L و H</small></a>
+ <a href="#sh-p4" data-go="sh-p4">صفحة 4<small>مخطط SG مقابل الحرارة (Nelson)</small></a>
+</div>
+<div class="note hook"><span class="t">قبل ما تبدي الامتحان</span>علّم بالقلم على الشيت (إذا مسموح) رقم كل قانون جنب اسمه بالعربي، وعلّم بجدول L و H الصفحة اللي بيها Y بين 10 و 30، لأن أغلب الأسئلة هناك.</div></div>
+
+<div class="sec" id="sh-which"><h2><span class="num">1</span>أي قانون أستخدم؟ (من كلمات السؤال)</h2>
+<div class="card"><div class="tbl-wrap"><table>
+<tr><th>إذا السؤال بيه…</th><th>روح لـ</th></tr>
+<tr><td class="en">distillation data · Watson · characterization factor</td><td><span class="src mem">احفظ</span> Kw، وبعدها ص2</td></tr>
+<tr><td class="en">API · classify at atmospheric / vacuum pressure</td><td><span class="src mem">احفظ</span> API، وبعدها ص2</td></tr>
+<tr><td class="en">sulfur content · sweet / sour</td><td>ص2 مباشرة</td></tr>
+<tr><td class="en">correlation index</td><td>#10، وبعدها ص2</td></tr>
+<tr><td class="en">SG at another temperature · thermal expansion</td><td><span class="src mem">احفظ</span> γ، أو ص4 (المخطط)</td></tr>
+<tr><td class="en">viscometer · time · constant c</td><td><span class="src mem">احفظ</span> ν = c·t، و ν = μ/ρ</td></tr>
+<tr><td class="en">viscosity index · cSt at 40 °C and 100 °C</td><td>#1 أو #2، و L و H من ص3 (أو #3 و #4)</td></tr>
+<tr><td class="en">pour point</td><td>#5</td></tr><tr><td class="en">flash point · vapour pressure</td><td>#6</td></tr>
+<tr><td class="en">aromatic content · aniline point + SG</td><td>#7</td></tr><tr><td class="en">diesel index</td><td>#8</td></tr><tr><td class="en">specific heat</td><td>#9</td></tr>
+</table></div></div></div>
+
+<div class="sec" id="sh-p1"><h2><span class="num">ص1</span>صفحة القوانين (اضغط على أي قانون)</h2>
+<div class="card"><div class="sheetx" id="sheetx"><div class="row1"><div class="no">1</div><div class="fx">$$VI=\left(\frac{L-U}{L-H}\right)\times100$$</div>
+<div class="more"><p style="margin:0 0 4px"><b>شنو يحسب:</b> مؤشر اللزوجة لما U ≥ H.</p><p style="margin:0 0 4px"><b>تحتاج:</b> Y (100 °C) و U (40 °C) بالـ cSt، و L و H من الجدول (صفحة 3) أو القوانين #3 و #4.</p><p style="margin:0 0 6px"><b>كلمات بالسؤال تدلّك عليه:</b> <span class="pill en">viscosity index · 40 °C · 100 °C</span></p><a class="btn small ghost" href="#mech">شوف مثال محلول ←</a></div></div><div class="row1"><div class="no">2</div><div class="fx">$$\begin{aligned}VI&=\frac{\text{antilog}N-1}{0.00715}+100\\N&=\frac{\log H-\log U}{\log Y}\end{aligned}$$</div>
+<div class="more"><p style="margin:0 0 4px"><b>شنو يحسب:</b> مؤشر اللزوجة لما U < H (يعني VI > 100).</p><p style="margin:0 0 4px"><b>تحتاج:</b> نفس معطيات #1. احسب N أولاً، و antilog N = 10ᴺ.</p><p style="margin:0 0 6px"><b>كلمات بالسؤال تدلّك عليه:</b> <span class="pill en">viscosity index > 100</span></p><a class="btn small ghost" href="#mech">شوف مثال محلول ←</a></div></div><div class="row1"><div class="no">3</div><div class="fx">$$L=0.8353Y^2+14.67Y-216.25$$</div>
+<div class="more"><p style="margin:0 0 4px"><b>شنو يحسب:</b> قيمة L لما Y أكبر من 70 cSt.</p><p style="margin:0 0 4px"><b>تحتاج:</b> Y بالـ cSt. إذا Y ≤ 70 لا تستخدمه، خذ L من الجدول.</p><p style="margin:0 0 6px"><b>كلمات بالسؤال تدلّك عليه:</b> <span class="pill en">Y > 70</span></p><a class="btn small ghost" href="#mech">شوف مثال محلول ←</a></div></div><div class="row1"><div class="no">4</div><div class="fx">$$H=0.1684Y^2+11.85Y-96.95$$</div>
+<div class="more"><p style="margin:0 0 4px"><b>شنو يحسب:</b> قيمة H (لما Y أكبر من 70، أو بدل الجدول).</p><p style="margin:0 0 4px"><b>تحتاج:</b> Y بالـ cSt.</p><p style="margin:0 0 6px"><b>كلمات بالسؤال تدلّك عليه:</b> <span class="pill en">Y > 70</span></p><a class="btn small ghost" href="#mech">شوف مثال محلول ←</a></div></div><div class="row1"><div class="no">5</div><div class="fx">$$\begin{aligned}T_p=130.47&[SG^{2.97}][M^{(0.61-0.47SG)}]\\&\times[\nu_{38(100)}^{(0.31-0.33SG)}]\end{aligned}$$</div>
+<div class="more"><p style="margin:0 0 4px"><b>شنو يحسب:</b> نقطة الانسكاب بالكلفن.</p><p style="margin:0 0 4px"><b>تحتاج:</b> SG، والوزن الجزيئي M، واللزوجة عند 38 °C بالـ cSt.</p><p style="margin:0 0 6px"><b>كلمات بالسؤال تدلّك عليه:</b> <span class="pill en">pour point</span></p><a class="btn small ghost" href="#therm">شوف مثال محلول ←</a></div></div><div class="row1"><div class="no">6</div><div class="fx">$$T_F=231.2-40\log P^{vap}$$</div>
+<div class="more"><p style="margin:0 0 4px"><b>شنو يحسب:</b> نقطة الوميض بالكلفن.</p><p style="margin:0 0 4px"><b>تحتاج:</b> ضغط البخار عند 37.8 °C بالبار.</p><p style="margin:0 0 6px"><b>كلمات بالسؤال تدلّك عليه:</b> <span class="pill en">flash point · vapour pressure</span></p><a class="btn small ghost" href="#therm">شوف مثال محلول ←</a></div></div><div class="row1"><div class="no">7</div><div class="fx">$$\begin{aligned}\%A=692.4&+12.15(SG)(AP)\\&-794(SG)-10.4(AP)\end{aligned}$$</div>
+<div class="more"><p style="margin:0 0 4px"><b>شنو يحسب:</b> نسبة الأروماتيات.</p><p style="margin:0 0 4px"><b>تحتاج:</b> SG ونقطة الأنيلين AP بالسيليزي.</p><p style="margin:0 0 6px"><b>كلمات بالسؤال تدلّك عليه:</b> <span class="pill en">aromatic content · aniline point</span></p><a class="btn small ghost" href="#therm">شوف مثال محلول ←</a></div></div><div class="row1"><div class="no">8</div><div class="fx">$$DI=\frac{(API)(1.8AP+32)}{100}$$</div>
+<div class="more"><p style="margin:0 0 4px"><b>شنو يحسب:</b> مؤشر الديزل.</p><p style="margin:0 0 4px"><b>تحتاج:</b> API (إذا عطاك SG احسبه بالقانون المحفوظ) و AP بالسيليزي.</p><p style="margin:0 0 6px"><b>كلمات بالسؤال تدلّك عليه:</b> <span class="pill en">diesel index</span></p><a class="btn small ghost" href="#therm">شوف مثال محلول ←</a></div></div><div class="row1"><div class="no">9</div><div class="fx">$$Sp.heat=\frac{0.4024+0.00081T}{SG_{(60/60)^\circ F}}$$</div>
+<div class="more"><p style="margin:0 0 4px"><b>شنو يحسب:</b> الحرارة النوعية بـ kJ/kg·°C.</p><p style="margin:0 0 4px"><b>تحتاج:</b> SG، والحرارة T بالسيليزي.</p><p style="margin:0 0 6px"><b>كلمات بالسؤال تدلّك عليه:</b> <span class="pill en">specific heat</span></p><a class="btn small ghost" href="#therm">شوف مثال محلول ←</a></div></div><div class="row1"><div class="no">10</div><div class="fx">$$\begin{aligned}C.I.=&\frac{48640}{T_{av.bo.po.}}\\&+473.3\times Sp.Gr-456.8\end{aligned}$$</div>
+<div class="more"><p style="margin:0 0 4px"><b>شنو يحسب:</b> معامل الارتباط، وبعده صنّف من صفحة 2.</p><p style="margin:0 0 4px"><b>تحتاج:</b> T<sub>av.bo.po.</sub> بالكلفن، و SG عند 60 °F.</p><p style="margin:0 0 6px"><b>كلمات بالسؤال تدلّك عليه:</b> <span class="pill en">correlation index</span></p><a class="btn small ghost" href="#cls">شوف مثال محلول ←</a></div></div></div>
+<div class="note trap"><span class="t">وحدات تنغلط بيها</span>#5 و #6 و #10 بالكلفن · #7 و #8 و #9: AP و T بالسيليزي · #1 لـ #4: اللزوجات بالـ cSt · #6: الضغط بالبار.</div></div></div>
+
+<div class="sec" id="sh-p2"><h2><span class="num">ص2</span>جدول حدود التصنيف</h2>
+<div class="card"><p style="margin-top:0">بعد ما تحسب Kw أو API أو C.I.، أو يعطيك نسبة الكبريت، تجي هنا وتشوف وين يوكع رقمك. جرّب:</p><div data-classify></div>
+<div class="note warn"><span class="t">الفجوات بالجدول</span>واتسون بيه فجوات (12.1–12.15 و 11.45–11.5). إذا رقمك وكع بيها، اكتب «بين الصنفين، أقرب لـ…».</div></div></div>
+
+<div class="sec" id="sh-p3"><h2><span class="num">ص3</span>جدول L و H (ASTM D2270) خطوة بخطوة</h2>
+<div class="card reader">
+<div class="steps">
+ <div class="step"><h4>شوف شكل الجدول</h4><p>الجدول مقسوم <b>6 مجاميع أعمدة</b>، كل مجموعة بيها ثلاث أعمدة: <b>Y</b> (اللزوجة عند 100 °C، cSt) ثم <b>L</b> ثم <b>H</b>. الـ Y يبدي من 2.00 بأول عمود ويوصل لـ 70 بآخر عمود.</p></div>
+ <div class="step"><h4>دوّر على Y مالتك</h4><p>امشي على عمود Y من اليسار لليمين لحد ما تلقى رقمك. إذا موجود بالضبط، خذ L و H من نفس الصف.</p></div>
+ <div class="step"><h4>إذا مو موجود: خذ الصفين</h4><p>خذ الصف اللي قبله والصف اللي بعده، واستوفِ (الحاسبة تحت).</p></div>
+ <div class="step"><h4>إذا Y أكبر من 70</h4><p>لا تدوّر بالجدول، استخدم القوانين #3 و #4 بصفحة 1.</p></div>
+</div>
+<h3>جرّب على مقطع حقيقي من الجدول</h3>
+<div class="slider"><span>Y</span><input type="range" id="lh-y" min="17.0" max="17.6" step="0.05" value="17.25"><span class="v" id="lh-yv"></span></div>
+<div class="tbl-wrap"><table class="lhx" id="lh-t"></table></div>
+<div class="stxt" id="lh-out"></div>
+</div></div>
+
+<div class="sec" id="sh-p4"><h2><span class="num">ص4</span>مخطط الوزن النوعي مقابل الحرارة</h2>
+<div class="card reader">
+<p style="margin-top:0">المخطط يعطيك <b>SG عند أي حرارة</b> إذا تعرف SG عند 60 °F (أو API). المحور الأفقي <b>الحرارة بالفهرنهايت</b>، والعمودي <b>SG عند تلك الحرارة</b>، وكل منحني يمثّل نفط بـ SG معيّن عند 60 °F (مكتوب على المنحني)، وعلى اليمين قيم API المقابلة.</p>
+<div class="form" style="grid-template-columns:1fr 1fr"><label><span>SG عند 60 °F (المنحني)</span><select id="nl-sg"><option>0.60</option><option>0.70</option><option selected>0.80</option><option>0.90</option><option>1.00</option></select></label>
+<label><span>الحرارة (°F)</span><input type="number" id="nl-t" value="400" min="60" max="900" step="10"></label></div>
+<svg id="nl-svg" viewBox="0 0 440 300"></svg>
+<div class="stepper"><button class="btn small" id="nl-step">▶ الخطوة الجاية</button><button class="btn small ghost" id="nl-reset">↺ من جديد</button><span class="muted" id="nl-n" style="font-size:13px"></span></div>
+<div class="stxt" id="nl-txt"></div>
+<div class="note warn"><span class="t">مهم</span>هذا رسم توضيحي <b>للطريقة</b> بس، والأرقام بيه تقريبية. بالامتحان اقرا القيمة من مخطط الشيت نفسه. وإذا السؤال عطاك γ، استخدم القانون بدل المخطط: <span class="en">SG<sub>T</sub> = SG<sub>60</sub> − γ(T − 60)</span>.</div>
+<div class="note hook"><span class="t">الطريقة بجملة</span>«<b>لاقي منحنيك، اطلع من حرارتك لفوك، وروح يسار تقرا</b>».</div>
+</div></div>
+
+<div class="sec" id="sh-miss"><h2><span class="num">!</span>مو موجود بالشيت: احفظه</h2>
+<div class="card"><div class="tbl-wrap"><table>
+<tr><th>القانون</th><th>متى</th></tr>
+<tr><td class="en">Kw = ∛T<sub>av.bo.po.</sub>(°R) / SG</td><td>واتسون</td></tr>
+<tr><td class="en">T<sub>av.vol</sub> = ΣT₁…T₉ / 9 · Δt = (T₉ − T₁)/80 · T<sub>b</sub> = T<sub>av</sub> − Δt</td><td>بيانات التقطير</td></tr>
+<tr><td class="en">API = 141.5/SG − 131.5</td><td>API و DI</td></tr>
+<tr><td class="en">F = 1.8C + 32 · K = C + 273.15 · R = F + 459.67</td><td>كل المسائل</td></tr>
+<tr><td class="en">SG<sub>T</sub> = SG<sub>60</sub> − γ(T<sub>F</sub> − 60), γ = 0.000517–0.000897</td><td>SG عند حرارة ثانية</td></tr>
+<tr><td class="en">ν = μ/ρ · ν = c·t</td><td>اللزوجة</td></tr>
+<tr><td class="en">L = L₁ + (Y − Y₁)/(Y₂ − Y₁)·(L₂ − L₁)</td><td>الاستيفاء من الجدول</td></tr>
+</table></div>
+<button class="done-btn" data-done="sheet">✓ فهمت الشيت وأعرف أستخدمه</button></div></div>
+</section>
+<!-- ===================== QUESTION BANK ===================== -->
+<section class="view" id="v-bank" data-view="bank">
+  <div class="hero">
+    <span class="kicker">Question Bank · 64 سؤال</span>
+    <h1>بنك الأسئلة: إنكليزي، ترجمة، وجواب بالعربي والإنكليزي</h1>
+    <p>السؤال بالإنكليزي مثل ما يجيك، وتحته الترجمة. <b>حاول تجاوب براسك أول</b>، وبعدها اكشف الجواب بالعربي أو بالإنكليزي.</p>
+  </div>
+  <div class="sec" style="margin-top:20px">
+    <div class="filters" id="bk-f"><button class="chip on" data-f="all">الكل</button><button class="chip" data-f="past">سنوات سابقة</button><button class="chip" data-f="def">تعاريف</button><button class="chip" data-f="list">عدّد وقارن</button><button class="chip" data-f="calc">مسائل</button><button class="chip" data-f="blank">فراغات</button></div>
+    <div class="row" style="margin-bottom:6px"><button class="btn small ghost" id="bk-open">اكشف كل الأجوبة العربية</button><button class="btn small ghost" id="bk-close">اخفِ الكل</button><span class="muted" id="bk-n" style="font-size:13px"></span></div>
+    <div id="bk-list"><div class="qa" data-tag="past"><div class="qh"><div class="qn"><b>Q1</b><span class="tag t-ro">Final 2024 · Q1</span></div><div class="qen">Name the following compounds and determine which of them is a hydrocarbon or a non-hydrocarbon. In addition, mention the advantages and disadvantages of each compound: (1) C(CH₃)₄ (2) 1-ethyl-2-methyl cyclopentane ring (3) CH₃CH₂CH₂CH₂SH (4) carbazole.</div><div class="qar">سمِّ المركبات التالية وحدد أيها هيدروكاربوني وأيها غير هيدروكاربوني، واذكر مزايا وعيوب كل مركب.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><ol><li><b>2,2-dimethylpropane (C₅H₁₂)</b>: هيدروكاربون، بارافين متفرع. المزايا: غليان واطي، <b>أوكتان عالي</b> فهو مفضل بوقود السيارات. وشائع بالخام بفرع واحد وأقل بفرعين.</li><li><b>1-ethyl-2-methylcyclopentane</b>: هيدروكاربون، نفثين (بارافين حلقي مشبع C<sub>n</sub>H<sub>2n</sub>). صفاته تشبه الألكانات بس غليانه أعلى، وأوكتانه أعلى نسبياً من البارافين المقابل.</li><li><b>1-butanethiol (n-butyl mercaptan)</b>: غير هيدروكاربون، مركب كبريتي. العيوب: تآكل أجزاء المحرك المعدنية، تقليل الأوكتان، تقليل مقاومة الأكسدة، ترسّب مواد صلبة.</li><li><b>Carbazole</b>: غير هيدروكاربون، مركب نتروجيني. العيوب: يسمّم العوامل المساعدة، يزيد المتبقي الكاربوني، يقلل API.</li></ol></div><div class="qp en"><ol><li><b>2,2-dimethylpropane</b> – hydrocarbon (branched / iso-paraffin): low boiling point, high octane number (favourite in car fuel); one branch is common in crude, two branches less.</li><li><b>1-ethyl-2-methylcyclopentane</b> – hydrocarbon (naphthene, saturated CnH2n): similar properties to alkanes but higher boiling point.</li><li><b>1-butanethiol (butyl mercaptan)</b> – non-hydrocarbon (sulphur compound): corrosion of engine metal parts, reduces octane number, reduces oxidation resistance, solids deposition.</li><li><b>Carbazole</b> – non-hydrocarbon (nitrogen compound): poisons catalysts, increases carbon residue, decreases API.</li></ol></div></div><div class="qa" data-tag="past"><div class="qh"><div class="qn"><b>Q2</b><span class="tag t-ro">Q1 · 8 marks</span></div><div class="qen">Name the hydrocarbons and non-hydrocarbons components in crude oil that cause the following effects: 1- Corrosion of the metal parts of the engine. 2- Can poison catalysts. 3- Better engine performance. 4- Reduce the yield of the gasoline.</div><div class="qar">سمِّ المكونات الهيدروكاربونية وغير الهيدروكاربونية بالنفط اللي تسبب التأثيرات التالية.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><ol><li>تآكل أجزاء المحرك: <b>مركبات الكبريت</b>.</li><li>تسميم العوامل المساعدة: <b>مركبات النتروجين</b> (والمعادن تأثر على فعالية العامل المساعد).</li><li>أداء محرك أحسن: <b>الأروماتيات</b> (أعلى رقم أوكتاني)، وبعدها النفثينات والبارافينات المتفرعة.</li><li>تقليل ناتج الكازولين: <b>المركبات المعدنية</b>.</li></ol></div><div class="qp en"><ol><li>Sulphur compounds.</li><li>Nitrogen compounds (metals also affect catalyst activity).</li><li>Aromatics (highest octane number), then naphthenes and iso-paraffins.</li><li>Metallic compounds.</li></ol></div></div><div class="qa" data-tag="past"><div class="qh"><div class="qn"><b>Q3</b><span class="tag t-ro">Final 2025 · Q1</span></div><div class="qen">Fill in the blank: (2) The ____ is the lowest temperature at which wax crystals begin to form in oil. (4) The viscosity index helps determine the oil’s ____ to temperature changes. (6) Freezing point is the temperature at which a liquid ____. (7) Autoignition temperature is always ____ flash point. (8) Octane number can be improved by additives such as ____. (9) Aniline point is the minimum temperature at which oil and ____ are completely miscible.</div><div class="qar">املأ الفراغات (الفقرات الداخلة بالمادة من امتحان 2025).</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><ol><li><b>cloud point</b> (نقطة الغيمة).</li><li><b>resistance</b>: مقاومة تغيّر اللزوجة مع الحرارة (VI عالي = تتغير قليل). مو «decreasing».</li><li><b>solidifies at 1 atm pressure</b> (يتصلب بضغط 1 atm).</li><li><b>higher than</b> (أعلى من نقطة الوميض).</li><li><b>TEL (tetraethyl lead) or MTBE</b>.</li><li><b>aniline</b> (بحجوم متساوية).</li></ol></div><div class="qp en"><ol><li>cloud point</li><li>resistance (i.e. how much its viscosity changes)</li><li>solidifies at 1 atm pressure</li><li>higher than</li><li>TEL (tetraethyl lead) or MTBE</li><li>aniline (equal volumes)</li></ol></div></div><div class="qa" data-tag="past"><div class="qh"><div class="qn"><b>Q4</b><span class="tag t-ro">Q3 · 10 marks</span></div><div class="qen">A certain crude oil has: SG = 0.47, 0.61, 0.75, 0.85, 0.97; M = 150, 200, 250, 300, 350; ν38(100) = 10, 15, 20, 25, 30 cSt. Using the provided formula, calculate the pour point temperature (Tp) in Kelvin, then draw the relationship between Tp & SG.</div><div class="qar">احسب نقطة الانسكاب بالكلفن لكل عينة، وارسم العلاقة بين Tp و SG.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>باستخدام القانون #5 بالشيت: <b>Tp = 139.1، 223.7، 277.5، 294.1، 284.0 K</b>. الرسم: Tp يزيد مع SG لحد قمة قرب 0.85 وبعدين ينزل شوية عند 0.97. <a href="#th-q3">الحل الكامل مع الجدول والرسم ←</a></p></div><div class="qp en"><p>Using formula #5: Tp = 139.1, 223.7, 277.5, 294.1 and 284.0 K. Tp increases with SG (more wax/heavy compounds) up to a maximum near SG ≈ 0.85, then decreases slightly at SG = 0.97.</p></div></div><div class="qa" data-tag="past"><div class="qh"><div class="qn"><b>Q5</b><span class="tag t-ro">Midterm 2025 · Q1</span></div><div class="qen">Analyze the complete Watson characterization factor equation and explain how each component contributes to the final classification. Critique whether this method is a complete way to characterize crude oil. (Distillation data 10%–90%: 323.974 … 396.026 °F.)</div><div class="qar">حلّل معادلة واتسون، واشرح دور كل جزء، وانتقد الطريقة.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>T<sub>av</sub> = 360.0 °F · Δt = 0.9007 · T<sub>b</sub> = 359.1 °F = 818.77 °R · SG ≈ 0.853 (من المخطط) · <b>Kw = ∛818.77 / 0.853 ≈ 10.97</b>، يعني نفثيني. النقد: الطريقة بسيطة بس ما تكفي لوحدها، لازم API والكبريت و C.I. <a href="#cl-mid">الحل الكامل ←</a></p></div><div class="qp en"><p>T<sub>av.vol</sub> = 360.0 °F, Δt = 0.9007, T<sub>b</sub> = 359.1 °F = 818.77 °R, SG ≈ 0.853, Kw = ∛818.77 / 0.853 ≈ 10.97 → naphthenic. Critique: simple but incomplete; must be supported by API, sulfur content and C.I.</p></div></div><div class="qa" data-tag="def"><div class="qh"><div class="qn"><b>Q6</b></div><div class="qen">Define petroleum.</div><div class="qar">عرّف البترول.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>خليط من مركبات هيدروكاربونية وكميات قليلة نسبياً من مواد ثانية مثل الأوكسجين والنتروجين والكبريت والأملاح والماء، وغازات ذائبة مثل H₂S، وآثار معادن مثل Fe و Ni و Cu و V.</p></div><div class="qp en"><p>A mixture of hydrocarbon compounds and relatively small quantities of other materials such as oxygen, nitrogen, sulphur, salt, water, dissolved gases such as H₂S and trace amounts of metals such as iron, nickel, copper and vanadium.</p></div></div><div class="qa" data-tag="def"><div class="qh"><div class="qn"><b>Q7</b></div><div class="qen">Define cloud point.</div><div class="qar">عرّف نقطة الغيمة.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>أوطى حرارة تبدي عندها بلورات الشمع تتكوّن بالتبريد التدريجي تحت ظروف قياسية. نقطة الغيمة الواطية مرغوبة بالأجواء الباردة.</p></div><div class="qp en"><p>The lowest temperature at which wax crystals begin to form by gradual cooling under standard conditions; low cloud point products are desirable at low temperatures.</p></div></div><div class="qa" data-tag="def"><div class="qh"><div class="qn"><b>Q8</b></div><div class="qen">Define pour point. What increases it?</div><div class="qar">عرّف نقطة الانسكاب. شنو يزيدها؟</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>أوطى حرارة يجري عندها الزيت لما يبرد بدون تحريك تحت ظروف قياسية. تحتها ما نكدر نخزن المنتج أو ننقله بالأنابيب. الشمع والمركبات الثقيلة تزيدها.</p></div><div class="qp en"><p>The lowest temperature at which the oil will pour or flow when cooled without stirring under standard conditions. Below it the product cannot be stored or transferred through a pipeline. Wax and heavy compounds increase it.</p></div></div><div class="qa" data-tag="def"><div class="qh"><div class="qn"><b>Q9</b></div><div class="qen">Define flash point. What does it indicate?</div><div class="qar">عرّف نقطة الوميض. شنو تبيّن؟</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>أوطى حرارة تشتعل عندها الأبخرة (ومضة) لما تتعرض لشرارة أو لهب تحت ظروف محددة. تبيّن أعلى حرارة نخزن بيها الوقود بدون خطر حريق.</p></div><div class="qp en"><p>The lowest temperature at which vapours arising from the oil ignite (flash) when exposed to a spark or flame under specified conditions; it indicates the maximum storage temperature without serious fire hazard.</p></div></div><div class="qa" data-tag="def"><div class="qh"><div class="qn"><b>Q10</b></div><div class="qen">Define fire point.</div><div class="qar">عرّف نقطة الاشتعال.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>أوطى حرارة تشتعل عندها الأبخرة اشتعال (حريق) لما تتعرض لشرارة أو لهب، وهي الحرارة اللي لازم ما يوصلها الوقود حتى ما يحترق.</p></div><div class="qp en"><p>The lowest temperature at which vapours arising from the oil ignite (fire) when exposed to a spark or flame; the maximum temperature the fuel must not reach to prevent combustion.</p></div></div><div class="qa" data-tag="def"><div class="qh"><div class="qn"><b>Q11</b></div><div class="qen">Define autoignition temperature.</div><div class="qar">عرّف حرارة الاشتعال الذاتي.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>أقل حرارة يشتعل عندها بخار الهيدروكاربون المخلوط بالهوا لحاله بدون مصدر خارجي. أعلى من نقطة الوميض (الكازولين ≈ 351 °C، والكحول ≈ 500 °C)، وتقل لما يزيد الضغط.</p></div><div class="qp en"><p>The minimum temperature at which hydrocarbon vapour mixed with air spontaneously ignites without any external source; higher than the flash point (gasoline ≈ 351 °C, alcohol ≈ 500 °C); decreases with increasing pressure.</p></div></div><div class="qa" data-tag="def"><div class="qh"><div class="qn"><b>Q12</b></div><div class="qen">Define octane number. How can it be improved?</div><div class="qar">عرّف الرقم الأوكتاني. شلون نحسّنه؟</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>مقياس لمقاومة الوقود للاشتعال الذاتي أثناء الانضغاط وقبل الإشعال (مانع للطرق). الأعلى يعطي أداء محرك أحسن. نحسّنه بإضافة TEL أو MTBE. الترتيب: A > N > O > Iso P > P.</p></div><div class="qp en"><p>A measure of a fuel’s ability to resist auto-ignition during compression and prior to ignition (anti-knock). Higher ON gives better engine performance. Improved by adding TEL or MTBE. Order: A > N > O > Iso P > P.</p></div></div><div class="qa" data-tag="def"><div class="qh"><div class="qn"><b>Q13</b></div><div class="qen">Define aniline point.</div><div class="qar">عرّف نقطة الأنيلين.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>أقل حرارة يكون عندها حجمين متساويين من الأنيلين والزيت ممتزجين بالكامل. أعلى نقطة أنيلين تعني أروماتيات أقل وبارافين أكثر.</p></div><div class="qp en"><p>The minimum temperature at which equal volumes of aniline and the oil are completely miscible. A higher aniline point means lower aromatic and higher paraffin content.</p></div></div><div class="qa" data-tag="def"><div class="qh"><div class="qn"><b>Q14</b></div><div class="qen">Define diesel index.</div><div class="qar">عرّف مؤشر الديزل.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>رقم يبيّن سهولة الاشتعال الذاتي بمحركات الديزل، والديزل الأحسن عنده DI عالي. DI = API(1.8AP + 32)/100.</p></div><div class="qp en"><p>A number indicating the auto-ignition quality of diesel fuels; the best diesel fuel has a high diesel index. DI = API(1.8AP + 32)/100.</p></div></div><div class="qa" data-tag="def"><div class="qh"><div class="qn"><b>Q15</b></div><div class="qen">Define viscosity index.</div><div class="qar">عرّف مؤشر اللزوجة.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>رقم يبيّن تأثير تغيّر الحرارة على اللزوجة الكينماتيكية. VI عالي يعني تغيّر قليل باللزوجة. يزيد مع البارافين ويقل مع النفثين (100 بارافيني، 0 نفثيني).</p></div><div class="qp en"><p>A number indicating the effect of temperature change on the kinematic viscosity; a high VI means a small change of viscosity with temperature. It increases with paraffins and decreases with naphthenes (VI = 100 paraffinic, 0 naphthenic).</p></div></div><div class="qa" data-tag="def"><div class="qh"><div class="qn"><b>Q16</b></div><div class="qen">Define viscosity and state where it is needed.</div><div class="qar">عرّف اللزوجة، ووين نحتاجها؟</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>مقياس لمعامل الاحتكاك الداخلي بين طبقتين سائل مساحة كل وحدة 1 m². نحتاجها بحساب: القدرة بالخلاطات أو لنقل المائع، وهبوط الضغط بالأنابيب والأعمدة، وأجهزة قياس الجريان.</p></div><div class="qp en"><p>A measurement of the internal friction coefficient between two liquid layers each of 1 m². Needed in calculating power required in mixers or to transfer a fluid, the pressure drop in a pipe or column, and flow measurement devices.</p></div></div><div class="qa" data-tag="def"><div class="qh"><div class="qn"><b>Q17</b></div><div class="qen">Differentiate between dynamic and kinematic viscosity.</div><div class="qar">فرّق بين اللزوجة الديناميكية والكينماتيكية.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>الديناميكية μ بوحدة poise = g/(cm·s). والكينماتيكية ν بوحدة stoke = cm²/s. والعلاقة: ν = μ/ρ، وتنقاس بمقياس U-tube: ν = c·t.</p></div><div class="qp en"><p>Dynamic viscosity μ (poise, g/(cm·s)); kinematic viscosity ν (stoke, cm²/s); ν = μ/ρ; measured by a U-tube viscometer, ν = c·t.</p></div></div><div class="qa" data-tag="def"><div class="qh"><div class="qn"><b>Q18</b></div><div class="qen">Define specific gravity of a petroleum fraction.</div><div class="qar">عرّف الوزن النوعي.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>نسبة كثافة النفط عند 60 °F لكثافة الماء عند 60 °F (0.999 g/cm³). الظروف القياسية 60 °F و 1 atm. نستفاد منه بحساب API وعامل التوصيف، ومعرفة جريان المائع.</p></div><div class="qp en"><p>The ratio of the density of petroleum at 60 °F to the density of water at 60 °F (0.999 g/cm³). Standard conditions are 60 °F and 1 atm. Useful for API gravity, characterization factor and indication of fluid flow.</p></div></div><div class="qa" data-tag="def"><div class="qh"><div class="qn"><b>Q19</b></div><div class="qen">Define normal boiling point and vapour pressure.</div><div class="qar">عرّف درجة الغليان الطبيعية وضغط البخار.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>درجة الغليان: الحرارة اللي يتوازن عندها البخار والسائل بضغط معيّن، وإذا الضغط 1 atm تسمى الطبيعية. ضغط البخار: القوة اللي يسلطها البخار على وحدة المساحة من جدران إناء مسدود، ويزيد مع الحرارة (ضغط التشبع).</p></div><div class="qp en"><p>Boiling point: the temperature at which vapour and liquid exist together at equilibrium at a given pressure; at 1 atm it is the normal boiling point. Vapour pressure: the force per unit area exerted on the walls of a closed container by the vaporized liquid; increases with temperature (saturation pressure).</p></div></div><div class="qa" data-tag="def"><div class="qh"><div class="qn"><b>Q20</b></div><div class="qen">Define freezing and melting point.</div><div class="qar">عرّف نقطة التجمد والانصهار.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>التجمد: الحرارة اللي يتصلب عندها السائل بضغط 1 atm. الانصهار: الحرارة اللي يسيل عندها الصلب بضغط 1 atm، وتزيد مع الوزن الجزيئي. والمادة النقية إلها نفس النقطتين.</p></div><div class="qp en"><p>Freezing point: temperature at which a liquid solidifies at 1 atm. Melting point: temperature at which a solid liquefies at 1 atm; increases with molecular weight. A pure substance has the same freezing and melting points.</p></div></div><div class="qa" data-tag="def"><div class="qh"><div class="qn"><b>Q21</b></div><div class="qen">Define specific heat. How does it change with density?</div><div class="qar">عرّف الحرارة النوعية. شلون تتغير مع الكثافة؟</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>كمية الحرارة اللازمة لرفع حرارة وحدة الوزن من الجزء النفطي درجة وحدة. مداها 0.3 – 0.85، والأجزاء الأخف قيمتها أعلى، وتقل كل ما تزيد الكثافة.</p></div><div class="qp en"><p>The quantity of heat required to raise the temperature of a unit weight of a petroleum fraction by one degree; range 0.3–0.85; lighter fractions have higher values; decreases with increasing density.</p></div></div><div class="qa" data-tag="def"><div class="qh"><div class="qn"><b>Q22</b></div><div class="qen">Define volatility and refractive index.</div><div class="qar">عرّف التطاير ومعامل الانكسار.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>التطاير: ميل السائل يتحول لبخار بأي حرارة. معامل الانكسار: مؤشر للأجزاء الخفيفة والمتوسطة، أعلى للأروماتيات وأوطى للبارافينات ومتوسط للنفثينات، ويزيد مع الوزن الجزيئي.</p></div><div class="qp en"><p>Volatility: tendency of a liquid to change to vapour at any temperature. Refractive index: indicator for light and medium fractions; higher for aromatics, lower for paraffins, medium for naphthenes; increases with molecular weight.</p></div></div><div class="qa" data-tag="list"><div class="qh"><div class="qn"><b>Q23</b></div><div class="qen">Explain the two hypotheses of the origin of petroleum, with equations.</div><div class="qar">اشرح فرضيتي أصل البترول مع المعادلات.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><ol><li><b>غير العضوية:</b> بخار ماء حار يتفاعل مع الكاربيدات تحت ضغط وحرارة عالية: Al₄C₃ + 12H₂O → 4Al(OH)₃ + 3CH₄ ، CaC₂ + 2H₂O → C₂H₂ + Ca(OH)₂ ، C₂H₂ → بترول.</li><li><b>العضوية:</b> تحلل بقايا الحيوانات والنباتات الميتة لهيدروكاربونات بتأثير الحرارة والضغط والعوامل المساعدة (كائنات مجهرية)، وتفسّر نفط الخليج العربي.</li></ol></div><div class="qp en"><ol><li><b>Inorganic:</b> hot water vapour reacts with carbides under high P and T: Al₄C₃ + 12H₂O → 4Al(OH)₃ + 3CH₄; CaC₂ + 2H₂O → C₂H₂ + Ca(OH)₂; C₂H₂ → petroleum.</li><li><b>Organic:</b> decomposition of dead animals and plants into hydrocarbons by high temperature, pressure and catalysts (microscopic beings); used to explain Arabian Gulf petroleum.</li></ol></div></div><div class="qa" data-tag="list"><div class="qh"><div class="qn"><b>Q24</b></div><div class="qen">State the importance of petroleum.</div><div class="qar">اذكر أهمية البترول.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><ol><li>مصدر رئيسي للطاقة (45% نفط و15% غاز).</li><li>توليد الكهرباء.</li><li>وقود للسيارات والسفن والطائرات.</li><li>وقود للتدفئة والطبخ.</li><li>الصناعات البتروكيمياوية (ملابس، بلاستك، أدوية، أنابيب).</li><li>تزييت المحركات.</li></ol></div><div class="qp en"><ol><li>Major energy source (45% crude oil, 15% natural gas).</li><li>Electrical power generation.</li><li>Fuel for cars, ships and airliners.</li><li>Fuel for heating and cooking.</li><li>Petrochemical industries (clothes, plastics, drugs, pipes).</li><li>Lubrication of engines.</li></ol></div></div><div class="qa" data-tag="list"><div class="qh"><div class="qn"><b>Q25</b></div><div class="qen">Give the elemental composition (wt%) of crude oil.</div><div class="qar">اذكر التركيب العنصري للنفط الخام.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>C: 83–88 · H: 11–14 · S: 0.05–8 · N: 1–2 · O: 0.05–1.5 · المعادن: أقل من 0.03. ونسبة الهيدروكاربونات من 97% بالخفيف لـ 50% بالثقيل.</p></div><div class="qp en"><p>C 83–88, H 11–14, S 0.05–8, N 1–2, O 0.05–1.5, metals &lt; 0.03 wt%. Hydrocarbons range from 97 wt% in light oils to 50% in heavy oils and bitumen.</p></div></div><div class="qa" data-tag="list"><div class="qh"><div class="qn"><b>Q26</b></div><div class="qen">Compare between normal paraffins and iso-paraffins.</div><div class="qar">قارن بين البارافينات العادية والمتفرعة.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><table><tr><th></th><th>عادية</th><th>متفرعة</th></tr><tr><td>السلسلة</td><td>مستقيمة</td><td>متفرعة</td></tr><tr><td>الصيغة</td><td colspan="2">C<sub>n</sub>H<sub>2n+2</sub></td></tr><tr><td>الغليان</td><td>عالي</td><td>واطي</td></tr><tr><td>الأوكتان</td><td>واطي</td><td>عالي (مفضل بالوقود)</td></tr><tr><td>الوزن الجزيئي</td><td>عالي</td><td>—</td></tr></table></div><div class="qp en"><p>Normal: straight chain, CnH2n+2, high MW, high b.p., low octane number. Iso: branched chain, CnH2n+2, low b.p., high octane number (favourite in car fuel); one branch common, two branches less.</p></div></div><div class="qa" data-tag="list"><div class="qh"><div class="qn"><b>Q27</b></div><div class="qen">What are naphthenes and olefins? How do they differ?</div><div class="qar">شنو النفثينات والأوليفينات، وشنو الفرق بيناتهم؟</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>الاثنين صيغتهم C<sub>n</sub>H<sub>2n</sub>. <b>النفثينات</b> مشبعة حلقية، صفاتها تشبه الألكانات بس غليانها أعلى، وموجودة بالخام. <b>الأوليفينات</b> غير مشبعة (آصرة مزدوجة)، الخفيفة منها مو موجودة بالخام وتنلقى بنواتج التكسير.</p></div><div class="qp en"><p>Both have the formula CnH2n. Naphthenes are saturated cyclic hydrocarbons, similar to alkanes but with higher boiling points, present in crude. Olefins are unsaturated; the low-boiling ones are not present in crude but found in cracked products.</p></div></div><div class="qa" data-tag="list"><div class="qh"><div class="qn"><b>Q28</b></div><div class="qen">Write about aromatic hydrocarbons with examples.</div><div class="qar">اكتب عن الهيدروكاربونات الأروماتية مع أمثلة.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>غير مشبعة، بيها حلقة بنزين سداسية مستوية أو أكثر، صيغتها C<sub>n</sub>H<sub>n</sub>، وأغلبها ريحتها حلوة ومسرطنة، وأوكتانها عالي جداً. أمثلة: التولوين، والزايلينات (o و m و p)، والنفثالين.</p></div><div class="qp en"><p>Unsaturated hydrocarbons with one or more planar six-carbon (benzene) rings, CnHn; many have a sweet aroma and are carcinogenic; very high octane numbers. Examples: toluene, o-, m-, p-xylene, naphthalene.</p></div></div><div class="qa" data-tag="list"><div class="qh"><div class="qn"><b>Q29</b></div><div class="qen">What are the types and disadvantages of sulphur compounds in crude oil?</div><div class="qar">شنو أنواع مركبات الكبريت وعيوبها؟</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>الأنواع:</b> H₂S، والمركابتانات R–SH، والكبريتيدات (أليفاتية R–S–R وحلقية). وتزيد مع الكثافة.</p><ol><li>تآكل أجزاء المحرك المعدنية.</li><li>تقليل الرقم الأوكتاني.</li><li>تقليل مقاومة الأكسدة.</li><li>ترسّب مواد صلبة.</li></ol></div><div class="qp en"><p>Types: hydrogen sulphide H₂S, mercaptans R–SH, sulphides (aliphatic R–S–R and cyclic); they increase with density.</p><ol><li>Corrosion of engine metal parts.</li><li>Reduce octane number.</li><li>Reduce oxidation resistance.</li><li>Solids deposition.</li></ol></div></div><div class="qa" data-tag="list"><div class="qh"><div class="qn"><b>Q30</b></div><div class="qen">Classify the oxygen compounds found in crude oil.</div><div class="qar">صنّف مركبات الأوكسجين بالنفط.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>تزيد مع درجة غليان الجزء.</p><ol><li><b>حامضية:</b> أحماض عضوية عادية، ومتفرعة، وأروماتية.</li><li><b>غير حامضية:</b> إسترات، وأمايدات، وكيتونات، وإيثرات، وكحولات.</li></ol></div><div class="qp en"><p>They increase with the boiling point of the fraction.</p><ol><li>Acidic: normal, branched and aromatic organic acids.</li><li>Non-acidic: esters, amides, ketones, ethers, alcohols.</li></ol></div></div><div class="qa" data-tag="list"><div class="qh"><div class="qn"><b>Q31</b></div><div class="qen">What are the disadvantages of nitrogen compounds? Give examples.</div><div class="qar">شنو عيوب مركبات النتروجين؟ مع أمثلة.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>تكثر بالنفط الأسفلتي، والمسموح لحد 0.25% وزناً. أمثلة: البيريدين والكينولين.</p><ol><li>تسمّم العوامل المساعدة.</li><li>تزيد المتبقي الكاربوني.</li><li>تقلل API.</li></ol></div><div class="qp en"><p>More abundant in asphaltic crudes; tolerated up to 0.25 wt%. Examples: pyridine, quinoline.</p><ol><li>Can poison catalysts.</li><li>Increase carbon residue.</li><li>Decrease API.</li></ol></div></div><div class="qa" data-tag="list"><div class="qh"><div class="qn"><b>Q32</b></div><div class="qen">State the disadvantages and types of metallic components.</div><div class="qar">اذكر عيوب وأنواع المركبات المعدنية.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>العيوب:</b></p><ol><li>تأثر على فعالية العامل المساعد.</li><li>تكوّن الكوك.</li><li>تقلل ناتج الكازولين.</li><li>ترسبات رماد بمحطات الكهرباء.</li><li>التآكل.</li></ol><p><b>الأنواع:</b> عضوية معدنية (Fe, Ni, V, Cd)، وصابونية (Mg, Ca)، وملحية (Na⁺, Ba²⁺).</p></div><div class="qp en"><ol><li>Affect catalyst activity.</li><li>Coke formation.</li><li>Reduce the yield of gasoline.</li><li>Ash deposits in power plants.</li><li>Corrosion.</li></ol><p>Types: organo-metallic (Fe, Ni, V, Cd), soap metallic (Mg, Ca), salt metallic (Na⁺, Ba²⁺).</p></div></div><div class="qa" data-tag="list"><div class="qh"><div class="qn"><b>Q33</b></div><div class="qen">What is brine water in crude oil?</div><div class="qar">شنو الماء المالح بالنفط؟</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>جزيئات ماء عالقة بالنفط بيها أملاح ذائبة بتراكيز عالية جداً (300 – 300,000 ppm). الأيونات موجبة (Na⁺, Ba²⁺, Mg²⁺, Al³⁺) وسالبة (Cl⁻, Br⁻, SO₄²⁻, I⁻).</p></div><div class="qp en"><p>Water molecules suspended in crude oil with extremely high concentrations of dissolved salt ions (300–300,000 ppm): positive (Na⁺, Ba²⁺, Mg²⁺, Al³⁺) and negative (Cl⁻, Br⁻, SO₄²⁻, I⁻).</p></div></div><div class="qa" data-tag="list"><div class="qh"><div class="qn"><b>Q34</b></div><div class="qen">What are the main methods for classification of crude oil? State the ranges of each.</div><div class="qar">شنو طرق تصنيف النفط؟ واذكر حدود كل وحدة.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><ol><li><b>Kw:</b> 12.15–12.9 بارافيني، 11.5–12.1 مختلط، 10.5–11.45 نفثيني.</li><li><b>API عند 1 atm:</b> >40 بارافيني، 33–40 مختلط، <33 نفثيني. <b>وعند 40 mmHg:</b> >30، 20–30، <20.</li><li><b>الكبريت:</b> <0.5% حلو، 0.5–2.5% متوسط، >2.5% حامض.</li><li><b>C.I.:</b> 0 بارافيني عادي، 0–15 غالبيته بارافين عادي، 15–50 خليط، >50 أروماتي، 100 بنزين.</li></ol></div><div class="qp en"><ol><li>Watson factor: 12.15–12.9 paraffinic, 11.5–12.1 mixed, 10.5–11.45 naphthenic.</li><li>API (1 atm): >40 paraffinic, 33–40 mixed, <33 naphthenic; (40 mmHg): >30, 20–30, <20.</li><li>Sulfur: <0.5% sweet, 0.5–2.5% intermediate, >2.5% sour.</li><li>C.I.: 0 normal paraffinic, 0–15 n-paraffinic, 15–50 paraffinic-aromatic mixture, >50 aromatic, 100 benzene.</li></ol></div></div><div class="qa" data-tag="list"><div class="qh"><div class="qn"><b>Q35</b></div><div class="qen">Why are low cloud point and low pour point products desirable?</div><div class="qar">ليش المنتجات بنقطة غيمة وانسكاب واطية مرغوبة؟</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>لأن تحت نقطة الغيمة يتسارع تكوّن الشمع، وتحت نقطة الانسكاب المنتج ما يجري، فما نكدر نخزنه أو ننقله بالأنابيب. فالنقطة الواطية تخلي المنتج يشتغل بالأجواء الباردة.</p></div><div class="qp en"><p>Below the cloud point wax formation accelerates, and below the pour point the product cannot flow, be stored or be transferred by pipeline; so low values are desirable under low-temperature conditions.</p></div></div><div class="qa" data-tag="calc"><div class="qh"><div class="qn"><b>Q36</b></div><div class="qen">Calculate the API gravity of a crude oil with Sp.Gr = 0.85 and classify it at atmospheric and vacuum pressure.</div><div class="qar">احسب API لنفط وزنه النوعي 0.85 وصنّفه عند الضغط الجوي والمخلخل.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>API = 141.5/0.85 − 131.5 = <b>34.97</b> ← عند 1 atm: <b>مختلط</b> (33–40)، وعند 40 mmHg: <b>بارافيني</b> (>30).</p></div><div class="qp en"><p>API = 141.5/0.85 − 131.5 = 34.97 → mixed at 1 atm (33–40); paraffinic at 40 mmHg (>30).</p></div></div><div class="qa" data-tag="calc"><div class="qh"><div class="qn"><b>Q37</b></div><div class="qen">A crude oil (SG = 0.82) gave ASTM distillation (°F): 250, 300, 345, 390, 440, 490, 545, 600, 660 for 10–90%. Find Kw and classify.</div><div class="qar">احسب Kw وصنّف النفط.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>T<sub>av</sub> = 4020/9 = 446.67 °F · Δt = (660 − 250)/80 = 5.125 · T<sub>b</sub> = 441.54 °F = 901.21 °R · Kw = ∛901.21 / 0.82 = 9.659/0.82 = <b>11.78</b> ← <b>مختلط</b>.</p></div><div class="qp en"><p>T<sub>av</sub> = 446.67 °F, Δt = 5.125, T<sub>b</sub> = 441.54 °F = 901.21 °R, Kw = 9.659/0.82 = 11.78 → mixed base.</p></div></div><div class="qa" data-tag="calc"><div class="qh"><div class="qn"><b>Q38</b></div><div class="qen">Calculate the correlation index for a crude with Tav.bo.po. = 500 K and Sp.Gr = 0.82.</div><div class="qar">احسب C.I. وصنّف.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>C.I. = 48640/500 + 473.3(0.82) − 456.8 = 97.28 + 388.11 − 456.8 = <b>28.59</b> ← <b>خليط بارافيني وأروماتي</b>.</p></div><div class="qp en"><p>C.I. = 97.28 + 388.11 − 456.8 = 28.59 → paraffinic and aromatic mixture.</p></div></div><div class="qa" data-tag="calc"><div class="qh"><div class="qn"><b>Q39</b></div><div class="qen">An oil has ν = 20.5 cSt at 100 °C and 300 cSt at 40 °C. Using L = 515.35 and H = 238.25 (interpolated), find VI.</div><div class="qar">احسب مؤشر اللزوجة.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>U = 300 ≥ H، فالقانون #1: VI = (515.35 − 300)/(515.35 − 238.25) × 100 = <b>77.7</b>.</p></div><div class="qp en"><p>U ≥ H → VI = (515.35 − 300)/(515.35 − 238.25) × 100 = 77.7.</p></div></div><div class="qa" data-tag="calc"><div class="qh"><div class="qn"><b>Q40</b></div><div class="qen">An oil has ν = 80 cSt at 100 °C and 1800 cSt at 40 °C. Calculate its VI.</div><div class="qar">احسب مؤشر اللزوجة.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>Y > 70: H = 0.1684(80)² + 11.85(80) − 96.95 = 1928.81 · U &lt; H فالقانون #2: N = (log 1928.81 − log 1800)/log 80 = 0.01577 · VI = (10<sup>0.01577</sup> − 1)/0.00715 + 100 = <b>105.2</b>.</p></div><div class="qp en"><p>H = 1928.81; U &lt; H → N = 0.01577; VI = (1.03699 − 1)/0.00715 + 100 = 105.2.</p></div></div><div class="qa" data-tag="calc"><div class="qh"><div class="qn"><b>Q41</b></div><div class="qen">A fraction has SG = 0.876 at 60 °F and γ = 0.0006. Find SG at 200 °F.</div><div class="qar">احسب SG عند 200 °F.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>SG = 0.876 − 0.0006(200 − 60) = <b>0.792</b>.</p></div><div class="qp en"><p>SG = 0.876 − 0.0006 × 140 = 0.792.</p></div></div><div class="qa" data-tag="calc"><div class="qh"><div class="qn"><b>Q42</b></div><div class="qen">The vapour pressure of a fuel at 37.8 °C is 0.05 bar. Estimate its flash point.</div><div class="qar">احسب نقطة الوميض.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>TF = 231.2 − 40 log(0.05) = 231.2 + 52.04 = <b>283.24 K = 10.09 °C</b>.</p></div><div class="qp en"><p>TF = 231.2 − 40 log 0.05 = 283.24 K (10.09 °C).</p></div></div><div class="qa" data-tag="calc"><div class="qh"><div class="qn"><b>Q43</b></div><div class="qen">A fraction has SG = 0.80 and aniline point 65 °C (API = 40). Calculate %A and the diesel index.</div><div class="qar">احسب نسبة الأروماتيات ومؤشر الديزل.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>%A = 692.4 + 12.15(0.8)(65) − 794(0.8) − 10.4(65) = 692.4 + 631.8 − 635.2 − 676 = <b>13.0%</b><br>DI = 40(1.8×65 + 32)/100 = 40 × 149/100 = <b>59.6</b></p></div><div class="qp en"><p>%A = 692.4 + 631.8 − 635.2 − 676 = 13.0%; DI = 40 × 149 / 100 = 59.6.</p></div></div><div class="qa" data-tag="calc"><div class="qh"><div class="qn"><b>Q44</b></div><div class="qen">An oil passes a U-tube viscometer (c = 0.04 mm²/s²) in 350 s; density 0.85 g/cm³. Find ν and μ.</div><div class="qar">احسب اللزوجة الكينماتيكية والديناميكية.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p>ν = 0.04 × 350 = <b>14 cSt</b> = 0.14 St · μ = νρ = 0.14 × 0.85 = <b>0.119 P = 11.9 cP</b>.</p></div><div class="qp en"><p>ν = c·t = 14 cSt = 0.14 St; μ = ν·ρ = 0.119 P = 11.9 cP.</p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q45</b></div><div class="qen">Fill in the blank: Petroleum is a mixture of ____ and non-hydrocarbon components.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>hydrocarbon</b></p></div><div class="qp en"><p><b>hydrocarbon</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q46</b></div><div class="qen">Fill in the blank: The most common gaseous hydrocarbon is ____.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>methane (CH₄)</b></p></div><div class="qp en"><p><b>methane (CH₄)</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q47</b></div><div class="qen">Fill in the blank: Normal paraffins have ____ octane number.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>low</b></p></div><div class="qp en"><p><b>low</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q48</b></div><div class="qen">Fill in the blank: Iso-paraffins have ____ boiling point and ____ octane number.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>low · high</b></p></div><div class="qp en"><p><b>low · high</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q49</b></div><div class="qen">Fill in the blank: Naphthenes have the general formula ____.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>CnH2n</b></p></div><div class="qp en"><p><b>CnH2n</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q50</b></div><div class="qen">Fill in the blank: Olefins are not present in crude oil but found in ____ products.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>cracked</b></p></div><div class="qp en"><p><b>cracked</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q51</b></div><div class="qen">Fill in the blank: Sulphur compounds increase as the ____ increases.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>density</b></p></div><div class="qp en"><p><b>density</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q52</b></div><div class="qen">Fill in the blank: Oxygen compounds increase with increasing ____ of the fraction.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>boiling point</b></p></div><div class="qp en"><p><b>boiling point</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q53</b></div><div class="qen">Fill in the blank: Nitrogen compounds are usually tolerated up to ____ wt%.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>0.25</b></p></div><div class="qp en"><p><b>0.25</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q54</b></div><div class="qen">Fill in the blank: Brine water contains dissolved salts of about ____ ppm.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>300 – 300,000</b></p></div><div class="qp en"><p><b>300 – 300,000</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q55</b></div><div class="qen">Fill in the blank: Watson factor uses temperature in ____ units.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>Rankine (°R)</b></p></div><div class="qp en"><p><b>Rankine (°R)</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q56</b></div><div class="qen">Fill in the blank: A crude with less than ____ % sulfur is called sweet.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>0.5</b></p></div><div class="qp en"><p><b>0.5</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q57</b></div><div class="qen">Fill in the blank: C.I. = 100 corresponds to ____.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>benzene</b></p></div><div class="qp en"><p><b>benzene</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q58</b></div><div class="qen">Fill in the blank: The standard temperature for SG in the petroleum industry is ____.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>60 °F (15.5 °C)</b></p></div><div class="qp en"><p><b>60 °F (15.5 °C)</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q59</b></div><div class="qen">Fill in the blank: Kinematic viscosity = dynamic viscosity / ____.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>density</b></p></div><div class="qp en"><p><b>density</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q60</b></div><div class="qen">Fill in the blank: VI = 100 indicates ____ oil.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>paraffinic (best)</b></p></div><div class="qp en"><p><b>paraffinic (best)</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q61</b></div><div class="qen">Fill in the blank: Flash point indicates the maximum ____ temperature without fire hazard.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>storage</b></p></div><div class="qp en"><p><b>storage</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q62</b></div><div class="qen">Fill in the blank: Autoignition temperature ____ with increasing pressure.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>decreases</b></p></div><div class="qp en"><p><b>decreases</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q63</b></div><div class="qen">Fill in the blank: A higher aniline point means ____ aromatic content.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>lower</b></p></div><div class="qp en"><p><b>lower</b></p></div></div><div class="qa" data-tag="blank"><div class="qh"><div class="qn"><b>Q64</b></div><div class="qen">Fill in the blank: Specific heat of petroleum fractions lies in the range ____.</div><div class="qar">املأ الفراغ.</div></div>
+<div class="qt"><button data-p="0">الجواب بالعربي</button><button data-p="1">English answer</button></div>
+<div class="qp"><p><b>0.3 – 0.85</b></p></div><div class="qp en"><p><b>0.3 – 0.85</b></p></div></div></div>
+    <button class="done-btn" data-done="bank">✓ مريت على بنك الأسئلة</button>
+  </div>
+</section>
+<!-- ===================== PRACTICE ===================== -->
+<section class="view" id="v-practice" data-view="practice">
+  <div class="hero">
+    <span class="kicker">تدريب</span>
+    <h1>مسائل بأرقام جديدة، وبطاقات، واختبار</h1>
+    <p>كل مرة تضغط «مسألة ثانية» تطلعلك مسألة بأرقام جديدة بالإنكليزي مثل الامتحان. حلّها بالورقة، واكشف الخطوات وحدة وحدة، وتحقق من جوابك.</p>
+  </div>
+  <div class="chips" data-chips>
+    <button class="chip" data-go="pr-gen">مسائل جديدة</button>
+    <button class="chip" data-go="pr-cards">بطاقات الحفظ</button>
+    <button class="chip" data-go="pr-quiz">الاختبار الشامل</button>
+  </div>
+  <div class="sec" id="pr-gen">
+    <h2><span class="num">1</span>مسألة بأرقام جديدة</h2>
+    <div class="chips" id="pg-type"></div>
+    <div class="card">
+      <div id="pg-q"></div>
+      <div class="form" style="grid-template-columns:1fr auto;margin-top:12px;align-items:end">
+        <label><span id="pg-ask"></span><input type="number" id="pg-ans" step="any" inputmode="decimal" placeholder="اكتب جوابك"></label>
+        <button class="btn small" id="pg-check">تحقق</button>
+      </div>
+      <div id="pg-fb"></div>
+      <div class="row" style="margin-top:12px"><button class="btn small ghost" id="pg-next">اكشف الخطوة الجاية</button><button class="btn small ghost" id="pg-all">اكشف الحل كله</button><button class="btn small" id="pg-new">مسألة ثانية</button></div>
+      <div id="pg-sol" style="margin-top:10px"></div>
+    </div>
+  </div>
+  <div class="sec" id="pr-cards">
+    <h2><span class="num">2</span>بطاقات الحفظ</h2>
+    <div class="chips" id="fc-set"><button class="chip on" data-s="mem">قوانين احفظها</button><button class="chip" data-s="sheet">قوانين الشيت (متى تستخدمها)</button><button class="chip" data-s="theory">نظري سريع</button></div>
+    <div class="card fc" id="fc"></div>
+  </div>
+  <div class="sec" id="pr-quiz">
+    <h2><span class="num">3</span>الاختبار الشامل (20 سؤال)</h2>
+    <div class="card quiz" data-quiz="all"></div>
+  </div>
+</section>
+
+<!-- ===================== CHEAT SHEET ===================== -->
+<section class="view" id="v-cheat" data-view="cheat">
+  <div class="hero">
+    <span class="kicker">آخر ساعة قبل الامتحان</span>
+    <h1>ورقة المراجعة الأخيرة</h1>
+    <p>اللي <b>مو بالشيت</b> لازم يكون براسك، واللي بالشيت لازم تعرف متى تستخدمه. اقرا هالصفحة مرتين.</p>
+  </div>
+  <div class="sec">
+    <h2><span class="src mem">احفظ</span> القوانين اللي مو بالشيت</h2>
+    <div class="cheat">
+      <div class="card"><h3>عامل واتسون</h3><div class="eq">$$K_w=\frac{\sqrt[3]{T_{av.bo.po.}(^\circ R)}}{Sp.Gr_{60/60}}$$</div><small class="muted">«معدّل، ميل، طرح، رانكن، جذر»</small></div>
+      <div class="card"><h3>بيانات التقطير</h3><div class="eq">$$\begin{aligned}T_{av.vol}&=\tfrac{T_1+\dots+T_9}{9}\\ \Delta t&=\tfrac{T_9-T_1}{80}\\ T_{av.bo.po.}&=T_{av.vol}-\Delta t\end{aligned}$$</div></div>
+      <div class="card"><h3>API</h3><div class="eq">$$API=\frac{141.5}{Sp.Gr}-131.5$$</div><small class="muted">141.5 و 131.5: الفرق 10</small></div>
+      <div class="card"><h3>تحويل الحرارة</h3><div class="eq">$$\begin{aligned}F&=1.8C+32\\K&=C+273.15\\R&=F+459.67\end{aligned}$$</div></div>
+      <div class="card"><h3>SG عند أي حرارة</h3><div class="eq">$$SG_T=SG_{60}-\gamma\,(T_F-60)$$</div><small class="muted">γ = 0.000517 – 0.000897</small></div>
+      <div class="card"><h3>اللزوجة</h3><div class="eq">$$\nu=\frac{\mu}{\rho}\qquad\nu=c\cdot t$$</div><small class="muted">1 St = 100 cSt · 1 cSt = 1 mm²/s</small></div>
+      <div class="card"><h3>الاستيفاء</h3><div class="eq">$$L=L_1+\frac{Y-Y_1}{Y_2-Y_1}(L_2-L_1)$$</div></div>
+      <div class="card"><h3>الوزن النوعي</h3><div class="eq">$$SG=\frac{\rho_{oil,\,60^\circ F}}{\rho_{water,\,60^\circ F}=0.999}$$</div></div>
+    </div>
+  </div>
+  <div class="sec">
+    <h2>وحدات كل قانون</h2>
+    <div class="card"><div class="kn">
+      <span>Kw ← <b>°R</b></span><span>C.I. ← <b>K</b></span><span>Tp ← ناتج <b>K</b></span><span>TF ← ناتج <b>K</b>، و P <b>bar</b></span>
+      <span>%A و DI ← AP <b>°C</b></span><span>Sp.heat ← T <b>°C</b></span><span>SG<sub>T</sub> ← T <b>°F</b></span><span>VI ← <b>cSt</b> عند 40 و 100 °C</span>
+    </div></div>
+  </div>
+  <div class="sec">
+    <h2>أرقام لازم تكون براسك</h2>
+    <div class="card"><div class="kn">
+      <span>C <b>83–88</b> · H <b>11–14</b> · S <b>0.05–8</b> · N <b>1–2</b> · O <b>0.05–1.5</b> · metals <b>&lt;0.03</b></span>
+      <span>طاقة: نفط <b>45%</b> · غاز <b>15%</b></span><span>ماء مالح <b>300–300,000 ppm</b></span><span>N مسموح لحد <b>0.25 wt%</b></span>
+      <span>Kw: <b>12.15–12.9</b> P · <b>11.5–12.1</b> M · <b>10.5–11.45</b> N</span><span>API 1 atm: <b>&gt;40 · 33–40 · &lt;33</b></span><span>API 40 mmHg: <b>&gt;30 · 20–30 · &lt;20</b></span>
+      <span>S: <b>&lt;0.5</b> حلو · <b>&gt;2.5</b> حامض</span><span>C.I.: <b>0 · 15 · 50 · 100</b></span><span>VI: <b>100</b> بارافيني · <b>0</b> نفثيني</span>
+      <span>اشتعال ذاتي: كازولين <b>351 °C</b> · كحول <b>500 °C</b></span><span>الأوكتان: <b>A &gt; N &gt; O &gt; Iso P &gt; P</b></span><span>Sp.heat <b>0.3–0.85</b></span>
+    </div></div>
+  </div>
+  <div class="sec">
+    <h2>جمل الحفظ</h2>
+    <div class="card"><ol style="margin:0;padding-inline-start:1.3em">
+      <li><b>الكبريت ياكل المحرك</b> (تآكل، أوكتان، أكسدة، ترسّب).</li>
+      <li><b>النتروجين يسمّ العامل</b> (سمّ، كاربون، API↓).</li>
+      <li><b>المعادن تسوي كوك وتاكل الكازولين</b> (عامل، كوك، كازولين، رماد، تآكل).</li>
+      <li><b>العادي «عالي عالي واطي»</b> (وزن، غليان، أوكتان)، و<b>المتفرع عكسه</b>.</li>
+      <li><b>واتسون رانكن، و C.I. كلفن</b>.</li>
+      <li><b>U ≥ H ← القانون #1، و U &lt; H ← القانون #2</b>.</li>
+      <li><b>ذاتي، حريق، وميض</b> (حار) · <b>غيمة، انسكاب</b> (بارد).</li>
+    </ol></div>
+  </div>
+</section>
+
+</main>
+</div>
+<nav class="tabbar" aria-label="تنقل سريع">
+  <a href="#home" data-tab="home"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>الرئيسية</a>
+  <a href="#ch1" data-tab="c1"><svg viewBox="0 0 24 24"><path d="M12 3c4 6 7 9.5 7 13a7 7 0 0 1-14 0c0-3.5 3-7 7-13z"/></svg>الفصل 1</a>
+  <a href="#mech" data-tab="c2"><svg viewBox="0 0 24 24"><path d="M10 3v6L4 19a1.5 1.5 0 0 0 1.3 2h13.4a1.5 1.5 0 0 0 1.3-2L14 9V3M8 3h8M7 15h10"/></svg>الفصل 2</a>
+  <a href="#sheet" data-tab="sh"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg>الشيت</a>
+  <a href="#bank" data-tab="pr"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg>أسئلة</a>
+</nav>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+<script defer src="js/data.js"></script>
+<script defer src="js/app.js"></script>
+<script defer src="js/calc.js"></script>
+<script defer src="js/bank.js"></script>
+</body>
+</html>

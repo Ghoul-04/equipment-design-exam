@@ -29,3 +29,11 @@
 - `css/style.css`: التصميم.
 - `js/`: الجداول والحاسبات والاختبارات والمجسمات.
 - المعادلات بـ MathJax والمجسمات بـ Three.js، وكلهم من CDN (يحتاج إنترنت).
+
+
+---
+
+# موقع ثاني: خواص النفط والغاز الطبيعي
+
+بالمجلد `petroleum/`. الرابط بعد تشغيل GitHub Pages:
+`https://ghoul-04.github.io/equipment-design-exam/petroleum/`

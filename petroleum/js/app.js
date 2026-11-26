@@ -1,0 +1,161 @@
+/* ===== core app ===== */
+(function(){
+const ED = window.ED = window.ED || {}; ED.QUIZ = ED.QUIZ || {};
+const $ = (s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+ED.$=$; ED.$$=$$;
+ED.fmt = (x,d=2)=> (x==null||!isFinite(x)) ? '—' : (+x.toFixed(d)).toString();
+ED.fix = (x,d=2)=> (x==null||!isFinite(x)) ? '—' : x.toFixed(d);
+ED.tex = (s,display=true)=>{ try{ return MathJax.tex2svg(s,{display}).outerHTML; }catch(e){ return '<code class="ltr">'+s+'</code>'; } };
+ED.store = {
+  get(k,d){ try{ const v=localStorage.getItem(k); return v==null?d:JSON.parse(v);}catch(e){return d;} },
+  set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+};
+function renderMath(el){
+  if (!(window.MathJax && MathJax.typesetPromise)) return Promise.resolve();
+  return MathJax.typesetPromise([el]).catch(err=>console.warn('math',err));
+}
+ED.renderMath = renderMath;
+
+/* ---------- views & router ---------- */
+const views = {}; $$('.view').forEach(v=>views[v.dataset.view]=v);
+// hide links to views that are not built yet
+$$('a[href^="#"]').forEach(a=>{ const n=a.getAttribute('href').slice(1); if(n && !views[n]) a.classList.add('hide'); });
+const inited = {};
+ED.onView = ED.onView || {};
+function route(){
+  let name = (location.hash||'#home').slice(1);
+  if (!views[name]) name='home';
+  Object.values(views).forEach(v=>v.classList.remove('on'));
+  const v = views[name]; v.classList.add('on');
+  if (!inited[name]){ inited[name]=true; renderMath(v); $$('[data-quiz]',v).forEach(q=>initQuiz(q)); if (ED.mountCalc) ED.mountCalc(v); if (ED.onView[name]) ED.onView[name](v); }
+  $$('nav.side a').forEach(a=>a.classList.toggle('active', a.dataset.nav===name));
+  const grp={home:'home',ch1:'c1',cls:'c1',mech:'c2',therm:'c2',sheet:'sh',bank:'pr',practice:'pr',cheat:'pr'}[name];
+  $$('.tabbar a').forEach(a=>a.classList.toggle('on',a.dataset.tab===grp));
+  if(name!=='home') ED.store.set('pp-last',name);
+  setupReveal(v); paintDash();
+  closeNav(); document.body.classList.remove('hdr-hide'); window.scrollTo(0,0);
+  document.title = (v.querySelector('h1')?.textContent.replace(/\s+/g,' ').trim()||'') + ' · خواص النفط';
+}
+window.addEventListener('hashchange',route);
+
+/* ---------- nav drawer ---------- */
+const side=$('#side'), scrim=$('#scrim');
+function closeNav(){ side.classList.remove('open'); scrim.classList.remove('show'); }
+$('#menuBtn').addEventListener('click',()=>{ side.classList.add('open'); scrim.classList.add('show'); });
+scrim.addEventListener('click',closeNav);
+
+/* ---------- theme ---------- */
+$('#themeBtn').addEventListener('click',()=>{
+  const t = document.documentElement.dataset.theme==='light'?'dark':'light';
+  document.documentElement.dataset.theme=t; try{localStorage.setItem('pp-theme',t);}catch(e){}
+  document.querySelector('meta[name=theme-color]').setAttribute('content', t==='dark'?'#000000':'#f5f5f7');
+});
+
+/* ---------- chips scroll ---------- */
+document.addEventListener('click',e=>{
+  const c=e.target.closest('[data-go]'); if(!c) return;
+  const t=document.getElementById(c.dataset.go); if(t){ const y=t.getBoundingClientRect().top+scrollY-74; scrollTo({top:y,behavior:'smooth'}); }
+  $$('.chip',c.parentElement).forEach(x=>x.classList.toggle('on',x===c));
+});
+
+/* ---------- layers tabs ---------- */
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.ltabs button'); if(!b) return;
+  const box=b.closest('.layers'); const btns=$$('.ltabs button',box); const i=btns.indexOf(b);
+  btns.forEach((x,j)=>x.classList.toggle('on',j===i));
+  $$('.lpanel',box).forEach((p,j)=>p.classList.toggle('on',j===i));
+});
+
+/* ---------- done / progress ---------- */
+let done = ED.store.get('pp-done',{});
+function paintDone(){
+  const ids = $$('[data-done]').map(b=>b.dataset.done);
+  $$('[data-done]').forEach(b=>{ const on=!!done[b.dataset.done]; b.classList.toggle('on',on); if(!b.dataset.label) b.dataset.label=b.textContent; b.textContent = on ? 'تم! (اضغط للإلغاء)' : b.dataset.label; });
+  $$('[data-ok]').forEach(s=>s.textContent = done[s.dataset.ok] ? '✓' : '');
+  $$('[data-road]').forEach(s=>{ const on=!!done[s.dataset.road]; s.textContent = on?'✓ خلصت':'ابدأ'; s.classList.toggle('ok',on); });
+  const n = ids.filter(i=>done[i]).length; $('#progBar').style.width = (ids.length? (100*n/ids.length):0)+'%';
+}
+document.addEventListener('click',e=>{ const b=e.target.closest('[data-done]'); if(!b) return; done[b.dataset.done]=!done[b.dataset.done]; ED.store.set('pp-done',done); paintDone(); paintDash(); });
+
+/* ---------- quiz ---------- */
+function initQuiz(box){
+  const set = ED.QUIZ[box.dataset.quiz]; if(!set) return;
+  let i=0, score=0, answered=false;
+  function draw(){
+    if (i>=set.length){
+      box.innerHTML = `<div class="q">النتيجة: ${score} / ${set.length} ${score===set.length?'ممتاز!':score>=set.length*0.7?'زين جداً':'راجع الفخاخ وعيد'}</div><div class="bar"><button class="btn small" data-act="again">↺ أعد الاختبار</button></div>`;
+      return;
+    }
+    const it=set[i]; answered=false;
+    box.innerHTML = `<div class="muted" style="font-size:13px">سؤال ${i+1} من ${set.length}</div><div class="q">${it.q}</div>
+      <div class="opts">${it.o.map((o,k)=>`<button class="opt" data-k="${k}">${o}</button>`).join('')}</div>
+      <div class="note aha fb"><span class="t"></span><span class="w"></span></div>
+      <div class="bar"><span class="muted" style="font-size:13px">النقاط: ${score}</span><button class="btn small hide" data-act="next">التالي ←</button></div>`;
+    renderMath(box);
+  }
+  box.addEventListener('click',e=>{
+    const o=e.target.closest('.opt'); const act=e.target.closest('[data-act]');
+    if (o && !answered){
+      answered=true; const k=+o.dataset.k, it=set[i]; const ok=k===it.a; if(ok) score++;
+      $$('.opt',box).forEach((b,j)=>{ if(j===it.a) b.classList.add('right'); else if(j===k) b.classList.add('wrong'); });
+      const fb=$('.fb',box); fb.style.display='block'; fb.classList.toggle('trap',!ok); fb.classList.toggle('aha',ok);
+      $('.t',fb).textContent = ok?'صح!':'مو هيج'; $('.w',fb).innerHTML=' '+it.why; renderMath(fb);
+      $('[data-act=next]',box).classList.remove('hide');
+    }
+    if (act){ if(act.dataset.act==='next'){ i++; draw(); } else { i=0; score=0; draw(); } }
+  });
+  draw();
+}
+
+/* ---------- bar chart helper ---------- */
+ED.bars = function(svg, items){
+  const W=420, H=Math.max(120, 36*items.length+30), max=Math.max(...items.map(x=>x.v))||1, x0=150, w=W-x0-60;
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  svg.innerHTML = items.map((it,k)=>{ const y=14+k*36, bw=Math.max(4,w*it.v/max);
+    return `<text x="${x0-10}" y="${y+18}" text-anchor="end" class="lab">${it.label}</text>
+      <rect x="${x0}" y="${y+4}" width="${bw}" height="22" rx="6" fill="${it.color||'var(--cyan)'}" opacity=".85"/>
+      <text x="${x0+bw+6}" y="${y+20}" class="lab" style="font-family:var(--mono);font-weight:700">${it.text||it.v}</text>`; }).join('');
+};
+
+/* ---------- pager (prev / next) ---------- */
+const ORDER=[['home','الرئيسية'],['ch1','تركيب النفط'],['cls','تصنيف النفط'],['mech','الكثافة واللزوجة'],['therm','الخواص الحرارية'],['sheet','دليل الشيت'],['bank','بنك الأسئلة'],['practice','تدريب المسائل'],['cheat','ورقة المراجعة']].filter(([k])=>views[k]);
+ORDER.forEach(([k],i)=>{ const v=views[k]; const pg=document.createElement('nav'); pg.className='pager';
+  const prev=ORDER[i-1], next=ORDER[i+1];
+  pg.innerHTML=(prev?`<a class="prev" href="#${prev[0]}"><small>→ السابق</small><b>${prev[1]}</b></a>`:'')+(next?`<a class="next" href="#${next[0]}"><small>التالي ←</small><b>${next[1]}</b></a>`:'');
+  v.appendChild(pg); });
+
+/* ---------- layer-tab icons ---------- */
+const LIC=['<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg>',
+  '<svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>',
+  '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>'];
+$$('.ltabs[data-icons]').forEach(t=>$$('button',t).forEach((b,i)=>{ if(LIC[i]) b.insertAdjacentHTML('afterbegin',LIC[i]); }));
+
+/* ---------- reveal on scroll ---------- */
+const io = ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) ? new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{rootMargin:'0px 0px -6% 0px',threshold:.04}) : null;
+function setupReveal(v){ if(!io || v.dataset.rv) return; v.dataset.rv=1;
+  $$('.card,.road a,.fact,.note.doc,.pager',v).forEach(el=>{ if(el.closest('.card')!==el && el.closest('.card')) return; el.classList.add('rv'); io.observe(el); }); }
+
+/* ---------- dashboard ---------- */
+const NAMES=Object.fromEntries(ORDER);
+function paintDash(){
+  const ids=$$('[data-done]').map(b=>b.dataset.done); const n=ids.filter(i=>done[i]).length; const pct=ids.length?Math.round(100*n/ids.length):0;
+  const fg=$('#ringFg'); if(!fg) return; fg.style.strokeDashoffset = 263.9*(1-pct/100); $('#ringTxt').textContent=pct+'%';
+  const last=ED.store.get('pp-last',null); const nextUndone=ids.find(i=>!done[i]);
+  if(pct===100){ $('#dashTitle').textContent='خلصت كلشي، عاشت إيدك'; $('#dashSub').textContent='راجع ورقة المراجعة الأخيرة وحل كم مسألة جديدة.'; $('#dashGo').href='#cheat'; $('#dashGo').textContent='ورقة المراجعة ←'; }
+  else if(last && views[last]){ $('#dashTitle').textContent=`خلصت ${n} من ${ids.length}`; $('#dashSub').textContent=`آخر مكان كنت بيه: ${NAMES[last]||''}`; $('#dashGo').href='#'+last; $('#dashGo').textContent='كمّل من وين وكفت ←'; }
+  else if(nextUndone){ $('#dashGo').href='#'+nextUndone; }
+}
+
+/* ---------- hide top bar while scrolling down (phones/tablets) ---------- */
+let lastY=scrollY;
+addEventListener('scroll',()=>{ const y=scrollY, d=y-lastY; if(Math.abs(d)<6) return;
+  document.body.classList.toggle('hdr-hide', d>0 && y>140 && innerWidth<1100); lastY=y; },{passive:true});
+
+/* ---------- boot (after all deferred scripts) ---------- */
+document.addEventListener('DOMContentLoaded',()=>{
+  paintDone();
+  let booted=false; const boot=()=>{ if(booted) return; booted=true; route(); };
+  if (window.MathJax && MathJax.startup && MathJax.startup.promise) MathJax.startup.promise.then(boot,boot);
+  setTimeout(boot,4000); // never block the page if the math library is slow
+});
+})();
